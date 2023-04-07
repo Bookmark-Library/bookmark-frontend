@@ -1,7 +1,7 @@
 export default [
   {
     id: 1,
-    name: 'Durificateur88',
+    username: 'Durificateur88',
     email: 'dudu88@gmail.com',
     photo: 'https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png',
     password: 'Dudu88',
@@ -9,7 +9,7 @@ export default [
   },
   {
     id: 2,
-    name: 'Miguel tchutchuka',
+    username: 'Miguel tchutchuka',
     email: 'migtca@gmail.com',
     photo: 'https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png',
     password: 'azertyuiop',
@@ -17,7 +17,7 @@ export default [
   },
   {
     id: 3,
-    name: 'Alban',
+    username: 'Alban',
     email: 'alban-95@gmail.com',
     photo: 'https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png',
     password: 'alban95',
@@ -25,7 +25,7 @@ export default [
   },
   {
     id: 4,
-    name: 'kenny glb',
+    username: 'kenny glb',
     email: 'kennyglb@gmail.com',
     photo: 'https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png',
     password: 'kmcw94',
@@ -33,7 +33,7 @@ export default [
   },
   {
     id: 5,
-    name: 'Sandy',
+    username: 'Sandy',
     email: 'sandy@gmail.com',
     photo: 'https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png',
     password: 'sandy',
@@ -41,7 +41,7 @@ export default [
   },
   {
     id: 6,
-    name: 'Laurant F',
+    username: 'Laurant F',
     email: 'laurent-f@gmail.com',
     photo: 'https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png',
     password: 'lolo-f',
@@ -49,7 +49,7 @@ export default [
   },
   {
     id: 7,
-    name: 'Fanette',
+    username: 'Fanette',
     email: 'fanette@gmail.com',
     photo: 'https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png',
     password: 'fanette',

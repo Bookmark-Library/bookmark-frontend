@@ -1,11 +1,12 @@
-import reactLogo from './react-logo.svg';
+import bookMarkLogo from '../../assets/images/logo-BookMark.jpg';
+
 import './styles.css';
 
 function App() {
   return (
     <div className="app">
-      <img src={reactLogo} alt="react logo" />
-      <h1>Composant : App</h1>
+      <img src={bookMarkLogo} alt="react logo" />
+      <h1>Bienvenue sur BookMark</h1>
     </div>
   );
 }

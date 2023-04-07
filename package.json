@@ -1,5 +1,5 @@
 {
-  "name": "react-modele",
+  "name": "bookMark",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
@@ -55,7 +55,9 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.10.0"
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.10.0",
+    "redux": "^4.2.1"
   },
   "jest": {
     "modulePaths": [
@@ -65,5 +67,11 @@
       "<rootDir>/src",
       "<rootDir>/tests"
     ]
-  }
+  },
+  "version": "1.0.0",
+  "description": "Application de gestion de biblioteque",
+  "main": "index.js",
+  "repository": "git@github.com:O-clock-Newton/projet-02-marque-page-front.git",
+  "author": "GelabaleKenny <kenny.gelabale@yahoo.com>",
+  "license": "MIT"
 }
