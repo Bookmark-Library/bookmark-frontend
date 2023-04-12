@@ -14,7 +14,6 @@ export default [
     price: '9.90',
     bookmark: [
       {
-        to_read: true,
         read: false,
         buy: false,
         wishList: true,
@@ -39,7 +38,6 @@ export default [
     price: '12.90',
     bookmark: [
       {
-        to_read: false,
         read: true,
         buy: false,
         wishList: false,
@@ -64,14 +62,13 @@ export default [
     price: '14.95',
     bookmark: [
       {
-        to_read: false,
         read: true,
         buy: true,
         wishList: false,
         heart: true,
       },
     ],
-    rate: '',
+    rate: '5',
 
   },
 ];

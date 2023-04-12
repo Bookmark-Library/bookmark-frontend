@@ -1,0 +1,24 @@
+header{
+ 
+  padding: 5px;
+}
+  .logo {
+  width: 8rem;
+}
+
+#searchbar {
+  margin-left: 15%;
+   padding: 4px;
+   border-radius: 10px;
+ }
+
+ input[type=text] {
+    width: 30%;
+    -webkit-transition: width 0.15s ease-in-out;
+    transition: width 0.15s ease-in-out;
+ }
+ .btn{
+  
+  background-color: #0fb19e;
+  color: #fff;
+ }
