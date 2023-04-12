@@ -10,7 +10,7 @@ import './styles.scss';
 
 const HomeBook = () => (
 
-  <CardGroup>
+  <CardGroup className="homebook">
     <Card>
       <Card.Img variant="top" src={book1} />
       <Card.Body>
