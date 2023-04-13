@@ -1,14 +1,16 @@
-#title
+.actu .card-text{
+  text-align:justify;
+}
 
+.actu .card-title{
+  font-weight: 600;
+}
 
- .card-header #title-actu{
-  color : #14aa9a !important;
- }
+.titleActu{
+  font-weight: 600;
+  border-bottom: 0.3em solid #ffb329;
+  margin: 0 2em 1em 2em;
+  padding:1em;
+  color:#14aa9a;
 
- .card-header {
-  background-color: none !important;
- }
- .card-sing {
-  margin-top: 2rem;
-  padding-bottom: 3rem;
- }
+}

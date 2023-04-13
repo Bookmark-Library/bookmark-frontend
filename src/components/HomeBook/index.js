@@ -10,32 +10,40 @@ import './styles.scss';
 
 const HomeBook = () => (
 
-  <CardGroup className="homebook">
-    <Card>
-      <Card.Img variant="top" src={book1} />
-      <Card.Body>
-        <Card.Title>Card title</Card.Title>
-      </Card.Body>
-    </Card>
-    <Card>
-      <Card.Img variant="top" src={book2} />
-      <Card.Body>
-        <Card.Title>Card title</Card.Title>
-      </Card.Body>
-    </Card>
-    <Card>
-      <Card.Img variant="top" src={book4} />
-      <Card.Body>
-        <Card.Title>Card title</Card.Title>
-      </Card.Body>
-    </Card>
-    <Card>
-      <Card.Img variant="top" src={book3} />
-      <Card.Body>
-        <Card.Title>Card title</Card.Title>
-      </Card.Body>
-    </Card>
-  </CardGroup>
+  <div className="row cardbook mt-3">
+    <div className="col-sm-3 text-center">
+      <div className="card">
+        <img src={book1} className="card-img-top" alt="..." />
+        <div className="card-body">
+          <a href="#" className="btn-book">Ados</a>
+        </div>
+      </div>
+    </div>
+    <div className="col-sm-3 text-center">
+      <div className="card">
+        <img src={book2} className="card-img-top" alt="..." />
+        <div className="card-body">
+          <a href="#" className="btn-book">Thriller</a>
+        </div>
+      </div>
+    </div>
+    <div className="col-sm-3 text-center">
+      <div className="card">
+        <img src={book3} className="card-img-top" alt="..." />
+        <div className="card-body">
+          <a href="#" className="btn-book">Jeunesse</a>
+        </div>
+      </div>
+    </div>
+    <div className="col-sm-3 text-center">
+      <div className="card">
+        <img src={book4} className="card-img-top" alt="..." />
+        <div className="card-body">
+          <a href="#" className="btn-book">Manga</a>
+        </div>
+      </div>
+    </div>
+  </div>
 );
 
 export default HomeBook;

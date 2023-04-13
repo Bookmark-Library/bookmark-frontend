@@ -1,43 +1,34 @@
-import {
-  Container, Nav, Navbar,
-} from 'react-bootstrap';
-import Form from 'react-bootstrap/Form';
 import bookMarkLogo from '../../assets/images/logo-BookMark.jpg';
 
 import './styles.scss';
 
 const Header = () => (
-  <div>
-    <Container>
-      <header className="header d-flex flex-wrap align-items-center justify-content-center justify-content-md-between">
-        <img className="logo" src={bookMarkLogo} alt="" />
-        <Form className="col-12 col-md-4 mb-2 justify-content-center mb-md-0">
-          <Form.Control
-            type="search"
-            placeholder="Search"
-            className="me-2"
-            aria-label="Search"
-          />
-        </Form>
+  <header>
+    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <div className="container">
+        <a className="navbar-brand" href="#"><img src={bookMarkLogo} width="auto" height="110px" alt="" /></a>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon" />
+        </button>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="#">Accueil</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">Bibliothèque</a>
+            </li>
+          </ul>
+          <form className="d-flex" role="search">
+            <input className="form-control me-4" type="search" placeholder="Rechercher" aria-label="Search" />
+          </form>
+          <a href="#" className="btn-connexion me-2">se connecter</a>
+          <a href="#" className="btn-inscription">s'inscrire</a>
 
-        <div className="col-md-3 text-end">
-          <button type="button" className="btn me-2 button">Se connecter</button>
-          <button type="button" className="btn btn-secondary">S'inscrire</button>
         </div>
-      </header>
-    </Container>
-    <Navbar bg="light" expand="lg">
-      <Container>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Accueil</Nav.Link>
-            <Nav.Link href="#link">Bibliothèque</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  </div>
+      </div>
+    </nav>
+  </header>
 );
 
 export default Header;

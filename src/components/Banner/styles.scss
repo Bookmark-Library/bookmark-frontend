@@ -1,16 +1,14 @@
-#banner-img {
-  background-image: url("../../assets/images/books-banner.jpg") ;
+.banner{
+  background-image:url("../../assets/images/books-banner.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 20rem;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-  
- }
-.banner-content {
-  text-align: center;
-  margin: 4rem;
-  color: #fff;
-  font-weight: 700;
-  text-shadow: 20%;
+  height:20em !important;
+}
+.card-content{
+  color:#fff;
+  padding:2em;
+}
+
+.card-texte{
+  padding-top:5em;
 }

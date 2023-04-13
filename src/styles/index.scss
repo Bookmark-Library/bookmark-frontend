@@ -1,5 +1,6 @@
 @use 'reset';
 @use 'vars';
+@import url(https://fonts.bunny.net/css?family=montserrat:200,300,600);
 
 
 /* common */
@@ -19,7 +20,7 @@
 
 
 body {
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif !important;
   transition: background-color .3s;
 }
 
