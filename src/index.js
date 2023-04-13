@@ -3,6 +3,8 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
 import App from 'src/components/App';
+import 'bootstrap/dist/css/bootstrap.css';
+
 import store from 'src/store';
 
 const root = createRoot(document.getElementById('root'));

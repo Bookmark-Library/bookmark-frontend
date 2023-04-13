@@ -1,18 +1,78 @@
 @use 'reset';
 @use 'vars';
+@import url(https://fonts.bunny.net/css?family=montserrat:200,300,600);
 
-body {
-  font-family: sans-serif;
+
+/* common */
+
+@keyframes pop {
+  0% {
+    transform: scale(.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
-/* 
-  // or you can import your own font
-  @font-face {
-    font-family: 'Roboto';
-    src: url('../assets/fonts/Roboto-Regular.ttf');
-  }
 
-  body {
-    font-family: 'Roboto', sans-serif;
-  }
-*/
+
+
+body {
+  font-family: 'Montserrat', sans-serif !important;
+  transition: background-color .3s;
+}
+
+
+
+/* top */
+.header__part {
+  border-bottom: var(--border-normal);
+}
+
+.header__flex {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  font-size: 1.5em;
+}
+
+.logo__image {
+  margin-right: 0.5rem;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+.menu__item {
+  margin-right: 1rem;;
+}
+
+.submenu {
+  text-align: center;
+  color: #666;
+  font-size: 0.9em;
+}
+
+.submenu__item {
+  padding: 1rem 0.5rem;
+  display: inline-block;
+}
+
+.submenu__item--current {
+  border-bottom: 2px solid #666;
+}
+
+
+
+

@@ -1,0 +1,30 @@
+.container-flex {
+  display: flex;
+  
+}
+
+header {
+  box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.2);
+}
+
+.banner{
+  background-image:url("../../assets/images/books-banner.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:20em !important;
+}
+
+.btn-connexion, .btn-inscription {
+  border-radius:0.5em;
+  color: #fff;
+  padding: 0.5em 1.2em;
+}
+
+.btn-connexion {
+  background-color: #14aa9a;
+  color: #fff;
+}
+
+.btn-inscription {
+  background-color: #ffb329;
+}
