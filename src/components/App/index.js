@@ -1,5 +1,6 @@
 import Footer from '../Footer';
 import Header from '../Header';
+import Book from '../Pages/Book';
 import Home from '../Pages/Home';
 import Library from '../Pages/Library';
 
@@ -9,8 +10,8 @@ function App() {
   return (
     <div className="app">
       <Header />
-      {/* <Home /> */}
-      <Library />
+      {/* <Home /> *
+      <Book />
       <Footer />
     </div>
   );
