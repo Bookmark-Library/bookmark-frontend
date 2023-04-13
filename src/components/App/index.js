@@ -1,17 +1,12 @@
-import Footer from '../Footer';
-import Header from '../Header';
-import Book from '../Pages/Book';
-import Home from '../Pages/Home';
+import bookMarkLogo from '../../assets/images/logo-BookMark.jpg';
 
-import './styles.scss';
+import './styles.css';
 
 function App() {
   return (
     <div className="app">
-      <Header />
-      {/* <Home /> */}
-      <Book />
-      <Footer />
+      <img src={bookMarkLogo} alt="react logo" />
+      <h1>Bienvenue sur BookMark</h1>
     </div>
   );
 }
