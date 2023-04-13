@@ -1,0 +1,35 @@
+.searchBiblio{
+  border-right:0.1em solid #a1a1a1;
+}
+
+
+.biblio .img-thumbnail{
+  margin-left: 1em;
+  margin-bottom: 1em;
+}
+
+.navLibrary{
+  padding-left:0;
+}
+
+.navLibrary a{
+  color:#585857;
+  font-weight:300;
+  
+}
+
+.navLibrary a:hover{
+  color: #fab334;
+}
+
+.biblio .col-right h2{
+  color: #00aa9a;
+  font-weight:600;
+  font-size:1.5em;
+  padding-bottom:1em;
+  margin-left:1em;
+}
+
+.bookLien{
+  position: relative;
+}

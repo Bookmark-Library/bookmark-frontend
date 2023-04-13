@@ -1,6 +1,7 @@
 import Footer from '../Footer';
 import Header from '../Header';
 import Home from '../Pages/Home';
+import Library from '../Pages/Library';
 
 import './styles.scss';
 
@@ -8,7 +9,8 @@ function App() {
   return (
     <div className="app">
       <Header />
-      <Home />
+      {/* <Home /> */}
+      <Library />
       <Footer />
     </div>
   );
