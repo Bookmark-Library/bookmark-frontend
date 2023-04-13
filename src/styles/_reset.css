@@ -142,7 +142,7 @@ html {
 a,
 del,
 ins {
-  text-decoration: none !important;
+  text-decoration: none;
 }
 a {
   color: inherit;
