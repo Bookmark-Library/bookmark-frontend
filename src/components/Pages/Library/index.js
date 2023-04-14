@@ -3,6 +3,7 @@ import book1 from '../../../assets/images/book1.jpg';
 import book2 from '../../../assets/images/book2.jpg';
 import book3 from '../../../assets/images/book3.jpg';
 import book4 from '../../../assets/images/book4.jpg';
+import bookHeart from '../../../assets/images/bookmark.svg';
 
 import './styles.scss';
 
@@ -33,7 +34,10 @@ const Library = () => (
       </div>
       <div className="col-12 col-md-8 col-right">
         <h2>Bibliothèque</h2>
-        <a className="bookLien" href="#"><img src={book1} className="img-thumbnail img-fluid" alt="..." /></a>
+        <div className="bookLien">
+          <a href="#"><img src={book1} className="img-thumbnail img-fluid" alt="..." /></a>
+          <img className="bookHeart" src={bookHeart} />
+        </div>
         <a className="bookLien" href="#"><img src={book1} className="img-thumbnail img-fluid" alt="..." /></a>
         <a className="bookLien" href="#"><img src={book2} className="img-thumbnail img-fluid" alt="..." /></a>
         <a className="bookLien" href="#"><img src={book2} className="img-thumbnail img-fluid" alt="..." /></a>

@@ -2,12 +2,12 @@ import './styles.scss';
 
 const LegalNotice = () => (
   <section className="container">
-    <div className="row">
-      <div className=" col-md-8">
-        <h2 className="ln-title">Mention légal</h2>
+    <div className="row text-center">
+      <div className=" col-md-12">
+        <h2 className="ln-title">Mentions légales</h2>
 
       </div>
-      <div className="ln-content col-md-10">
+      <div className="ln-content col-md-12">
         <div className="ln-description">
           <h3>Identification</h3>
 
@@ -29,7 +29,7 @@ const LegalNotice = () => (
             ce soit est strictement interdite
             sans l'accord préalable des responsables du site.
 
-</p>
+          </p>
         </div>
       </div>
     </div>
