@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import book1 from '../../../assets/images/book1.jpg';
 import book2 from '../../../assets/images/book2.jpg';
 import book3 from '../../../assets/images/book3.jpg';
@@ -9,7 +10,13 @@ const Library = () => (
   <div className="container biblio mt-5">
     <div className="row">
       <div className="col-12 col-md-4 searchBiblio">
-        <a className="btn btn-warning btn-md" href="#" role="button">ajouter un livre</a>
+        <Link
+          className="btn btn-warning btn-md"
+          to="/ajout-livre"
+          role="button"
+        >
+          ajouter un livre
+        </Link>
         <ul className="navLibrary mt-3">
           <li><a href="#">Tous mes livres</a></li>
           <li><a href="#">Livres lus</a></li>
