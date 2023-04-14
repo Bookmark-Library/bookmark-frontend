@@ -4,6 +4,7 @@ import Book from '../Pages/Book';
 import Home from '../Pages/Home';
 import LegalNotice from '../Pages/LegalNotice';
 import Library from '../Pages/Library';
+import FormBook from '../Pages/FormBook';
 
 import './styles.scss';
 
@@ -12,7 +13,8 @@ function App() {
     <div className="app">
       <Header />
       {/* <Home /> */}
-      <LegalNotice />
+      {/* <LegalNotice /> */}
+      <FormBook />
       <Footer />
     </div>
   );
