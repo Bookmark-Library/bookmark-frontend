@@ -10,6 +10,9 @@ import FormBook from '../Pages/FormBook';
 
 import './styles.scss';
 import ModalConnexion from '../Header/ModalConnexion';
+import User from '../Pages/User';
+import Inscription from '../Pages/Inscription';
+import Contact from '../Pages/Contact';
 
 function App() {
   const showModal = useSelector((state) => state.user.showModal);
@@ -22,7 +25,10 @@ function App() {
         <Route path="/mentions-legales" element={<LegalNotice />} />
         <Route path="/ajout-livre" element={<FormBook />} />
         <Route path="/bibliotheque" element={<Library />} />
-        <Route path="/livre/:id" element={<Book />} />
+        <Route path="/bibliotheque/livre/:id" element={<Book />} />
+        <Route path="/user/:id" element={<User />} />
+        <Route path="/inscription" element={<Inscription />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       {showModal
       && <ModalConnexion />}

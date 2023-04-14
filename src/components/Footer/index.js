@@ -60,7 +60,12 @@ const Footer = () => (
                 différentes et en 1 clic est un must have aujourd’hui !
               </p>
               <div className="d-flex flex-column flex-sm-row w-100 gap-2">
-                <a className="btn btn-warning" href="#" role="button">Inscrivez-vous</a>
+                <Link
+                  to="/inscription"
+                  className="btn btn-warning"
+                  role="button"
+                >Inscrivez-vous
+                </Link>
               </div>
             </form>
           </div>

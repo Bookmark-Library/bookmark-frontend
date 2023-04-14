@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { useDispatch, useSelector } from 'react-redux';
 import Field from 'src/components/Field';
 
@@ -33,6 +34,7 @@ function ModalConnexion() {
           }}
         >
           <Field
+            required
             identifier="email"
             placeholder="E-mail"
             label="Email"
@@ -42,6 +44,7 @@ function ModalConnexion() {
             }}
           />
           <Field
+            required
             identifier="password"
             placeholder="Mot de passe"
             label="Mot de passe"
@@ -51,6 +54,9 @@ function ModalConnexion() {
             }}
             type="password"
           />
+          <div className="col-12">
+            <button type="submit" className="btn btn-warning">Connexion</button>
+          </div>
         </form>
       </Modal.Body>
     </Modal>
