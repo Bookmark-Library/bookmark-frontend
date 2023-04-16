@@ -1,5 +1,4 @@
 import book1 from '../../../assets/images/book1.jpg';
-import actu from '../../../assets/images/gallica.jpg';
 import BookTab from './BookTab';
 
 import './styles.scss';

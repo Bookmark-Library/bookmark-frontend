@@ -19,15 +19,9 @@ const reducer = (state = initialState, action = {}) => {
         showModal: false,
       };
     case CHANGE_SETTINGS_FIELD:
-      if (action.identifier === 'email') {
-        return {
-          ...state,
-          email: action.newValue,
-        };
-      }
       return {
         ...state,
-        password: action.newValue,
+        [action.identifier]: action.newValue,
       };
     default:
       return state;
