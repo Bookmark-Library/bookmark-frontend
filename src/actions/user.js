@@ -22,9 +22,8 @@ export const changeSettingsField = (identifier, newValue) => ({
 export const submitLogin = () => ({
   type: SUBMIT_LOGIN,
 });
-export const saveAuthData = (nickname, token) => ({
+export const saveAuthData = (token, alias) => ({
   type: SAVE_AUTH_DATA,
-  nickname: nickname,
   token: token,
 });
 

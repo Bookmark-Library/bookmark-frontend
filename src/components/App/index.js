@@ -24,10 +24,10 @@ function App() {
 
   const dispatch = useDispatch();
   // un effet qui s'applique une seule fois, après le premier rendu
-  useEffect(() => {
+ /* useEffect(() => {
     // console.log('récupération des recettes');
     dispatch(getBooksFromApi());
-  }, []);
+  }, []);*/
 
   return (
     <div className="app">

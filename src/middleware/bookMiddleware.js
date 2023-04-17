@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-  addBooksInApp, FETCH_FAVORITE_BOOKS, GET_BOOKS_FROM_API, saveFavoriteBooks
+  addBooksInApp, FETCH_FAVORITE_BOOKS, GET_BOOKS_FROM_API, saveFavoriteBooks,
 } from '../actions/book';
 
 const bookMiddleware = (store) => (next) => (action) => {
@@ -8,7 +8,10 @@ const bookMiddleware = (store) => (next) => (action) => {
 
   switch (action.type) {
     case GET_BOOKS_FROM_API:
-      axios.get('http://sandy-bouzid.vpnuser.lan:8000/api/books')
+      axios.get(
+        // URL
+        'http://sandy-bouzid.vpnuser.lan:8000/api/books',
+      )
         .then((response) => {
           console.log(response);
           store.dispatch(addBooksInApp(response.data));
@@ -19,10 +22,10 @@ const bookMiddleware = (store) => (next) => (action) => {
         });
 
       break;
-    /* case FETCH_FAVORITE_BOOKS:
+    case FETCH_FAVORITE_BOOKS:
       axios.get(
         // URL
-        'http://localhost:3001/favorites',
+        'http://sandy-bouzid.vpnuser.lan:8000/api/users/15',
         // options (notamment les headers)
         {
           headers: {
@@ -38,7 +41,7 @@ const bookMiddleware = (store) => (next) => (action) => {
           // eslint-disable-next-line no-console
           console.log(error);
         });
-      break; */
+      break;
     default:
   }
   next(action);

@@ -1,9 +1,13 @@
-import { OPEN_MODAL, CHANGE_SETTINGS_FIELD, CLOSE_MODAL } from '../actions/user';
+import {
+  OPEN_MODAL, CHANGE_SETTINGS_FIELD, CLOSE_MODAL, SAVE_AUTH_DATA,
+} from '../actions/user';
 
 export const initialState = {
   showModal: false,
   email: '',
   password: '',
+  token: '',
+
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -23,6 +27,16 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         [action.identifier]: action.newValue,
       };
+    case SAVE_AUTH_DATA:
+      return {
+        ...state,
+        token: action.token,
+        // sécurité : on efface les identifiants du state
+        email: '',
+        password: '',
+        showModal: false,
+      };
+
     default:
       return state;
   }
