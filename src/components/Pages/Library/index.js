@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import bookHeart from '../../../assets/images/bookmark.svg';
 
 import './styles.scss';
 
 function Library() {
-  const library = useSelector((state) => state.book.library);
+  const libraries = useSelector((state) => state.book.libraries);
   return (
     <div className="container biblio mt-5">
       <div className="row">
@@ -35,11 +35,11 @@ function Library() {
         <div className="col-12 col-md-8 col-right">
           <h2>Bibliothèque</h2>
           <div className="divBook d-flex">
-            {library.map((book) => (
+            {libraries.map((library) => (
               <div className="bookLien">
-                <Link to={`/bibliotheque/livre/${book.book.id}`}><img key={book.book.id} src={book.book.image} className="img-thumbnail img-fluid" alt="..." /></Link>
+                <Link to={`/bibliotheque/livre/${library.book.id}`}><img key={library.book.id} src={library.book.image} className="img-thumbnail img-fluid" alt="..." /></Link>
                 <img className="bookHeart" src={bookHeart} alt="" />
-                <div>{book.book.title}</div>
+                <div>{library.book.title}</div>
               </div>
             ))}
 

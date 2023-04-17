@@ -43,7 +43,7 @@ const usersMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          // console.log(response);
+          console.log(response.data.libraries);
           store.dispatch(SaveUserInfo(
             response.data.alias,
             response.data.avatar,

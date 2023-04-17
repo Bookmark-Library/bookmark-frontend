@@ -7,9 +7,11 @@ import './styles.scss';
 
 function Book() {
   const { id } = useParams();
-  const library = useSelector((state) => state.book.library);
-  const bookToDisplay = library.find((book) => book.id === id);
-  console.log(bookToDisplay);
+  const libraries = useSelector((state) => state.book.libraries);
+  const books = libraries.map((library) => library.book.id === id);
+console.log(books);
+  const bookToDisplay = books.find((book) => book.id === id);
+  // console.log(bookToDisplay);
   return (
     <main className="container">
       <div className="book-content row">

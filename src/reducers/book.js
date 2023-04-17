@@ -1,4 +1,4 @@
-// import data from 'src/data';
+import dataBook from '../../utils/bookData';
 
 import {
   CHANGE_RATE_FIELD, CHANGE_TAB_KEY, CLOSE_MODAL_RATE, OPEN_MODAL_RATE,
@@ -7,7 +7,8 @@ import {
 
 export const initialState = {
   bookList: [],
-  library: [],
+  libraries: [],
+  // dataBook,
   tabKey: 'one',
   ModalRate: false,
   commentaire: '',
@@ -47,7 +48,7 @@ const reducer = (state = initialState, action = {}) => {
     case SAVE_USER_BOOKS:
       return {
         ...state,
-        library: action.userLibrary,
+        libraries: action.userLibrary,
       };
     default:
       return state;
