@@ -7,6 +7,8 @@ export const SUBMIT_LOGIN = 'SUBMIT_LOGIN';
 // Save authentication info in state
 export const SAVE_AUTH_DATA = 'SAVE_AUTH_DATA';
 export const SUBMIT_LOGOUT = 'SUBMIT_LOGOUT';
+export const FETCH_USER_INFO = 'FETCH_USER_INFO';
+export const SAVE_USER_INFO = 'SAVE_USER_INFO';
 
 export const openModal = () => ({
   type: OPEN_MODAL,
@@ -22,11 +24,19 @@ export const changeSettingsField = (identifier, newValue) => ({
 export const submitLogin = () => ({
   type: SUBMIT_LOGIN,
 });
-export const saveAuthData = (token, alias) => ({
+export const saveAuthData = (token) => ({
   type: SAVE_AUTH_DATA,
   token: token,
 });
 
 export const submitLogout = () => ({
   type: SUBMIT_LOGOUT,
+});
+export const fetchUserInfo = () => ({
+  type: FETCH_USER_INFO,
+});
+export const SaveUserInfo = (alias, avatar) => ({
+  type: SAVE_USER_INFO,
+  alias: alias,
+  avatar: avatar,
 });

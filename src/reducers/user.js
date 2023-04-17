@@ -1,5 +1,5 @@
 import {
-  OPEN_MODAL, CHANGE_SETTINGS_FIELD, CLOSE_MODAL, SAVE_AUTH_DATA,
+  OPEN_MODAL, CHANGE_SETTINGS_FIELD, CLOSE_MODAL, SAVE_AUTH_DATA, SAVE_USER_INFO,
 } from '../actions/user';
 
 export const initialState = {
@@ -7,6 +7,8 @@ export const initialState = {
   email: '',
   password: '',
   token: '',
+  avatar: '',
+  alias: '',
 
 };
 
@@ -35,6 +37,12 @@ const reducer = (state = initialState, action = {}) => {
         email: '',
         password: '',
         showModal: false,
+      };
+    case SAVE_USER_INFO:
+      return {
+        ...state,
+        alias: action.alias,
+        avatar: action.avatar,
       };
 
     default:

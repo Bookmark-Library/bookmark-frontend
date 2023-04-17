@@ -7,7 +7,7 @@ export const CHANGE_RATE_FIELD = 'CHANGE_RATE_FIELD';
 export const ADD_BOOKS_IN_APP = 'ADD_BOOKS_IN_APP';
 export const GET_BOOKS_FROM_API = 'GET_BOOKS_FROM_API';
 export const FETCH_FAVORITE_BOOKS = 'FETCH_FAVORITE_BOOKS';
-export const SAVE_FAVORITE_BOOKS = 'SAVE_FAVORITE_BOOKS';
+export const SAVE_USER_BOOKS = 'SAVE_USER_BOOKS';
 
 export const openModalRate = () => ({
   type: OPEN_MODAL_RATE,
@@ -37,7 +37,7 @@ export const fetchFavoriteBooks = () => ({
   type: FETCH_FAVORITE_BOOKS,
 });
 
-export const saveFavoriteBooks = (favoriteBooks) => ({
-  type: SAVE_FAVORITE_BOOKS,
-  favoriteBooks: favoriteBooks,
+export const saveUserBooks = (userLibrary) => ({
+  type: SAVE_USER_BOOKS,
+  userLibrary: userLibrary,
 });

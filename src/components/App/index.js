@@ -17,17 +17,16 @@ import Contact from '../Pages/Contact';
 import ModalRate from '../Pages/Book/ModalRate';
 import { getBooksFromApi } from '../../actions/book';
 
-
 function App() {
   const showModal = useSelector((state) => state.user.showModal);
   const modalRate = useSelector((state) => state.book.modalRate);
 
   const dispatch = useDispatch();
   // un effet qui s'applique une seule fois, après le premier rendu
- /* useEffect(() => {
+  useEffect(() => {
     // console.log('récupération des recettes');
     dispatch(getBooksFromApi());
-  }, []);*/
+  }, []);
 
   return (
     <div className="app">

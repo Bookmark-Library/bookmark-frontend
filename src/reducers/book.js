@@ -2,12 +2,12 @@
 
 import {
   CHANGE_RATE_FIELD, CHANGE_TAB_KEY, CLOSE_MODAL_RATE, OPEN_MODAL_RATE,
-  ADD_BOOKS_IN_APP, SAVE_FAVORITE_BOOKS,
+  ADD_BOOKS_IN_APP, SAVE_USER_BOOKS,
 } from '../actions/book';
 
 export const initialState = {
   bookList: [],
-  favorites: [],
+  library: [],
   tabKey: 'one',
   ModalRate: false,
   commentaire: '',
@@ -41,13 +41,13 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         bookList: action.newList,
-       // isBooksLoaded: true,
+        // isBooksLoaded: true,
 
       };
-    case SAVE_FAVORITE_BOOKS:
+    case SAVE_USER_BOOKS:
       return {
         ...state,
-        favorites: action.favoriteBooks,
+        library: action.userLibrary,
       };
     default:
       return state;
