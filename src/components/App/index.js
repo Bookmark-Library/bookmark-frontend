@@ -24,8 +24,7 @@ function App() {
     <div className="app">
 
       <Header />
-      <Book />
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/mentions-legales" element={<LegalNotice />} />
         <Route path="/ajout-livre" element={<FormBook />} />
@@ -34,7 +33,7 @@ function App() {
         <Route path="/user/:id" element={<User />} />
         <Route path="/inscription" element={<Inscription />} />
         <Route path="/contact" element={<Contact />} />
-      </Routes> */}
+      </Routes>
       {showModal
       && <ModalConnexion />}
       {modalRate && <ModalRate /> }
