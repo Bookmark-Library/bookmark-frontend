@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import { openModal } from '../../actions/user';
 import bookMarkLogo from '../../assets/images/logo-BookMark.jpg';

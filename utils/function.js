@@ -7,3 +7,5 @@ const dispatch = useDispatch;
 export const handleClose = () => {
   dispatch(closeModal());
 };
+
+export const getBookFromId = (library, id) => library.find((book) => book.book.id === id);

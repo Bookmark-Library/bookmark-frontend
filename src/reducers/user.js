@@ -34,8 +34,8 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         token: action.token,
         // sécurité : on efface les identifiants du state
-        email: '',
-        password: '',
+        // email: '',
+        // password: '',
         showModal: false,
       };
     case SAVE_USER_INFO:

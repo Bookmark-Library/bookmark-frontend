@@ -33,7 +33,7 @@ const usersMiddleware = (store) => (next) => (action) => {
     case FETCH_USER_INFO:
       axios.get(
         // URL
-        'http://laurent-finana.vpnuser.lan:8000/api/users/9',
+        'http://laurent-finana.vpnuser.lan:8000/api/users/1',
         // options (notamment les headers)
         {
           headers: {

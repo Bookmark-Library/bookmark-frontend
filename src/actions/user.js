@@ -9,7 +9,7 @@ export const SAVE_AUTH_DATA = 'SAVE_AUTH_DATA';
 export const SUBMIT_LOGOUT = 'SUBMIT_LOGOUT';
 export const FETCH_USER_INFO = 'FETCH_USER_INFO';
 export const SAVE_USER_INFO = 'SAVE_USER_INFO';
-
+export const SET_TOKEN_IN_STORAGE = 'SET_TOKEN_IN_STORAGE';
 export const openModal = () => ({
   type: OPEN_MODAL,
 });
@@ -39,4 +39,10 @@ export const SaveUserInfo = (alias, avatar) => ({
   type: SAVE_USER_INFO,
   alias: alias,
   avatar: avatar,
+});
+
+export const setTokenInStorage = (storage) => ({
+
+  type: SET_TOKEN_IN_STORAGE,
+  storage: storage,
 });
