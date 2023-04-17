@@ -13,9 +13,13 @@ import ModalConnexion from '../Header/ModalConnexion';
 import User from '../Pages/User';
 import Inscription from '../Pages/Inscription';
 import Contact from '../Pages/Contact';
+import BookTab from '../Pages/Book/BookTab';
+import ModalRate from '../Pages/Book/ModalRate';
 
 function App() {
   const showModal = useSelector((state) => state.user.showModal);
+  const modalRate = useSelector((state) => state.book.modalRate);
+
   return (
     <div className="app">
 
@@ -32,6 +36,7 @@ function App() {
       </Routes>
       {showModal
       && <ModalConnexion />}
+      {modalRate && <ModalRate /> }
       <Footer />
     </div>
   );
