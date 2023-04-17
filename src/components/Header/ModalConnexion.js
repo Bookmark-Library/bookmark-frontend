@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Field from 'src/components/Field';
 
 import Modal from 'react-bootstrap/Modal';
-import { changeSettingsField, closeModal } from '../../actions/user';
+import { changeSettingsField, closeModal, submitLogin } from '../../actions/user';
 
 function ModalConnexion() {
   const dispatch = useDispatch();
@@ -30,6 +30,7 @@ function ModalConnexion() {
           className="settings-form"
           onSubmit={(e) => {
             e.preventDefault();
+            dispatch(submitLogin())
             console.log('c\'est le moment de faire ma requête !');
           }}
         >

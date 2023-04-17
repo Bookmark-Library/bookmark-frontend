@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import Footer from '../Footer';
 import Header from '../Header';
 import Book from '../Pages/Book';
@@ -13,12 +14,20 @@ import ModalConnexion from '../Header/ModalConnexion';
 import User from '../Pages/User';
 import Inscription from '../Pages/Inscription';
 import Contact from '../Pages/Contact';
-import BookTab from '../Pages/Book/BookTab';
 import ModalRate from '../Pages/Book/ModalRate';
+import { getBooksFromApi } from '../../actions/book';
+
 
 function App() {
   const showModal = useSelector((state) => state.user.showModal);
   const modalRate = useSelector((state) => state.book.modalRate);
+
+  const dispatch = useDispatch();
+  // un effet qui s'applique une seule fois, après le premier rendu
+  useEffect(() => {
+    // console.log('récupération des recettes');
+    dispatch(getBooksFromApi());
+  }, []);
 
   return (
     <div className="app">
