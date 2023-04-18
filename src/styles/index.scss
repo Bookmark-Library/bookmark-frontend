@@ -21,8 +21,14 @@
 
 body {
   font-family: 'Montserrat', sans-serif !important;
-  transition: background-color .3s;
+  /*transition: background-color .3s;*/
   color: #1f2344;
+  background-color: #fafcff !important;
+}
+
+.required::after{
+  content:"*";
+  color:red;
 }
 
 h2{

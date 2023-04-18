@@ -6,9 +6,9 @@ import './styles.scss';
 
 const HomeBook = () => (
 
-  <div className="row cardbook mt-3">
+  <div className="row row-cols-1 row-cols-md-4 g-4 mt-2">
     <div className="col-sm-3 text-center">
-      <div className="card">
+      <div className="card border-light h-100">
         <img src={book1} className="card-img-top" alt="..." />
         <div className="card-body">
           <a href="#" className="btn-book">Ados</a>
@@ -16,7 +16,7 @@ const HomeBook = () => (
       </div>
     </div>
     <div className="col-sm-3 text-center">
-      <div className="card">
+      <div className="card border-light h-100">
         <img src={book2} className="card-img-top" alt="..." />
         <div className="card-body">
           <a href="#" className="btn-book">Thriller</a>
@@ -24,7 +24,7 @@ const HomeBook = () => (
       </div>
     </div>
     <div className="col-sm-3 text-center">
-      <div className="card">
+      <div className="card border-light h-100">
         <img src={book3} className="card-img-top" alt="..." />
         <div className="card-body">
           <a href="#" className="btn-book">Jeunesse</a>
@@ -32,7 +32,7 @@ const HomeBook = () => (
       </div>
     </div>
     <div className="col-sm-3 text-center">
-      <div className="card">
+      <div className="card border-light h-100">
         <img src={book4} className="card-img-top" alt="..." />
         <div className="card-body">
           <a href="#" className="btn-book">Manga</a>

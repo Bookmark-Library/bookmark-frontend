@@ -26,6 +26,7 @@ const LoginForm = ({
 
   return (
     <div className="login-form">
+      <p>Connectez-vous</p>
       {isLogged && (
         <div className="login-form-logged">
           <p className="login-form-message">

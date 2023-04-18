@@ -1,7 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
-import { changeSettingsField, openModal, submitLogin, submitLogout } from '../../actions/user';
-import bookMarkLogo from '../../assets/images/logo-BookMark.jpg';
+import {
+  changeSettingsField, submitLogin, submitLogout,
+} from '../../actions/user';
+import bookMarkLogo from '../../assets/images/bookmark-logo-copie.svg';
 import LoginForm from '../LoginForm';
 
 import './styles.scss';
@@ -14,7 +16,7 @@ function Header() {
   const alias = useSelector((state) => state.user.alias);
   return (
     <header>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg">
         <div className="container">
           <Link
             className="navbar-brand"
@@ -30,24 +32,31 @@ function Header() {
               <li className="nav-item">
                 <NavLink
                   to="/"
-                  className="nav-link active"
+                  className="linkNav active"
                 >
                   Accueil
                 </NavLink>
               </li>
               <NavLink
                 to="/bibliotheque"
-                className="nav-link "
+                className="linkNav "
               >
-                bibliotheque
+                Bibliotheque
+              </NavLink>
+              <NavLink
+                to="/user/1"
+                className="linkNav "
+              >
+                Profil
               </NavLink>
             </ul>
-            {logged && 
+            {logged
+            && (
             <form className="d-flex" role="search">
               <input className="form-control me-4" type="search" placeholder="Rechercher" aria-label="Search" />
             </form>
-            }
-            
+            )}
+
             <LoginForm
               email={emailValue}
               password={passwordValue}
@@ -61,7 +70,7 @@ function Header() {
                 dispatch(submitLogout());
               }}
               isLogged={logged}
-              loggedMessage={`Bienvenue ${alias}`}
+              loggedMessage=<Link to="/user/1">{`Bienvenue ${alias}`}</Link>
             />
             {/* <Link
               to="/inscription"
