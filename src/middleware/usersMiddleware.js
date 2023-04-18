@@ -34,7 +34,7 @@ const usersMiddleware = (store) => (next) => (action) => {
     case FETCH_USER_INFO:
       axios.get(
         // URL
-        `http://sandy-bouzid.vpnuser.lan:8000/api/users/${store.getState().user.id}`,
+        'http://sandy-bouzid.vpnuser.lan:8000/api/users/',
         // options (notamment les headers)
         {
           headers: {
@@ -44,7 +44,7 @@ const usersMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          // console.log(response.data);
+          console.log(response.data);
           store.dispatch(SaveUserInfo(
             response.data.alias,
             response.data.avatar,
