@@ -36,7 +36,7 @@ function Library() {
           <h2>Bibliothèque</h2>
           <div className="divBook d-flex">
             {libraries.map((library) => (
-              <div className="bookLien">
+              <div className="bookLien col-12 col-md-2 text-center align-items-center">
                 <Link to={`/bibliotheque/livre/${library.book.id}`}><img key={library.book.id} src={library.book.image} className="img-thumbnail img-fluid" alt="..." /></Link>
                 <img className="bookHeart" src={bookHeart} alt="" />
                 <div>{library.book.title}</div>

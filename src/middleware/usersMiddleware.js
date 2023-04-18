@@ -19,6 +19,7 @@ const usersMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
+          console.log(response.data);
           store.dispatch(saveAuthData(response.data.token));
           // on dispatch une action, pour qu'un middleware aille chercher les infos
           // de l'utilisateur authentifié
@@ -33,7 +34,7 @@ const usersMiddleware = (store) => (next) => (action) => {
     case FETCH_USER_INFO:
       axios.get(
         // URL
-        'http://laurent-finana.vpnuser.lan:8000/api/users/1',
+        `http://sandy-bouzid.vpnuser.lan:8000/api/users/${store.getState().user.id}`,
         // options (notamment les headers)
         {
           headers: {
@@ -43,7 +44,7 @@ const usersMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response.data.libraries);
+          // console.log(response.data);
           store.dispatch(SaveUserInfo(
             response.data.alias,
             response.data.avatar,

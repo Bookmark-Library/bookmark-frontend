@@ -35,10 +35,11 @@ export const submitLogout = () => ({
 export const fetchUserInfo = () => ({
   type: FETCH_USER_INFO,
 });
-export const SaveUserInfo = (alias, avatar) => ({
+export const SaveUserInfo = (alias, avatar, id) => ({
   type: SAVE_USER_INFO,
   alias: alias,
   avatar: avatar,
+  id: id,
 });
 
 export const setTokenInStorage = (storage) => ({

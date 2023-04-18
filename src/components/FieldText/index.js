@@ -21,7 +21,7 @@ const FieldText = ({
   return (
     <div className="field">
       <textarea
-        className="textaera"
+        className="input"
         id={identifier}
         placeholder={placeholder}
         name={identifier}

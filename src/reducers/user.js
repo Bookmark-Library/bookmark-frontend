@@ -9,6 +9,7 @@ export const initialState = {
   token: '',
   avatar: '',
   alias: '',
+  id: '1',
 
 };
 
@@ -43,6 +44,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         alias: action.alias,
         avatar: action.avatar,
+        id: action.id,
       };
 
     default:

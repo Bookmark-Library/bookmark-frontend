@@ -1,10 +1,14 @@
 import { Tab } from 'bootstrap';
+import PropTypes from 'prop-types';
+
 import { Tabs } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { changeTabKey, openModalRate } from '../../../../actions/book';
 
-function BookTab() {
+function BookTab({
+  comment, favorite, finished, purchased, quote, rate, wishlist,
+}) {
   const dispatch = useDispatch();
   const tabkey = useSelector((state) => state.book.tabkey);
 
@@ -13,8 +17,7 @@ function BookTab() {
       <Tabs activeKey={tabkey} onSelect={(e) => dispatch(changeTabKey(e))}>
         <Tab eventKey="one" title="Commentaire">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-            sed enim semper mi congue vestibulum.
+            {comment}
           </p>
           <button
             type="button"
@@ -28,10 +31,7 @@ function BookTab() {
         </Tab>
         <Tab eventKey="two" title="Citation">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Dolor, odit cum officia quam obcaecati minima itaque iure sit
-            dolorum est, vel eveniet dignissimos commodi facilis a
-            possimus molestiae sint! Minus.
+            {quote}
           </p>
           <button
             type="button"
@@ -44,14 +44,23 @@ function BookTab() {
           </button>
         </Tab>
         <Tab eventKey="three" title="Bookmark">
-          <p>Tab 3</p>
           <Link to="/ajout/bookmark"> modifier</Link>
         </Tab>
         <Tab eventKey="four" title="Note">
-          <p>Tab 4</p>
+          <p>{rate}</p>
         </Tab>
       </Tabs>
     </div>
   );
 }
+
+BookTab.propTypes = {
+  comment: PropTypes.string.isRequired,
+  quote: PropTypes.string.isRequired,
+  favorite: PropTypes.bool.isRequired,
+  finished: PropTypes.bool.isRequired,
+  purchased: PropTypes.bool.isRequired,
+  rate: PropTypes.number.isRequired,
+  wishlist: PropTypes.bool.isRequired,
+};
 export default BookTab;

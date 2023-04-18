@@ -13,6 +13,11 @@ export const initialState = {
   ModalRate: false,
   commentaire: '',
   citation: '',
+  favorite: false,
+  purchased: false,
+  finished: false,
+  wishlist: false,
+
 
 };
 
