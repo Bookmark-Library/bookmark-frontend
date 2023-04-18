@@ -1,0 +1,48 @@
+@use 'src/styles/vars';
+
+.field {
+  //margin: .3em .3em .3em 0;
+  //position: relative;
+
+  
+
+  &-input {
+    width: 100%;
+    padding: 1em;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: .3em;
+    height: 2.5em;
+
+    &:focus {
+      border-color:#fab334;
+
+      & + .field-label {
+        color: #f1ebeb;
+      }
+    }
+  }
+
+  &-label {
+    display: none;
+    position: absolute;
+    top: .2rem;
+    left: .7rem;
+    color: #fff;
+    opacity: 0;
+
+    font-size: .7em;
+    text-transform: uppercase;
+  }
+
+  &--has-content {
+    .field-label {
+      display: block;
+    }
+    .field-input {
+      padding: 1.4em .7em .4em;
+    }
+  }
+}
+
+

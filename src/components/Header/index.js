@@ -1,12 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
-import { openModal } from '../../actions/user';
+import { changeSettingsField, openModal, submitLogin, submitLogout } from '../../actions/user';
 import bookMarkLogo from '../../assets/images/logo-BookMark.jpg';
+import LoginForm from '../LoginForm';
 
 import './styles.scss';
 
 function Header() {
   const dispatch = useDispatch();
+  const emailValue = useSelector((state) => state.user.email);
+  const passwordValue = useSelector((state) => state.user.password);
+  const logged = useSelector((state) => state.user.logged);
+  const alias = useSelector((state) => state.user.alias);
   return (
     <header>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -37,24 +42,33 @@ function Header() {
                 bibliotheque
               </NavLink>
             </ul>
+            {logged && 
             <form className="d-flex" role="search">
               <input className="form-control me-4" type="search" placeholder="Rechercher" aria-label="Search" />
             </form>
-            <button
-              type="button"
-              className="btn-connexion me-2"
-              onClick={() => {
-                dispatch(openModal());
+            }
+            
+            <LoginForm
+              email={emailValue}
+              password={passwordValue}
+              changeField={(newValue, identifier) => {
+                dispatch(changeSettingsField(newValue, identifier));
               }}
-            >
-              se connecter
-            </button>
-            <Link
+              handleLogin={() => {
+                dispatch(submitLogin());
+              }}
+              handleLogout={() => {
+                dispatch(submitLogout());
+              }}
+              isLogged={logged}
+              loggedMessage={`Bienvenue ${alias}`}
+            />
+            {/* <Link
               to="/inscription"
               className="btn-inscription"
             >
               s'inscrire
-            </Link>
+            </Link> */}
 
           </div>
         </div>

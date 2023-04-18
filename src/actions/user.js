@@ -16,10 +16,10 @@ export const openModal = () => ({
 export const closeModal = () => ({
   type: CLOSE_MODAL,
 });
-export const changeSettingsField = (identifier, newValue) => ({
+export const changeSettingsField = (newValue, identifier) => ({
   type: CHANGE_SETTINGS_FIELD,
-  identifier: identifier,
   newValue: newValue,
+  identifier: identifier,
 });
 export const submitLogin = () => ({
   type: SUBMIT_LOGIN,
