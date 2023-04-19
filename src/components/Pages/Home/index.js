@@ -6,7 +6,7 @@ import './styles.scss';
 
 const Home = () => (
   <section className="container container-flex">
-    <div className="row align-items-end">
+    <div className="row">
       <div className="col-12 col-md-8">
         <Banner />
         <HomeBook />
