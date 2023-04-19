@@ -73,7 +73,7 @@ function ModalRate() {
           </div>
           <p>Notez votre livre</p>
           <div className="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
             <label className="form-check-label" htmlFor="inlineRadio1">1</label>
           </div>
           <div className="form-check form-check-inline">

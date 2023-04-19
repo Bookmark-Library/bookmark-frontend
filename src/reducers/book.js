@@ -2,7 +2,7 @@
 
 import {
   CHANGE_RATE_FIELD, CHANGE_TAB_KEY, CLOSE_MODAL_RATE, OPEN_MODAL_RATE,
-  ADD_BOOKS_IN_APP, SAVE_USER_BOOKS, CHANGE_INPUT,
+  ADD_BOOKS_IN_APP, SAVE_USER_BOOKS, CHANGE_INPUT, PUT_RATING_IN_STATE, PUT_COMMENT_IN_STATE, PUT_QUOTE_IN_STATE,
 } from '../actions/book';
 import { SUBMIT_LOGOUT } from '../actions/user';
 
@@ -52,6 +52,16 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.identifier]: action.newValue,
+      };
+    case PUT_COMMENT_IN_STATE:
+      return {
+        ...state,
+        commentaire: action.value,
+      };
+    case PUT_QUOTE_IN_STATE:
+      return {
+        ...state,
+        citation: action.value,
       };
     case ADD_BOOKS_IN_APP:
       return {

@@ -4,13 +4,16 @@ import PropTypes from 'prop-types';
 import { Tabs } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { changeTabKey, openModalRate } from '../../../../actions/book';
+import { changeTabKey, openModalRate, putCommentInState, putQuoteInState } from '../../../../actions/book';
 
 function BookTab({
   comment, favorite, finished, purchased, quote, rate, wishlist,
 }) {
   const dispatch = useDispatch();
   const tabkey = useSelector((state) => state.book.tabkey);
+
+  dispatch(putCommentInState(comment));
+  dispatch(putQuoteInState(quote));
 
   return (
     <div>
