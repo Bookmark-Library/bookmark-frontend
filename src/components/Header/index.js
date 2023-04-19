@@ -43,15 +43,15 @@ function Header() {
               >
                 Bibliotheque
               </NavLink>
-              {logged
+              {/* {logged
             && (
               <NavLink
-                to="/user/1"
+                to={`/user/${alias}`}
                 className="linkNav "
               >
                 Profil
               </NavLink>
-            )}
+            )} */}
             </ul>
             {logged
             && (
@@ -76,7 +76,7 @@ function Header() {
                 dispatch(submitLogout());
               }}
               isLogged={logged}
-              loggedMessage={`Bienvenue ${alias}`}
+              loggedMessage=<Link to={`/user/${alias}`}>{`Bienvenue ${alias}`}</Link>
             />
             {/* <Link
               to="/inscription"

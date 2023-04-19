@@ -8,6 +8,7 @@ export const ADD_BOOKS_IN_APP = 'ADD_BOOKS_IN_APP';
 export const GET_BOOKS_FROM_API = 'GET_BOOKS_FROM_API';
 export const FETCH_FAVORITE_BOOKS = 'FETCH_FAVORITE_BOOKS';
 export const SAVE_USER_BOOKS = 'SAVE_USER_BOOKS';
+export const CHANGE_INPUT = 'CHANGE_INPUT';
 
 export const openModalRate = () => ({
   type: OPEN_MODAL_RATE,
@@ -40,4 +41,10 @@ export const fetchFavoriteBooks = () => ({
 export const saveUserBooks = (userLibrary) => ({
   type: SAVE_USER_BOOKS,
   userLibrary: userLibrary,
+});
+
+export const changeInput = (identifier, newValue) => ({
+  type: CHANGE_INPUT,
+  identifier: identifier,
+  newValue: newValue,
 });

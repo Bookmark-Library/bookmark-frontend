@@ -19,9 +19,9 @@ const Field = ({
   };
 
   return (
-    <div className="field">
+    <div className="field ">
       <input
-        className="input"
+        className="input form-control"
         id={identifier}
         placeholder={placeholder}
         name={identifier}
@@ -30,7 +30,7 @@ const Field = ({
         onChange={handleChange}
       />
       <label
-        className="label"
+        className="label required form-label"
         htmlFor={identifier}
       >
         {label}

@@ -17,6 +17,10 @@ import Contact from '../Pages/Contact';
 import ModalRate from '../Pages/Book/ModalRate';
 // import { getBooksFromApi } from '../../actions/book';
 import { fetchUserInfo } from '../../actions/user';
+import Finished from '../Pages/Library/Finished';
+import Purchased from '../Pages/Library/Purchased';
+import Favorite from '../Pages/Library/Favorite';
+import Wishlist from '../Pages/Library/Wishlist';
 
 function App() {
   const showModal = useSelector((state) => state.user.showModal);
@@ -38,8 +42,13 @@ function App() {
         <Route path="/mentions-legales" element={<LegalNotice />} />
         <Route path="/ajout-livre" element={<FormBook />} />
         <Route path="/bibliotheque" element={<Library />} />
+        <Route path="/bibliotheque/lus" element={<Finished />} />
+        <Route path="/bibliotheque/a-lire" element={<Purchased />} />
+        <Route path="/bibliotheque/envies" element={<Wishlist />} />
+        <Route path="/bibliotheque/favoris" element={<Favorite />} />
+
         <Route path="/bibliotheque/livre/:id" element={<Book />} />
-        <Route path="/user/:id" element={<User />} />
+        <Route path="/user/:pseudo" element={<User />} />
         <Route path="/inscription" element={<Inscription />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>

@@ -27,14 +27,14 @@ const Field = ({
         // infos de base
         id={inputId}
         type={type}
-        className="field-input"
+        className="field-input form-control"
         placeholder={placeholder}
         name={name}
       />
 
       <label
         htmlFor={inputId}
-        className="field-label"
+        className="field-label form-label"
       >
         {placeholder}
       </label>

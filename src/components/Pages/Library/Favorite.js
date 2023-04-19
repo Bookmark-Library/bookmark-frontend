@@ -1,12 +1,14 @@
 import { useSelector } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
 
-import All from './All';
+import bookHeart from '../../../assets/images/favoris.svg';
 
 import './styles.scss';
 
-function Library() {
+function Favorite() {
+  const libraries = useSelector((state) => state.book.libraries);
   const logged = useSelector((state) => state.user.logged);
+  const filtredByFavorite = libraries.filter((book) => book.favorite === true);
 
   // For return at the home page when user is not connected
   if (!logged) {
@@ -37,11 +39,24 @@ function Library() {
             <option value="3">Genre</option>
           </select>
         </div>
-        <All />
+        <div className="col-12 col-md-8 col-right">
+          <h2>Coups de coeur</h2>
+          <div className="divBook d-flex">
+            {filtredByFavorite
+            && filtredByFavorite.map((library) => (
+              <div key={library.book.id} className="bookLien col-12 col-md-2 text-center align-items-center">
+                <Link to={`/bibliotheque/livre/${library.book.id}`}><img src={library.book.image} className="img-thumbnail img-fluid" alt="..." /></Link>
+                <img className="bookHeart" src={bookHeart} alt="" />
+                <div>{library.book.title}</div>
+              </div>
+            ))}
+
+          </div>
+        </div>
       </div>
     </div>
 
   );
 }
 
-export default Library;
+export default Favorite;

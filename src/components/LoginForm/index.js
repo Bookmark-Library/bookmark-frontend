@@ -92,7 +92,7 @@ LoginForm.propTypes = {
    * le mode pas connecté (affichage du formulaire) */
   isLogged: PropTypes.bool,
   /** Message affiché quand on est en mode connecté */
-  loggedMessage: PropTypes.string,
+  loggedMessage: PropTypes.object,
 };
 
 LoginForm.defaultProps = {

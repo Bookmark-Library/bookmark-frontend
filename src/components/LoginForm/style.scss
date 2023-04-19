@@ -16,6 +16,14 @@
   &-message {
     margin: .3em 1em;
   }
+  &-message a {
+    color:#fff;
+    font-weight:600;
+  }
+
+  &-message a:hover {
+    color:#fab334;
+  }
 
   &-logged {
     display: flex;
@@ -29,7 +37,7 @@
     font-weight: 600;
     background-color: #14aa9a;
     transition: all 0.2s;
-    border-radius: 50%;
+    border-radius: 0.6em;
     border: 0;
    padding: .7em;
     height: 3em;

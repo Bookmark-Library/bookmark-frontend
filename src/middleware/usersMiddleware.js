@@ -50,12 +50,9 @@ const usersMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-
-          // console.log(response.data);
+          console.log(response.data);
           localStorage.setItem('pseudo', response.data.alias);
           localStorage.setItem('bibliotheque', JSON.stringify(response.data.libraries));
-
-
           store.dispatch(SaveUserInfo(
             response.data.alias,
             response.data.avatar,

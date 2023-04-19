@@ -1,17 +1,14 @@
 import { useSelector } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
 
-import All from './All';
+import bookFinished from '../../../assets/images/lu.svg';
 
 import './styles.scss';
 
-function Library() {
-  const logged = useSelector((state) => state.user.logged);
+function Finished() {
+  const libraries = useSelector((state) => state.book.libraries);
+  const filtredByFinished = libraries.filter((book) => book.finished === true);
 
-  // For return at the home page when user is not connected
-  if (!logged) {
-    return <Navigate to="/" replace />;
-  }
   return (
     <div className="container biblio mt-5">
       <div className="row">
@@ -37,11 +34,22 @@ function Library() {
             <option value="3">Genre</option>
           </select>
         </div>
-        <All />
+        <div className="col-12 col-md-8 col-right">
+          <h2>Livres lus</h2>
+          <div className="divBook d-flex">
+            {filtredByFinished
+            && filtredByFinished.map((library) => (
+              <div key={library.book.id} className="bookLien col-12 col-md-2 text-center align-items-center">
+                <Link to={`/bibliotheque/livre/${library.book.id}`}><img src={library.book.image} className="img-thumbnail img-fluid" alt="..." /></Link>
+                <img className="bookHeart" src={bookFinished} alt="" />
+                <div>{library.book.title}</div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
-
   );
 }
 
-export default Library;
+export default Finished;

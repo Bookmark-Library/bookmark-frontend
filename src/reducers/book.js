@@ -2,7 +2,7 @@
 
 import {
   CHANGE_RATE_FIELD, CHANGE_TAB_KEY, CLOSE_MODAL_RATE, OPEN_MODAL_RATE,
-  ADD_BOOKS_IN_APP, SAVE_USER_BOOKS,
+  ADD_BOOKS_IN_APP, SAVE_USER_BOOKS, CHANGE_INPUT,
 } from '../actions/book';
 import { SUBMIT_LOGOUT } from '../actions/user';
 
@@ -18,8 +18,16 @@ export const initialState = {
   purchased: false,
   finished: false,
   wishlist: false,
-
-
+  /** FORM ADD BOOK */
+  title: '',
+  lastname: '',
+  firstname: '',
+  editor: '',
+  collection: '',
+  publication_date: '',
+  price: '',
+  pages: '',
+  summary: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -60,6 +68,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         libraries: [],
+      };
+    case CHANGE_INPUT:
+      return {
+        ...state,
+        [action.id]: action.newValue,
       };
     default:
       return state;
