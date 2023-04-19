@@ -1,5 +1,6 @@
 import { Tab } from 'bootstrap';
 import PropTypes from 'prop-types';
+import './styles.scss';
 
 import { Tabs } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,8 +17,8 @@ function BookTab({
   dispatch(putQuoteInState(quote));
 
   return (
-    <div>
-      <Tabs activeKey={tabkey} onSelect={(e) => dispatch(changeTabKey(e))}>
+    <div className="tabs">
+      <Tabs activeKey={tabkey} onSelect={(e) => dispatch(changeTabKey(e))} className="mb-3" justify>
         <Tab eventKey="one" title="Commentaire">
           <p>
             {comment}
@@ -38,7 +39,7 @@ function BookTab({
           </p>
           <button
             type="button"
-            className=""
+            className="btn btn-warning"
             onClick={() => {
               dispatch(openModalRate());
             }}

@@ -1,4 +1,3 @@
-/* eslint-disable eqeqeq */
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import BookTab from './BookTab';
@@ -12,22 +11,26 @@ function Book() {
   // console.log(bookToDisplay);
   return (
     <main className="container">
-      <div className="book-content row">
-        <div className="book-image col-md-3">
-          <h2 className="book-title">{bookToDisplay.book.title}</h2>
-          <img className="book-image" src={bookToDisplay.book.image} alt="" />
+      <div className="book-content container mt-5">
+        <div className="row">
+          <div className="book-image col-md-3">
+            <h2 className="book-title">{bookToDisplay.book.title}</h2>
+            <img className="book-image" src={bookToDisplay.book.image} alt="" />
+          </div>
+          <div className="book-synopsy d-flex flex-column col-md-9">
+            <div className="book-author">
+            {bookToDisplay.book.authors.map((author) => (
+              <p key={author.lastname} className="book-author">{author.lastname} {author.firstname}</p>
+            ))}
 
-        </div>
-        <div className="book-synopsy col-md-8">
-          {bookToDisplay.book.authors.map((author) => (
-            <h4 key={author.lastname} className="book-author">{author.lastname}{author.firstname}</h4>
-          ))}
+            </div>
 
-          <h4 className="book-editor">{bookToDisplay.book.editor}</h4>
-          <p className="book-description">{bookToDisplay.book.summary}
-          </p>
+            <p className="book-editor">{bookToDisplay.book.editor}</p>
+            <p className="book-description">{bookToDisplay.book.summary}
+            </p>
+          </div>
+          <BookTab {...bookToDisplay} />
         </div>
-        <BookTab {...bookToDisplay} />
       </div>
     </main>
 

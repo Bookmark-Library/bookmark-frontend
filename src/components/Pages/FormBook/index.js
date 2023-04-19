@@ -20,7 +20,7 @@ function FormBook() {
   return (
 
     <div className="container divInscription">
-      <div className="container text-center">Entrez l'ISBN du livre ou remplissez le formulaire d'ajout</div>
+      <div className="container text-center titleAdd">Entrez l'ISBN du livre <strong>OU</strong> remplissez le formulaire d'ajout</div>
       <div className="row justify-content-around mt-5">
         <div className="col-md-5 col-12  text-center">
           <form className="row  g-2 col-md-6 offset-md-3">
@@ -45,7 +45,7 @@ function FormBook() {
             <div className="col-12">
               <Field
                 identifier="title"
-                label="titre"
+                label="Titre"
                 value={title}
                 changeField={(identifier, newValue) => {
                   dispatch(changeInput(identifier, newValue));
@@ -75,7 +75,7 @@ function FormBook() {
             <div className="col-md-6">
               <Field
                 identifier="editor"
-                label="nom de l'Editeur"
+                label="Nom de l'Editeur"
                 value={editor}
                 changeField={(identifier, newValue) => {
                   dispatch(changeInput(identifier, newValue));
@@ -102,7 +102,7 @@ function FormBook() {
             <div className="col-md-6">
               <Field
                 identifier="publication_date"
-                label="Année "
+                label="Année de publication"
                 value={publication_date}
                 changeField={(identifier, newValue) => {
                   dispatch(changeInput(identifier, newValue));
@@ -112,7 +112,7 @@ function FormBook() {
             <div className="col-md-2">
               <Field
                 identifier="price"
-                label="price"
+                label="Prix"
                 value={price}
                 type="number"
                 changeField={(identifier, newValue) => {
@@ -123,7 +123,7 @@ function FormBook() {
             <div className="col-md-4 ">
               <Field
                 identifier="pages"
-                label="Pages"
+                label="Nbre de pages"
                 type="number"
                 value={pages}
                 changeField={(identifier, newValue) => {
@@ -134,7 +134,7 @@ function FormBook() {
             <div className="col-md-12">
               <FieldText
                 identifier="summary"
-                label="Déscription"
+                label="Résumé"
                 value={summary}
                 changeField={(identifier, newValue) => {
                   dispatch(changeInput(identifier, newValue));
