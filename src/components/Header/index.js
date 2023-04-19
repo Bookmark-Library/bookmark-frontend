@@ -72,10 +72,11 @@ function Header() {
               handleLogout={() => {
                 localStorage.removeItem('token');
                 localStorage.removeItem('pseudo');
+                localStorage.removeItem('bibliotheque');
                 dispatch(submitLogout());
               }}
               isLogged={logged}
-              loggedMessage=<Link to="/user/1">{`Bienvenue ${alias}`}</Link>
+              loggedMessage={`Bienvenue ${alias}`}
             />
             {/* <Link
               to="/inscription"

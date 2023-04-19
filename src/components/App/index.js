@@ -15,7 +15,8 @@ import User from '../Pages/User';
 import Inscription from '../Pages/Inscription';
 import Contact from '../Pages/Contact';
 import ModalRate from '../Pages/Book/ModalRate';
-import { getBooksFromApi } from '../../actions/book';
+// import { getBooksFromApi } from '../../actions/book';
+import { fetchUserInfo } from '../../actions/user';
 
 function App() {
   const showModal = useSelector((state) => state.user.showModal);
@@ -24,7 +25,8 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getBooksFromApi());
+    // dispatch(getBooksFromApi());
+    dispatch(fetchUserInfo());
   }, []);
 
   return (

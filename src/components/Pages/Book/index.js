@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import BookTab from './BookTab';
@@ -19,7 +20,7 @@ function Book() {
         </div>
         <div className="book-synopsy col-md-8">
           {bookToDisplay.book.authors.map((author) => (
-            <h4 className="book-author">{author.lastname}{author.firstname}</h4>
+            <h4 key={author.lastname} className="book-author">{author.lastname}{author.firstname}</h4>
           ))}
 
           <h4 className="book-editor">{bookToDisplay.book.editor}</h4>

@@ -26,7 +26,7 @@ function Library() {
             <li><a href="#">Coups de coeurs</a></li>
           </ul>
           <select className="form-select form-select-sm" aria-label=".form-select-sm example">
-            <option selected>Recherche par...</option>
+            <option defaultValue>Recherche par...</option>
             <option value="1">Titre</option>
             <option value="2">Auteur</option>
             <option value="3">Genre</option>
@@ -36,8 +36,8 @@ function Library() {
           <h2>Bibliothèque</h2>
           <div className="divBook d-flex">
             {libraries.map((library) => (
-              <div className="bookLien col-12 col-md-2 text-center align-items-center">
-                <Link to={`/bibliotheque/livre/${library.book.id}`}><img key={library.book.id} src={library.book.image} className="img-thumbnail img-fluid" alt="..." /></Link>
+              <div key={library.book.id} className="bookLien col-12 col-md-2 text-center align-items-center">
+                <Link to={`/bibliotheque/livre/${library.book.id}`}><img src={library.book.image} className="img-thumbnail img-fluid" alt="..." /></Link>
                 <img className="bookHeart" src={bookHeart} alt="" />
                 <div>{library.book.title}</div>
               </div>

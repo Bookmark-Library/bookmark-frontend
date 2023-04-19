@@ -45,13 +45,15 @@ const usersMiddleware = (store) => (next) => (action) => {
         {
           headers: {
             // nom du header: valeur
-            Authorization: `Bearer ${store.getState().user.token}`,
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
         },
       )
         .then((response) => {
           // console.log(response.data);
           localStorage.setItem('pseudo', response.data.alias);
+          localStorage.setItem('bibliotheque', JSON.stringify(response.data.libraries));
+
           store.dispatch(SaveUserInfo(
             response.data.alias,
             response.data.avatar,
