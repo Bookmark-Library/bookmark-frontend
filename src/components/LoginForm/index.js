@@ -25,6 +25,7 @@ const LoginForm = ({
   };
 
   return (
+
     <div className="login-form">
       {isLogged && (
         <div className="login-form-logged">
@@ -41,30 +42,33 @@ const LoginForm = ({
         </div>
       )}
       {!isLogged && (
-
-        <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
-          <Field
-            name="email"
-            placeholder="Adresse Email"
-            onChange={changeField}
-            value={email}
-          />
-          <Field
-            name="password"
-            type="password"
-            placeholder="Mot de passe"
-            onChange={changeField}
-            value={password}
-          />
-          <button
-            type="submit"
-            className="login-form-button"
-          >
-            OK
-          </button>
-        </form>
+        <>
+          <p>Connectez-vous</p>
+          <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
+            <Field
+              name="email"
+              placeholder="Adresse Email"
+              onChange={changeField}
+              value={email}
+            />
+            <Field
+              name="password"
+              type="password"
+              placeholder="Mot de passe"
+              onChange={changeField}
+              value={password}
+            />
+            <button
+              type="submit"
+              className="login-form-button"
+            >
+              OK
+            </button>
+          </form>
+        </>
       )}
     </div>
+
   );
 };
 

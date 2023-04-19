@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 import './styles.scss';
 
 const Footer = () => (
-  <footer className="bg-body-tertiary">
+  <footer className="bg-light">
     <div className="container">
-      <div className="py-5 mt-5">
+      <div className="pt-5 mt-5">
 
         <div className="row">
           <div className="col-6 col-md-2 mb-3">
@@ -13,7 +13,7 @@ const Footer = () => (
               <li className="nav-item mb-2">
                 <Link
                   to="/"
-                  className="nav-link p-0 text-body-secondary"
+                  className="navFooter p-0 text-body-secondary"
                 >
                   Accueil
                 </Link>
@@ -21,7 +21,7 @@ const Footer = () => (
               <li className="nav-item mb-2">
                 <Link
                   to="/bibliotheque"
-                  className="nav-link p-0 text-body-secondary"
+                  className="navFooter p-0 text-body-secondary"
                 >
                   Bibliothèque
                 </Link>
@@ -36,7 +36,7 @@ const Footer = () => (
               <li className="nav-item mb-2">
                 <Link
                   to="/contact"
-                  className="nav-link p-0 text-body-secondary"
+                  className="navFooter p-0 text-body-secondary"
                 >
                   Contact
                 </Link>
@@ -44,7 +44,7 @@ const Footer = () => (
               <li className="nav-item mb-2">
                 <Link
                   to="/mentions-legales"
-                  className="nav-link p-0 text-body-secondary"
+                  className="navFooter p-0 text-body-secondary"
                 >
                   Mentions légales
                 </Link>
@@ -71,7 +71,7 @@ const Footer = () => (
           </div>
         </div>
 
-        <div className="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+        <div className="d-flex flex-column flex-sm-row justify-content-between py-4 mt-4 border-top">
           <p>&copy; 2023 BookMark, Inc. Tous droits réservés.</p>
         </div>
       </div>

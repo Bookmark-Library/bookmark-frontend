@@ -2,13 +2,14 @@
   background-image:url("../../assets/images/books-banner.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height:20em !important;
+ /* height:20em !important;*/
 }
 .card-content{
   color:#fff;
   padding:2em;
 }
 
-.card-texte{
-  padding-top:5em;
+.titleHome{
+  color:#14aa9a;
+  font-size:2.5em;
 }

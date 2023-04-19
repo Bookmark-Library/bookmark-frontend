@@ -1,9 +1,10 @@
-import dataBook from '../../utils/bookData';
+// import dataBook from '../../utils/bookData';
 
 import {
   CHANGE_RATE_FIELD, CHANGE_TAB_KEY, CLOSE_MODAL_RATE, OPEN_MODAL_RATE,
   ADD_BOOKS_IN_APP, SAVE_USER_BOOKS,
 } from '../actions/book';
+import { SUBMIT_LOGOUT } from '../actions/user';
 
 export const initialState = {
   bookList: [],
@@ -54,6 +55,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         libraries: action.userLibrary,
+      };
+    case SUBMIT_LOGOUT:
+      return {
+        ...state,
+        libraries: [],
       };
     default:
       return state;

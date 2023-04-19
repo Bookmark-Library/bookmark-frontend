@@ -15,7 +15,7 @@ import User from '../Pages/User';
 import Inscription from '../Pages/Inscription';
 import Contact from '../Pages/Contact';
 import ModalRate from '../Pages/Book/ModalRate';
-import { getBooksFromApi } from '../../actions/book';
+// import { getBooksFromApi } from '../../actions/book';
 import { fetchUserInfo } from '../../actions/user';
 
 function App() {
@@ -23,10 +23,9 @@ function App() {
   const modalRate = useSelector((state) => state.book.modalRate);
 
   const dispatch = useDispatch();
-  // un effet qui s'applique une seule fois, après le premier rendu
+
   useEffect(() => {
-    dispatch(getBooksFromApi());
-    // console.log('récupération des recettes');
+    // dispatch(getBooksFromApi());
     dispatch(fetchUserInfo());
   }, []);
 

@@ -12,11 +12,11 @@ const Contact = () => (
       </p>
       <form className="row g-2">
           <div className="col-md-6">
-            <label htmlFor="name" className="form-label">Nom</label>
+            <label htmlFor="name" className="form-label required">Nom</label>
             <input type="text" className="form-control" id="name" required />
           </div>
           <div className="col-12">
-            <label htmlFor="email" className="form-label">Email</label>
+            <label htmlFor="email" className="form-label required">Email</label>
             <input type="email" className="form-control" id="email" required />
           </div>
           <div className="col-md-6">
@@ -24,7 +24,7 @@ const Contact = () => (
             <input type="text" className="form-control" id="objet" />
           </div>
           <div className="col-12">
-          <label htmlFor="message" className="form-label">Votre message</label>
+          <label htmlFor="message" className="form-label required">Votre message</label>
             <textarea className="form-control" id="message" rows="3" required />
           </div>
           <div className="col-12">

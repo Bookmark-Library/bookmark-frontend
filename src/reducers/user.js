@@ -3,13 +3,12 @@ import {
 } from '../actions/user';
 
 export const initialState = {
-  logged: false,
+  logged: !!localStorage.getItem('token'),
   email: '',
   password: '',
-  token: '',
+  token: localStorage.getItem('token'),
   avatar: '',
-  alias: '',
-  id: '1',
+  alias: localStorage.getItem('pseudo'),
 
 };
 
@@ -36,8 +35,8 @@ const reducer = (state = initialState, action = {}) => {
         token: action.token,
         logged: true,
         // sécurité : on efface les identifiants du state
-        // email: '',
-        // password: '',
+        email: '',
+        password: '',
       };
     case SAVE_USER_INFO:
       return {

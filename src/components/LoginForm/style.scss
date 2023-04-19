@@ -1,6 +1,12 @@
 @use 'src/styles/vars';
 
 .login-form {
+
+  p{
+    margin-bottom:0 !important;
+    color:#fff;
+    
+  }
   
   &-element {
     display: flex;
@@ -20,10 +26,18 @@
   &-button {
     font-size: 1em;
     color: #fff;
+    font-weight: 600;
     background-color: #14aa9a;
-    border-radius: .3em;
+    transition: all 0.2s;
+    border-radius: 50%;
     border: 0;
    padding: .7em;
     height: 3em;
+  }
+  &-button:hover {
+    color: #fff;
+    background-color: #fab334;
+    transition: all 0.2s;
+   
   }
 }
