@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { changeInput } from '../../../actions/book';
 import Field from '../../Field';
+import FieldText from '../../FieldText';
 import './styles.scss';
 
 function FormBook() {
@@ -8,6 +9,14 @@ function FormBook() {
   const title = useSelector((state) => state.book.title);
   const lastname = useSelector((state) => state.book.lastname);
   const firstname = useSelector((state) => state.book.firstname);
+  const editor = useSelector((state) => state.book.editor);
+  const collection = useSelector((state) => state.book.collection);
+  const summary = useSelector((state) => state.book.summary);
+  const price = useSelector((state) => state.book.price);
+  const pages = useSelector((state) => state.book.pages);
+  const isbn = useSelector((state) => state.book.isbn);
+  const publication_date = useSelector((state) => state.book.publication_date);
+
   return (
 
     <div className="container divInscription">
@@ -16,8 +25,15 @@ function FormBook() {
         <div className="col-md-5 col-12  text-center">
           <form className="row  g-2 col-md-6 offset-md-3">
             <div className="col-12">
-              <label htmlFor="isbn" className="form-label">ISBN</label>
-              <input type="text" className="form-control" id="isbn" />
+              <Field
+                identifier="isbn"
+                label="ISBN"
+                value={isbn}
+                type="number"
+                changeField={(identifier, newValue) => {
+                  dispatch(changeInput(identifier, newValue));
+                }}
+              />
             </div>
             <div className="col-12">
               <button type="submit" className="btn btn-warning">Ajouter</button>
@@ -39,7 +55,7 @@ function FormBook() {
             <div className="col-md-6">
               <Field
                 identifier="lastname"
-                label="nom de l'Auteur"
+                label="Nom de l'Auteur"
                 value={lastname}
                 changeField={(identifier, newValue) => {
                   dispatch(changeInput(identifier, newValue));
@@ -47,16 +63,34 @@ function FormBook() {
               />
             </div>
             <div className="col-md-6">
-              <label htmlFor="authorFirstName" className="form-label">Prénom de l'Auteur</label>
-              <input type="text" className="form-control" id="firstname" />
+              <Field
+                identifier="firstname"
+                label="Prenom de l'Auteur"
+                value={firstname}
+                changeField={(identifier, newValue) => {
+                  dispatch(changeInput(identifier, newValue));
+                }}
+              />
             </div>
             <div className="col-md-6">
-              <label htmlFor="editor" className="form-label">Editeur</label>
-              <input type="text" className="form-control" id="editor" />
+              <Field
+                identifier="editor"
+                label="nom de l'Editeur"
+                value={editor}
+                changeField={(identifier, newValue) => {
+                  dispatch(changeInput(identifier, newValue));
+                }}
+              />
             </div>
             <div className="col-md-6">
-              <label htmlFor="collection" className="form-label">Collection</label>
-              <input type="text" className="form-control" id="collection" />
+              <Field
+                identifier="collection"
+                label="Collection"
+                value={collection}
+                changeField={(identifier, newValue) => {
+                  dispatch(changeInput(identifier, newValue));
+                }}
+              />
             </div>
             {/* <div className="col-md-6">
             <label htmlFor="genre" className="form-label">Genre</label>
@@ -66,20 +100,46 @@ function FormBook() {
             </select>
           </div> */}
             <div className="col-md-6">
-              <label htmlFor="publication_date" className="form-label">Année de publication</label>
-              <input type="text" className="form-control" id="publication_date" />
+              <Field
+                identifier="publication_date"
+                label="Année "
+                value={publication_date}
+                changeField={(identifier, newValue) => {
+                  dispatch(changeInput(identifier, newValue));
+                }}
+              />
             </div>
             <div className="col-md-2">
-              <label htmlFor="price" className="form-label">Prix</label>
-              <input type="number" className="form-control" id="price" />
+              <Field
+                identifier="price"
+                label="price"
+                value={price}
+                type="number"
+                changeField={(identifier, newValue) => {
+                  dispatch(changeInput(identifier, newValue));
+                }}
+              />
             </div>
-            <div className="col-md-4">
-              <label htmlFor="pages" className="form-label">Nbre pages</label>
-              <input type="number" className="form-control" id="pages" />
+            <div className="col-md-4 ">
+              <Field
+                identifier="pages"
+                label="Pages"
+                type="number"
+                value={pages}
+                changeField={(identifier, newValue) => {
+                  dispatch(changeInput(identifier, newValue));
+                }}
+              />
             </div>
             <div className="col-md-12">
-              <label htmlFor="message" className="form-label">Résumé</label>
-              <textarea className="form-control" id="summary" rows="3" />
+              <FieldText
+                identifier="summary"
+                label="Déscription"
+                value={summary}
+                changeField={(identifier, newValue) => {
+                  dispatch(changeInput(identifier, newValue));
+                }}
+              />
             </div>
             <div className="col-12">
               <button type="submit" className="btn btn-warning">Ajouter</button>

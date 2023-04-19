@@ -28,6 +28,7 @@ export const initialState = {
   price: '',
   pages: '',
   summary: '',
+  isbn: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -72,7 +73,7 @@ const reducer = (state = initialState, action = {}) => {
     case CHANGE_INPUT:
       return {
         ...state,
-        [action.id]: action.newValue,
+        [action.identifier]: action.newValue,
       };
     default:
       return state;

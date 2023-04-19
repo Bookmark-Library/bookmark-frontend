@@ -30,7 +30,7 @@ const Field = ({
         onChange={handleChange}
       />
       <label
-        className="label required form-label"
+        className="label form-label"
         htmlFor={identifier}
       >
         {label}
