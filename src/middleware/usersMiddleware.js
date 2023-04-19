@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import axios from 'axios';
 import { saveUserBooks } from '../actions/book';
 // import { fetchFavoriteRecipes } from '../actions/recipes';
@@ -19,8 +20,13 @@ const usersMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response.data);
+          // eslint-disable-next-line no-console
+          // console.log(response.data);
           store.dispatch(saveAuthData(response.data.token));
+
+          // on ajoute le token dans le localstorage
+          localStorage.setItem('token', response.data.token);
+
           // on dispatch une action, pour qu'un middleware aille chercher les infos
           // de l'utilisateur authentifié
           store.dispatch(fetchUserInfo());
@@ -44,7 +50,8 @@ const usersMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
+          localStorage.setItem('pseudo', response.data.alias);
           store.dispatch(SaveUserInfo(
             response.data.alias,
             response.data.avatar,

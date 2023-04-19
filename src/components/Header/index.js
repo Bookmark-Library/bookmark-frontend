@@ -43,12 +43,15 @@ function Header() {
               >
                 Bibliotheque
               </NavLink>
+              {logged
+            && (
               <NavLink
                 to="/user/1"
                 className="linkNav "
               >
                 Profil
               </NavLink>
+            )}
             </ul>
             {logged
             && (
@@ -67,6 +70,8 @@ function Header() {
                 dispatch(submitLogin());
               }}
               handleLogout={() => {
+                localStorage.removeItem('token');
+                localStorage.removeItem('pseudo');
                 dispatch(submitLogout());
               }}
               isLogged={logged}
