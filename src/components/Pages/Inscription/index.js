@@ -52,6 +52,7 @@ function Inscription() {
               identifier="password"
               placeholder=""
               label="password"
+              type="password"
               value={password}
               changeField={(identifier, newValue) => {
                 dispatch(changeInput(identifier, newValue));
