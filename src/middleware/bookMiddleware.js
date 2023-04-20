@@ -40,6 +40,12 @@ const bookMiddleware = (store) => (next) => (action) => {
             },
           ],
         },
+        {
+          headers: {
+            // nom du header: valeur
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        },
       )
         .then((response) => {
           console.log(response.data);

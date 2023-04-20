@@ -5,7 +5,9 @@ import './styles.scss';
 import { Tabs } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { changeTabKey, openModalRate, putCommentInState, putQuoteInState } from '../../../../actions/book';
+import {
+  changeTabKey, openModalRate, putCommentInState, putQuoteInState,
+} from '../../../../actions/book';
 
 function BookTab({
   comment, favorite, finished, purchased, quote, rate, wishlist,

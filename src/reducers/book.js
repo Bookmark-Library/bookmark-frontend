@@ -13,8 +13,8 @@ export const initialState = {
   // dataBook,
   tabKey: 'one',
   ModalRate: false,
-  commentaire: '',
-  citation: '',
+  commentaire: null,
+  citation: null,
   favorite: false,
   purchased: false,
   finished: false,
@@ -22,14 +22,14 @@ export const initialState = {
   /** FORM ADD BOOK */
   title: '',
   lastname: '',
-  firstname: '',
-  editor: '',
-  collection: '',
-  publication_date: '',
-  price: '',
-  pages: '',
-  summary: '',
-  isbn: '',
+  firstname: null,
+  editor: null,
+  collection: null,
+  publication_date: null,
+  price: null,
+  pages: null,
+  summary: null,
+  isbn: null,
 };
 
 const reducer = (state = initialState, action = {}) => {

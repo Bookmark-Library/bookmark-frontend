@@ -21,6 +21,7 @@ import Finished from '../Pages/Library/Finished';
 import Purchased from '../Pages/Library/Purchased';
 import Favorite from '../Pages/Library/Favorite';
 import Wishlist from '../Pages/Library/Wishlist';
+import SuccessModal from '../SuccessModal';
 
 function App() {
   const showModal = useSelector((state) => state.user.showModal);

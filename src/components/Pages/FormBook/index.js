@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { changeInput } from '../../../actions/book';
+import { changeInput, sendBookCreateInApi } from '../../../actions/book';
 import Field from '../../Field';
 import FieldText from '../../FieldText';
 import './styles.scss';
@@ -27,6 +27,7 @@ function FormBook() {
             <div className="col-12">
               <Field
                 identifier="isbn"
+                placeholder="isbn"
                 label="ISBN"
                 value={isbn}
                 type="number"
@@ -41,10 +42,17 @@ function FormBook() {
           </form>
         </div>
         <div className="col-md-5 col-12">
-          <form className="row g-2">
+          <form
+            className="row g-2"
+            onSubmit={(e) => {
+              e.preventDefault();
+              dispatch(sendBookCreateInApi());
+            }}
+          >
             <div className="col-12">
               <Field
                 identifier="title"
+                placeholder="title"
                 label="Titre"
                 value={title}
                 changeField={(identifier, newValue) => {
@@ -55,6 +63,7 @@ function FormBook() {
             <div className="col-md-6">
               <Field
                 identifier="lastname"
+                placeholder="lastname"
                 label="Nom de l'Auteur"
                 value={lastname}
                 changeField={(identifier, newValue) => {
@@ -65,6 +74,7 @@ function FormBook() {
             <div className="col-md-6">
               <Field
                 identifier="firstname"
+                placeholder="firstname"
                 label="Prenom de l'Auteur"
                 value={firstname}
                 changeField={(identifier, newValue) => {
@@ -75,6 +85,7 @@ function FormBook() {
             <div className="col-md-6">
               <Field
                 identifier="editor"
+                placeholder="editeur"
                 label="Nom de l'Editeur"
                 value={editor}
                 changeField={(identifier, newValue) => {
@@ -85,6 +96,7 @@ function FormBook() {
             <div className="col-md-6">
               <Field
                 identifier="collection"
+                placeholder="collection"
                 label="Collection"
                 value={collection}
                 changeField={(identifier, newValue) => {
@@ -102,6 +114,7 @@ function FormBook() {
             <div className="col-md-6">
               <Field
                 identifier="publication_date"
+                placeholder="publication_date"
                 label="Année de publication"
                 value={publication_date}
                 changeField={(identifier, newValue) => {
@@ -112,6 +125,7 @@ function FormBook() {
             <div className="col-md-2">
               <Field
                 identifier="price"
+                placeholder="price"
                 label="Prix"
                 value={price}
                 type="number"
@@ -123,6 +137,7 @@ function FormBook() {
             <div className="col-md-4 ">
               <Field
                 identifier="pages"
+                placeholder="pages"
                 label="Nbre de pages"
                 type="number"
                 value={pages}
@@ -134,6 +149,7 @@ function FormBook() {
             <div className="col-md-12">
               <FieldText
                 identifier="summary"
+                placeholder="summary"
                 label="Résumé"
                 value={summary}
                 changeField={(identifier, newValue) => {
