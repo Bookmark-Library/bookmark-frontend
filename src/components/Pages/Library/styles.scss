@@ -3,10 +3,10 @@
 }
 
 
-.biblio .img-thumbnail{
- /* margin-left: 1em;*/
-  margin-bottom: 1em;
-  max-height: 8rem;
+.bookCard a{
+  display:block;
+  padding: .3em .3em 0 .3em;
+  
 }
 
 .navLibrary{
@@ -40,14 +40,19 @@
   margin-left:1em;
 }
 
-.bookLien{
-  position: relative;
-}
-.bookHeart {
-  position: absolute;
-  left: 6rem;
-  width: 2rem;
-}
 .divBook{
   flex-wrap: wrap;
+}
+
+.bookmark{
+  max-width: 1em;
+  height:auto;
+}
+
+.bookCard .card-title{
+  font-size:1em;
+}
+
+.bookCard .card-footer{
+  border-top:0;
 }

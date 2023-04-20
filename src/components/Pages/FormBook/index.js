@@ -28,7 +28,7 @@ function FormBook() {
               <Field
                 identifier="isbn"
                 placeholder="isbn"
-                label="ISBN"
+                label=""
                 value={isbn}
                 type="number"
                 changeField={(identifier, newValue) => {
@@ -54,6 +54,7 @@ function FormBook() {
                 identifier="title"
                 placeholder=""
                 label="Titre"
+                className="required"
                 value={title}
                 changeField={(identifier, newValue) => {
                   dispatch(changeInput(identifier, newValue));

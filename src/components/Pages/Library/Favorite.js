@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
 
-import bookHeart from '../../../assets/images/favoris.svg';
+import bookHeart from '../../../assets/images/favoris-01.svg';
 
 import './styles.scss';
 
@@ -41,13 +41,19 @@ function Favorite() {
         </div>
         <div className="col-12 col-md-8 col-right">
           <h2>Coups de coeur</h2>
-          <div className="divBook d-flex">
+          <div className="row row-cols-1 row-cols-md-5 g-3">
             {filtredByFavorite
             && filtredByFavorite.map((library) => (
-              <div key={library.book.id} className="bookLien col-12 col-md-2 text-center align-items-center">
-                <Link to={`/bibliotheque/livre/${library.book.id}`}><img src={library.book.image} className="img-thumbnail img-fluid" alt="..." /></Link>
-                <img className="bookHeart" src={bookHeart} alt="" />
-                <div>{library.book.title}</div>
+              <div className="col bookLien text-center" key={library.book.id}>
+                <div className="card h-100">
+                  <Link to={`/bibliotheque/livre/${library.book.id}`}><img src={library.book.image} className="img-fluid" alt="..." /></Link>
+                  <div className="card-body">
+                    <h5 className="card-title">{library.book.title}</h5>
+                  </div>
+                  <div className="card-footer">
+                    <img className="bookmark" src={bookHeart} alt="" />
+                  </div>
+                </div>
               </div>
             ))}
 
