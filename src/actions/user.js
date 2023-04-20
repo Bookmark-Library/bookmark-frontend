@@ -10,6 +10,9 @@ export const SUBMIT_LOGOUT = 'SUBMIT_LOGOUT';
 export const FETCH_USER_INFO = 'FETCH_USER_INFO';
 export const SAVE_USER_INFO = 'SAVE_USER_INFO';
 export const SET_TOKEN_IN_STORAGE = 'SET_TOKEN_IN_STORAGE';
+// Create user
+export const CREATE_USER_IN_API = 'CREATE_USER_IN_API';
+
 export const openModal = () => ({
   type: OPEN_MODAL,
 });
@@ -46,4 +49,9 @@ export const setTokenInStorage = (storage) => ({
 
   type: SET_TOKEN_IN_STORAGE,
   storage: storage,
+});
+
+export const createUserInApi = () => ({
+
+  type: CREATE_USER_IN_API,
 });

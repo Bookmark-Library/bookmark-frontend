@@ -15,6 +15,7 @@ function FormBook() {
   const price = useSelector((state) => state.book.price);
   const pages = useSelector((state) => state.book.pages);
   const isbn = useSelector((state) => state.book.isbn);
+  // eslint-disable-next-line camelcase
   const publication_date = useSelector((state) => state.book.publication_date);
 
   return (
@@ -28,7 +29,7 @@ function FormBook() {
               <Field
                 identifier="isbn"
                 placeholder="isbn"
-                label="ISBN"
+                label=""
                 value={isbn}
                 type="number"
                 changeField={(identifier, newValue) => {
@@ -54,6 +55,7 @@ function FormBook() {
                 identifier="title"
                 placeholder=""
                 label="Titre"
+                className="required"
                 value={title}
                 changeField={(identifier, newValue) => {
                   dispatch(changeInput(identifier, newValue));
@@ -116,6 +118,7 @@ function FormBook() {
                 identifier="publication_date"
                 placeholder=""
                 label="Année de publication"
+                // eslint-disable-next-line camelcase
                 value={publication_date || ''}
                 changeField={(identifier, newValue) => {
                   dispatch(changeInput(identifier, newValue));

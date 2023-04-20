@@ -21,7 +21,7 @@ const FieldText = ({
   return (
     <div className="field">
       <textarea
-        className="input"
+        className="input form-control"
         id={identifier}
         placeholder={placeholder}
         name={identifier}
@@ -30,7 +30,7 @@ const FieldText = ({
         onChange={handleChange}
       />
       <label
-        className="label"
+        className="label form-label"
         htmlFor={identifier}
       >
         {label}

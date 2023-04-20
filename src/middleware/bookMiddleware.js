@@ -54,7 +54,6 @@ const bookMiddleware = (store) => (next) => (action) => {
         .catch((error) => {
           console.log(error);
         });
-        
       break;
     default:
   }
