@@ -7,6 +7,7 @@ import './styles.scss';
 function Book() {
   const { id } = useParams();
   const libraries = useSelector((state) => state.book.libraries);
+  // eslint-disable-next-line eqeqeq
   const bookToDisplay = libraries.find((book) => book.book.id == id);
   // console.log(bookToDisplay);
   return (
@@ -19,9 +20,9 @@ function Book() {
           </div>
           <div className="book-synopsy d-flex flex-column col-md-9">
             <div className="book-author">
-            {bookToDisplay.book.authors.map((author) => (
-              <p key={author.lastname} className="book-author">{author.lastname} {author.firstname}</p>
-            ))}
+              {bookToDisplay.book.authors.map((author) => (
+                <p key={author.lastname} className="book-author">{author.lastname} {author.firstname}</p>
+              ))}
 
             </div>
 

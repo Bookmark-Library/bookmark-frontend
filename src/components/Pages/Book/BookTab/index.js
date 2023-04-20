@@ -25,7 +25,7 @@ function BookTab({
           </p>
           <button
             type="button"
-            className=""
+            className="btn btn-warning"
             onClick={() => {
               dispatch(openModalRate());
             }}

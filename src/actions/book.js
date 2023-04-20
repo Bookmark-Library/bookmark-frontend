@@ -7,12 +7,15 @@ export const CHANGE_RATE_FIELD = 'CHANGE_RATE_FIELD';
 export const PUT_COMMENT_IN_STATE = 'PUT_COMMENT_IN_STATE';
 export const PUT_QUOTE_IN_STATE = 'PUT_QUOTE_IN_STATE';
 
-/** *******BOOKS ***************** */
+/** ******* GET BOOKS ***************** */
 export const ADD_BOOKS_IN_APP = 'ADD_BOOKS_IN_APP';
 export const GET_BOOKS_FROM_API = 'GET_BOOKS_FROM_API';
 export const FETCH_FAVORITE_BOOKS = 'FETCH_FAVORITE_BOOKS';
 export const SAVE_USER_BOOKS = 'SAVE_USER_BOOKS';
 export const CHANGE_INPUT = 'CHANGE_INPUT';
+/** ******* POST BOOK **************** */
+export const SEND_BOOK_CREATE_IN_API = 'SEND_BOOK_CREATE_IN_API';
+export const REMOVE_INPUT = 'REMOVE_INPUT';
 
 export const openModalRate = () => ({
   type: OPEN_MODAL_RATE,
@@ -59,4 +62,12 @@ export const changeInput = (identifier, newValue) => ({
   type: CHANGE_INPUT,
   identifier: identifier,
   newValue: newValue,
+});
+
+export const sendBookCreateInApi = () => ({
+  type: SEND_BOOK_CREATE_IN_API,
+});
+
+export const removeInput = () => ({
+  type: REMOVE_INPUT,
 });
