@@ -52,7 +52,7 @@ function FormBook() {
             <div className="col-12">
               <Field
                 identifier="title"
-                placeholder="title"
+                placeholder=""
                 label="Titre"
                 value={title}
                 changeField={(identifier, newValue) => {
@@ -63,7 +63,7 @@ function FormBook() {
             <div className="col-md-6">
               <Field
                 identifier="lastname"
-                placeholder="lastname"
+                placeholder=""
                 label="Nom de l'Auteur"
                 value={lastname}
                 changeField={(identifier, newValue) => {
@@ -74,9 +74,9 @@ function FormBook() {
             <div className="col-md-6">
               <Field
                 identifier="firstname"
-                placeholder="firstname"
-                label="Prenom de l'Auteur"
-                value={firstname}
+                placeholder=""
+                label="Prénom de l'Auteur"
+                value={firstname || ''}
                 changeField={(identifier, newValue) => {
                   dispatch(changeInput(identifier, newValue));
                 }}
@@ -85,9 +85,9 @@ function FormBook() {
             <div className="col-md-6">
               <Field
                 identifier="editor"
-                placeholder="editeur"
+                placeholder=""
                 label="Nom de l'Editeur"
-                value={editor}
+                value={editor || ''}
                 changeField={(identifier, newValue) => {
                   dispatch(changeInput(identifier, newValue));
                 }}
@@ -96,9 +96,9 @@ function FormBook() {
             <div className="col-md-6">
               <Field
                 identifier="collection"
-                placeholder="collection"
+                placeholder=""
                 label="Collection"
-                value={collection}
+                value={collection || ''}
                 changeField={(identifier, newValue) => {
                   dispatch(changeInput(identifier, newValue));
                 }}
@@ -114,9 +114,9 @@ function FormBook() {
             <div className="col-md-6">
               <Field
                 identifier="publication_date"
-                placeholder="publication_date"
+                placeholder=""
                 label="Année de publication"
-                value={publication_date}
+                value={publication_date || ''}
                 changeField={(identifier, newValue) => {
                   dispatch(changeInput(identifier, newValue));
                 }}
@@ -125,7 +125,7 @@ function FormBook() {
             <div className="col-md-2">
               <Field
                 identifier="price"
-                placeholder="price"
+                placeholder=""
                 label="Prix"
                 value={price}
                 type="number"
@@ -137,7 +137,7 @@ function FormBook() {
             <div className="col-md-4 ">
               <Field
                 identifier="pages"
-                placeholder="pages"
+                placeholder=""
                 label="Nbre de pages"
                 type="number"
                 value={pages}
@@ -149,9 +149,9 @@ function FormBook() {
             <div className="col-md-12">
               <FieldText
                 identifier="summary"
-                placeholder="summary"
+                placeholder=""
                 label="Résumé"
-                value={summary}
+                value={summary || ''}
                 changeField={(identifier, newValue) => {
                   dispatch(changeInput(identifier, newValue));
                 }}

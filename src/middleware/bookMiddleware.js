@@ -30,8 +30,8 @@ const bookMiddleware = (store) => (next) => (action) => {
           editor: store.getState().book.editor,
           collection: store.getState().book.collection,
           publication_date: store.getState().book.publication_date,
-          price: store.getState().book.price,
-          pages: store.getState().book.pages,
+          price: parseInt(store.getState().book.price, 10),
+          pages: parseInt(store.getState().book.pages, 10),
           summary: store.getState().book.summary,
           authors: [
             {
@@ -50,7 +50,11 @@ const bookMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           console.log(response.data);
           store.dispatch(removeInput());
+        })
+        .catch((error) => {
+          console.log(error);
         });
+        
       break;
     default:
   }
