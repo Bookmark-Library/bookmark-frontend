@@ -1,3 +1,4 @@
+import { CHANGE_INPUT, REMOVE_INPUT } from '../actions/book';
 import {
   OPEN_MODAL, CHANGE_SETTINGS_FIELD, CLOSE_MODAL, SAVE_AUTH_DATA, SAVE_USER_INFO, SUBMIT_LOGOUT,
 } from '../actions/user';
@@ -8,7 +9,7 @@ export const initialState = {
   email: '',
   password: '',
   token: localStorage.getItem('token'),
-  avatar: { avatar },
+  avatar: '',
   alias: localStorage.getItem('pseudo'),
 
 };
@@ -53,6 +54,19 @@ const reducer = (state = initialState, action = {}) => {
         token: '',
         email: '',
 
+      };
+    case CHANGE_INPUT:
+      return {
+        ...state,
+        [action.identifier]: action.newValue
+      };
+    case REMOVE_INPUT:
+      return {
+        ...state,
+        alias: '',
+        email: '',
+        password: '',
+        avatar: '',
       };
 
     default:

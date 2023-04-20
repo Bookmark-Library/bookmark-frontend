@@ -1,8 +1,9 @@
 /* eslint-disable no-console */
 import axios from 'axios';
-import { saveUserBooks } from '../actions/book';
+import { removeInput, saveUserBooks } from '../actions/book';
 // import { fetchFavoriteRecipes } from '../actions/recipes';
 import {
+  CREATE_USER_IN_API,
   fetchUserInfo, FETCH_USER_INFO, saveAuthData, SaveUserInfo, SUBMIT_LOGIN,
 } from '../actions/user';
 
@@ -63,6 +64,32 @@ const usersMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           // eslint-disable-next-line no-console
+          console.log(error);
+        });
+      break;
+    case CREATE_USER_IN_API:
+      axios.post(
+        // URL
+        'http://sandy-bouzid.vpnuser.lan:8000/api/users',
+        // options (notamment les headers)
+        {
+          alias: store.getState().user.alias,
+          email: store.getState().user.email,
+          password: store.getState().user.password,
+          avatar: store.getState().user.avatar,
+        },
+        {
+          headers: {
+            // nom du header: valeur
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        },
+      )
+        .then((response) => {
+          console.log(response.data);
+          store.dispatch(removeInput());
+        })
+        .catch((error) => {
           console.log(error);
         });
       break;
