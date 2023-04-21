@@ -9,7 +9,7 @@ import './styles.scss';
 function WishList() {
   const libraries = useSelector((state) => state.book.libraries);
   const logged = useSelector((state) => state.user.logged);
-  const filtredByWishlist = libraries.filter((book) => book.whishlist === true);
+  const filtredByWishlist = libraries.filter((book) => book.wishlist === true);
 
   // For return at the home page when user is not connected
   if (!logged) {
