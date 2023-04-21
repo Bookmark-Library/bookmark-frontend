@@ -11,19 +11,18 @@
 
 }
 
+.navLibrary > li > img{
+  max-width: 1em;
+}
+
 .navLibrary > li > a{
   color:#585857;
   font-weight:600;
   padding:0.4em 0 0.4em 0.5em;
-  display: block;
+  display: inline-block;
 }
 
 .navLibrary a:hover{
   color: #fab334;
 }
-
-
- .navLibrary .bookWish a::after{
-  
- }
 

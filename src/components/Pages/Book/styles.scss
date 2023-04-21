@@ -2,23 +2,41 @@
 }
 
 .book-image{
-  width: 15rem;
   margin-bottom: 3rem ;
+  border:.1em solid #ccc;
+  border-radius: .3em;;
+  padding:0.5em;
 
 }
 .book-title {
   margin-bottom: 2rem;
 }
 .book-author {
-  margin-top: 2rem;
-  font-size: medium;
+
 }
 .book-editor {
   font-size: medium;
 
 }
+.book-synopsy h3{
+  color: #ffbb00;
+  font-weight:500;
+  font-size:1.5em;
+  padding-bottom:.3em;
+}
 
 .book-description {
-  margin-top:2rem ;
-  font-size: large;
+ border-bottom:.1em solid #ccc;
+ padding-bottom:1em;
+}
+
+.linkRetour{
+  color:#14aa9a;
+  display: inline-block;
+  margin-bottom:1em;
+  font-weight:500;
+}
+
+.linkRetour:hover{
+  color:#ffbb00;
 }

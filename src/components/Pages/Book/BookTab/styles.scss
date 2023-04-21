@@ -1,8 +1,19 @@
-.tabs{
-  // background-color: #fff;
-  // box-shadow: 0 0 0.5em 0.2em #dbdbdb ;
-  // border-radius:0.5em;
-  // padding: 1em;
+.tabs ul{
+  background-color: #14aa9a ;
+  /*border-top-right-radius: 0.375em;
+  border-top-left-radius: 0.375em;*/
+}
+
+.tabs .nav-link{
+  border-radius:0 !important;
+  color:#fff;
+  font-weight:500;
+}
+
+.tabs .nav-link:hover{
+  border:none !important;
+  background-color: #242746;
+  color:#fff;
 }
 
 .tab-content{
