@@ -78,12 +78,6 @@ const usersMiddleware = (store) => (next) => (action) => {
           password: store.getState().user.password,
           avatar: store.getState().user.avatar,
         },
-        {
-          headers: {
-            // nom du header: valeur
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-          },
-        },
       )
         .then((response) => {
           console.log(response.data);
