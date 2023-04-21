@@ -10,6 +10,7 @@ import { SUBMIT_LOGOUT } from '../actions/user';
 export const initialState = {
   bookList: [],
   libraries: [],
+  isLoading: true,
   // dataBook,
   tabKey: 'one',
   ModalRate: false,
@@ -75,6 +76,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         libraries: action.userLibrary,
+        isLoading: false,
       };
     case SUBMIT_LOGOUT:
       return {

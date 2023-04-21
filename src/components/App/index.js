@@ -22,10 +22,12 @@ import Purchased from '../Pages/Library/Purchased';
 import Favorite from '../Pages/Library/Favorite';
 import Wishlist from '../Pages/Library/Wishlist';
 import SuccessModal from '../SuccessModal';
+import Loader from '../Loader';
 
 function App() {
   const showModal = useSelector((state) => state.user.showModal);
   const modalRate = useSelector((state) => state.book.modalRate);
+  const isLoading = useSelector((state) => state.book.isLoading);
 
   const dispatch = useDispatch();
 
@@ -38,6 +40,7 @@ function App() {
     <div className="app">
 
       <Header />
+      {isLoading && <Loader />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/mentions-legales" element={<LegalNotice />} />
@@ -47,15 +50,15 @@ function App() {
         <Route path="/bibliotheque/a-lire" element={<Purchased />} />
         <Route path="/bibliotheque/envies" element={<Wishlist />} />
         <Route path="/bibliotheque/favoris" element={<Favorite />} />
-
-        <Route path="/bibliotheque/livre/:id" element={<Book />} />
+        { (!isLoading)
+      && (<Route path="/bibliotheque/livre/:id" element={<Book />} />)}
         <Route path="/user/:pseudo" element={<User />} />
         <Route path="/inscription" element={<Inscription />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
       {showModal
       && <ModalConnexion />}
-      {modalRate && <ModalRate /> }
+      {modalRate && <ModalRate />}
       <Footer />
     </div>
   );
