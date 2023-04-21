@@ -1,7 +1,8 @@
 import { useSelector } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
 
-import bookPurchased from '../../../assets/images/lire.svg';
+import bookHeart from '../../../assets/images/favoris-01.svg';
+import bookWish from '../../../assets/images/wishlist.svg';
 import MenuLeft from './MenuLeft';
 
 import './styles.scss';
@@ -26,13 +27,14 @@ function Purchased() {
             {filtredByPurchased
             && filtredByPurchased.map((library) => (
               <div key={library.book.id} className="col bookCard text-center border-warning">
-                <div className="card h-100">
+                <div className="card h-100 border-warning">
                   <Link to={`/bibliotheque/livre/${library.book.id}`}><img src={library.book.image} className="img-fluid" alt="..." /></Link>
                   <div className="card-body">
                     <h5 className="card-title">{library.book.title}</h5>
                   </div>
-                  <div className="card-footer bg-warning">
-                    <img className="bookmark" src={bookPurchased} alt="" />
+                  <div className={library.finished ? 'card-footer bg-warning' : 'card-footer'}>
+                    {library.favorite && <img className="bookmark" src={bookHeart} alt="" />}
+                    {library.wishlist && <img className="bookmark" src={bookWish} alt="" />}
                   </div>
                 </div>
               </div>
