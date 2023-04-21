@@ -44,13 +44,13 @@ function Favorite() {
           <div className="row row-cols-1 row-cols-md-5 g-3">
             {filtredByFavorite
             && filtredByFavorite.map((library) => (
-              <div className="col bookLien text-center" key={library.book.id}>
+              <div className="col bookCard text-center border-warning" key={library.book.id}>
                 <div className="card h-100">
                   <Link to={`/bibliotheque/livre/${library.book.id}`}><img src={library.book.image} className="img-fluid" alt="..." /></Link>
                   <div className="card-body">
                     <h5 className="card-title">{library.book.title}</h5>
                   </div>
-                  <div className="card-footer">
+                  <div className="card-footer bg-warning">
                     <img className="bookmark" src={bookHeart} alt="" />
                   </div>
                 </div>
