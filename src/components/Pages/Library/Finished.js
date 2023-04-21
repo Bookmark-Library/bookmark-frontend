@@ -25,8 +25,7 @@ function Finished() {
                   <div className="card-body">
                     <h5 className="card-title">{library.book.title}</h5>
                   </div>
-                  <div className="card-footer bg-warning">
-                    <img className="bookmark" src={bookFinished} alt="" />
+                  <div className="card-footer">
                   </div>
                 </div>
               </div>
