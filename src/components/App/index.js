@@ -10,7 +10,6 @@ import Library from '../Pages/Library';
 import FormBook from '../Pages/FormBook';
 
 import './styles.scss';
-import ModalConnexion from '../Header/ModalConnexion';
 import User from '../Pages/User';
 import Inscription from '../Pages/Inscription';
 import Contact from '../Pages/Contact';
@@ -21,8 +20,8 @@ import Finished from '../Pages/Library/Finished';
 import Purchased from '../Pages/Library/Purchased';
 import Favorite from '../Pages/Library/Favorite';
 import Wishlist from '../Pages/Library/Wishlist';
-import SuccessModal from '../SuccessModal';
 import Loader from '../Loader';
+import ModalPassword from '../Pages/User/ModalPassword';
 
 function App() {
   const showModal = useSelector((state) => state.user.showModal);
@@ -40,24 +39,29 @@ function App() {
     <div className="app">
 
       <Header />
-      {isLoading && <Loader />}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/mentions-legales" element={<LegalNotice />} />
-        <Route path="/ajout-livre" element={<FormBook />} />
-        <Route path="/bibliotheque" element={<Library />} />
-        <Route path="/bibliotheque/lus" element={<Finished />} />
-        <Route path="/bibliotheque/a-lire" element={<Purchased />} />
-        <Route path="/bibliotheque/envies" element={<Wishlist />} />
-        <Route path="/bibliotheque/favoris" element={<Favorite />} />
-        { (!isLoading)
-      && (<Route path="/bibliotheque/livre/:id" element={<Book />} />)}
-        <Route path="/user/:pseudo" element={<User />} />
-        <Route path="/inscription" element={<Inscription />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+      {(isLoading) && <Loader />}
+      {
+        (!isLoading) && (
+
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/mentions-legales" element={<LegalNotice />} />
+            <Route path="/ajout-livre" element={<FormBook />} />
+            <Route path="/bibliotheque" element={<Library />} />
+            <Route path="/bibliotheque/lus" element={<Finished />} />
+            <Route path="/bibliotheque/a-lire" element={<Purchased />} />
+            <Route path="/bibliotheque/envies" element={<Wishlist />} />
+            <Route path="/bibliotheque/favoris" element={<Favorite />} />
+            <Route path="/bibliotheque/livre/:id" element={<Book />} />
+            <Route path="/user/:pseudo" element={<User />} />
+            <Route path="/inscription" element={<Inscription />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        )
+      }
+
       {showModal
-      && <ModalConnexion />}
+        && <ModalPassword />}
       {modalRate && <ModalRate />}
       <Footer />
     </div>

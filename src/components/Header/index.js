@@ -37,21 +37,14 @@ function Header() {
                   Accueil
                 </NavLink>
               </li>
+              {logged && (
               <NavLink
                 to="/bibliotheque"
                 className="linkNav "
               >
                 Bibliotheque
               </NavLink>
-              {/* {logged
-            && (
-              <NavLink
-                to={`/user/${alias}`}
-                className="linkNav "
-              >
-                Profil
-              </NavLink>
-            )} */}
+              )}
             </ul>
             {logged
             && (
