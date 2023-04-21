@@ -12,11 +12,11 @@ function MenuLeft() {
         ajouter un livre
       </Link>
       <ul className="navLibrary mt-3">
-        <li><Link to="/bibliotheque" className="allBookLink">Tous mes livres</Link></li>
-        <li><Link to="/bibliotheque/lus">Livres lus</Link></li>
-        <li><Link to="/bibliotheque/a-lire">Pile à lire</Link></li>
-        <li><Link to="/bibliotheque/envies">Mes envies</Link></li>
-        <li><Link to="/bibliotheque/favoris">Coups de coeurs</Link></li>
+        <li className="allBookLink"><Link to="/bibliotheque">Tous mes livres</Link></li>
+        <li className="bookFinished"><Link to="/bibliotheque/lus">Livres lus</Link></li>
+        <li className="bookPurchased"><Link to="/bibliotheque/a-lire">Pile à lire</Link></li>
+        <li className="bookWish"><Link to="/bibliotheque/envies">Mes envies </Link></li>
+        <li className="bookFavorite"><Link to="/bibliotheque/favoris">Coups de coeurs</Link></li>
       </ul>
       <select className="form-select form-select-sm" aria-label=".form-select-sm example">
         <option defaultValue>Recherche par...</option>

@@ -8,15 +8,22 @@
 
 .navLibrary > li{
   border-bottom: 0.1em solid #c9c9c9;
-  padding:0.4em 0;
+
 }
 
-.navLibrary a{
+.navLibrary > li > a{
   color:#585857;
   font-weight:600;
+  padding:0.4em 0 0.4em 0.5em;
+  display: block;
 }
 
 .navLibrary a:hover{
   color: #fab334;
 }
+
+
+ .navLibrary .bookWish a::after{
+  
+ }
 

@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import bookHeart from '../../../assets/images/favoris-01.svg';
+import bookWish from '../../../assets/images/wishlist.svg';
 
 import './styles.scss';
 
@@ -24,8 +25,9 @@ function All() {
                 <h5 className="card-title">{library.book.title}</h5>
               </div>
 
-              <div className={library.finished ? 'card-footer' : 'card-footer bg-warning'}>
+              <div className={library.finished ? 'card-footer bg-warning' : 'card-footer'}>
                 {library.favorite && <img className="bookmark" src={bookHeart} alt="" />}
+                {library.wishlist && <img className="bookmark" src={bookWish} alt="" />}
               </div>
             </div>
           </div>
