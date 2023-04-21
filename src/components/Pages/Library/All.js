@@ -23,7 +23,8 @@ function All() {
               <div className="card-body">
                 <h5 className="card-title">{library.book.title}</h5>
               </div>
-              <div className="card-footer bg-warning">
+
+              <div className={library.finished ? 'card-footer' : 'card-footer bg-warning'}>
                 {library.favorite && <img className="bookmark" src={bookHeart} alt="" />}
               </div>
             </div>
