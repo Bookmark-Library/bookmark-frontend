@@ -33,7 +33,7 @@ function App() {
 
   useEffect(() => {
     // dispatch(getBooksFromApi());
-    dispatch(fetchUserInfo());
+    // dispatch(fetchUserInfo());
   }, []);
 
   return (

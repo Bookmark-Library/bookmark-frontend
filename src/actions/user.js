@@ -18,6 +18,8 @@ export const UPDATE_USER_IN_API = 'UPDATE_USER_IN_API';
 export const DELETE_USER = 'DELETE_USER';
 // update user in state and local storage
 export const UPDATE_USER = 'UPDATE_USER';
+// Errors
+export const UPDATE_FORM_ERRORS = 'UPDATE_FORM_ERRORS';
 
 export const openModal = () => ({
   type: OPEN_MODAL,
@@ -78,4 +80,9 @@ export const updateUser = (alias, avatar, email) => ({
   alias: alias,
   avatar: avatar,
   email: email,
+});
+
+export const updateFormErrors = (errors) => ({
+  type: 'UPDATE_FORM_ERRORS',
+  errors: errors,
 });

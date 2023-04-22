@@ -1,7 +1,7 @@
 import { CHANGE_INPUT, REMOVE_INPUT } from '../actions/book';
 import {
   OPEN_MODAL, CHANGE_SETTINGS_FIELD, CLOSE_MODAL,
-  SAVE_AUTH_DATA, SAVE_USER_INFO, SUBMIT_LOGOUT, DELETE_USER, UPDATE_USER,
+  SAVE_AUTH_DATA, SAVE_USER_INFO, SUBMIT_LOGOUT, DELETE_USER, UPDATE_USER, UPDATE_FORM_ERRORS,
 } from '../actions/user';
 
 export const initialState = {
@@ -12,6 +12,7 @@ export const initialState = {
   avatar: '',
   alias: localStorage.getItem('pseudo'),
   showModal: false,
+  formErrors: {},
 
 };
 
@@ -86,7 +87,12 @@ const reducer = (state = initialState, action = {}) => {
         avatar: action.avatar,
         email: action.email,
       };
+    case UPDATE_FORM_ERRORS:
+      return {
+        ...state,
+        formErrors: action.errors,
 
+      };
     default:
       return state;
   }
