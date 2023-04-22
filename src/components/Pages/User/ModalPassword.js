@@ -3,12 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import Field from 'src/components/Field';
 
 import Modal from 'react-bootstrap/Modal';
-import { changeSettingsField, closeModal, submitLogin } from '../../actions/user';
+import { changeSettingsField, closeModal, submitLogin } from '../../../actions/user';
 
-function ModalConnexion() {
+function ModalPassword() {
   const dispatch = useDispatch();
   const showModal = useSelector((state) => state.user.showModal);
-  const emailValue = useSelector((state) => state.user.email);
   const passwordValue = useSelector((state) => state.user.password);
   return (
     <Modal
@@ -23,27 +22,17 @@ function ModalConnexion() {
       keyboard={false}
     >
       <Modal.Header closeButton>
-        <Modal.Title>Connexion</Modal.Title>
+        <Modal.Title>Nouveau mot de passe</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <form
           className="settings-form"
           onSubmit={(e) => {
             e.preventDefault();
-            dispatch(submitLogin())
+            dispatch(submitLogin());
             console.log('c\'est le moment de faire ma requête !');
           }}
         >
-          <Field
-            required
-            identifier="email"
-            placeholder="E-mail"
-            label="Email"
-            value={emailValue}
-            changeField={(identifier, newValue) => {
-              dispatch(changeSettingsField(identifier, newValue));
-            }}
-          />
           <Field
             required
             identifier="password"
@@ -56,7 +45,7 @@ function ModalConnexion() {
             type="password"
           />
           <div className="col-12">
-            <button type="submit" className="btn btn-warning">Connexion</button>
+            <button type="submit" className="btn btn-warning">Enregistrer</button>
           </div>
         </form>
       </Modal.Body>
@@ -65,4 +54,4 @@ function ModalConnexion() {
   );
 }
 
-export default ModalConnexion;
+export default ModalPassword;

@@ -1,13 +1,20 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import './styles.scss';
 // import avatar from '../../../assets/images/user-128.png';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+import Field from '../../Field';
+import { changeInput } from '../../../actions/book';
+import {
+  deleteUserInApi, openModal, submitLogout, updateUser, updateUserInApi,
+} from '../../../actions/user';
 
 const User = () => {
+  const dispatch = useDispatch();
+
   const avatar = useSelector((state) => state.user.avatar);
   const alias = useSelector((state) => state.user.alias);
-  const emailValue = useSelector((state) => state.user.email);
+  const email = useSelector((state) => state.user.email);
   const logged = useSelector((state) => state.user.logged);
 
   if (!logged) {
@@ -17,40 +24,90 @@ const User = () => {
     <div className="container userProfil">
       <div className="row col-12 col-md-6 userRow">
         <div className="col-md-12 text-center">
+
           <h2>Informations personnelles</h2>
-          <img src={avatar} className="img-thumbnail img-fluid" alt="..." />
+          <div className="row">
+            <img src={avatar} className="img-thumbnail img-fluid mx-auto d-block" alt="..." />
+            <button
+              type="button"
+              className="btn btn-link"
+              onClick={() => {
+                dispatch(openModal());
+              }}
+            >
+              Modifier votre mot de passe
+            </button>
+          </div>
         </div>
 
         <form className="row g-3">
           <div className="col-md-12">
-            <input
-              className="form-control form-control-sm"
-              type="file"
-              id="avatar"
-              name="avatar"
-              accept="image/png, image/jpeg"
-            />
+            <div className="col-md-12">
+              <Field
+                identifier="avatar"
+                placeholder="Coller l'url de votre image"
+                label="Avatar"
+                value={avatar}
+                changeField={(identifier, newValue) => {
+                  dispatch(changeInput(identifier, newValue));
+                }}
+              />
+            </div>
             <div className="row">
               <div className="col-md-6">
-                <label htmlFor="email" className="form-label">Email</label>
-                <input
-                  value={emailValue}
-                  type="email"
-                  className="form-control"
-                  id="email"
+                <Field
+                  identifier="email"
+                  label="Email"
+                  placeholder=""
+                  value={email}
+                  changeField={(identifier, newValue) => {
+                    dispatch(changeInput(identifier, newValue));
+                  }}
                 />
               </div>
               <div className="col-md-6">
-                <label htmlFor="pseudo" className="form-label">Pseudo</label>
-                <input
+                <Field
+                  identifier="alias"
                   value={alias}
-                  type="text"
-                  className="form-control"
-                  id="pseudo"
+                  placeholder=""
+                  label="Alias"
+                  changeField={(identifier, newValue) => {
+                    dispatch(changeInput(identifier, newValue));
+                  }}
                 />
               </div>
               <div className="col-12">
-                <button type="submit" className="btn btn-warning">Enregistrer</button>
+                <button type="button" className="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Enregistrer</button>
+                <div className="dropdown-menu">
+                  <button
+                    type="submit"
+                    className="dropdown-item"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      dispatch(updateUserInApi());
+                      dispatch(updateUser());
+                    }}
+                  >
+                    Oui, je veux enregistrer les modifications
+                  </button>
+                </div>
+                <button type="button" className="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Supprimer</button>
+                <div className="dropdown-menu">
+                  <button
+                    type="submit"
+                    className="dropdown-item"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      dispatch(deleteUserInApi());
+                      dispatch(submitLogout());
+                      localStorage.removeItem('token');
+                      localStorage.removeItem('pseudo');
+                      localStorage.removeItem('bibliotheque');
+                    }}
+                  >
+                    Oui, je veux supprimer
+                  </button>
+                </div>
               </div>
             </div>
           </div>

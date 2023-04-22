@@ -4,7 +4,10 @@ import { removeInput, saveUserBooks } from '../actions/book';
 // import { fetchFavoriteRecipes } from '../actions/recipes';
 import {
   CREATE_USER_IN_API,
-  fetchUserInfo, FETCH_USER_INFO, saveAuthData, SaveUserInfo, SUBMIT_LOGIN,
+  deleteUser,
+  DELETE_USER_IN_API,
+  fetchUserInfo, FETCH_USER_INFO, saveAuthData,
+  SaveUserInfo, SUBMIT_LOGIN, updateUser, UPDATE_USER_IN_API,
 } from '../actions/user';
 
 const usersMiddleware = (store) => (next) => (action) => {
@@ -13,6 +16,7 @@ const usersMiddleware = (store) => (next) => (action) => {
     case SUBMIT_LOGIN:
       axios.post(
         // url
+        // 'http://laurent-finana.vpnuser.lan:8000/api/login_check',
         'http://sandy-bouzid.vpnuser.lan:8000/api/login_check',
         // données
         {
@@ -57,6 +61,7 @@ const usersMiddleware = (store) => (next) => (action) => {
           store.dispatch(SaveUserInfo(
             response.data.alias,
             response.data.avatar,
+            response.data.email,
           ));
           store.dispatch(saveUserBooks(
             response.data.libraries,
@@ -82,6 +87,51 @@ const usersMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           console.log(response.data);
           store.dispatch(removeInput());
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+    case DELETE_USER_IN_API:
+      axios.delete(
+        // URL
+        'http://sandy-bouzid.vpnuser.lan:8000/api/users',
+        // options (notamment les headers)
+        {
+          headers: {
+            // nom du header: valeur
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        },
+      )
+        .then((response) => {
+          console.log(response.data);
+          store.dispatch(deleteUser());
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+    case UPDATE_USER_IN_API:
+      axios.put(
+        // URL
+        'http://sandy-bouzid.vpnuser.lan:8000/api/users',
+        // options (notamment les headers)
+        {
+          alias: store.getState().user.alias,
+          email: store.getState().user.email,
+          avatar: store.getState().user.avatar,
+        },
+        {
+          headers: {
+            // nom du header: valeur
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        },
+      )
+        .then((response) => {
+          console.log(response.data);
+          store.dispatch(updateUser());
         })
         .catch((error) => {
           console.log(error);

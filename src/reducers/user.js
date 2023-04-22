@@ -1,8 +1,8 @@
 import { CHANGE_INPUT, REMOVE_INPUT } from '../actions/book';
 import {
-  OPEN_MODAL, CHANGE_SETTINGS_FIELD, CLOSE_MODAL, SAVE_AUTH_DATA, SAVE_USER_INFO, SUBMIT_LOGOUT,
+  OPEN_MODAL, CHANGE_SETTINGS_FIELD, CLOSE_MODAL,
+  SAVE_AUTH_DATA, SAVE_USER_INFO, SUBMIT_LOGOUT, DELETE_USER, UPDATE_USER,
 } from '../actions/user';
-import avatar from '../assets/images/user-128.png';
 
 export const initialState = {
   logged: !!localStorage.getItem('token'),
@@ -11,6 +11,7 @@ export const initialState = {
   token: localStorage.getItem('token'),
   avatar: '',
   alias: localStorage.getItem('pseudo'),
+  showModal: false,
 
 };
 
@@ -19,7 +20,7 @@ const reducer = (state = initialState, action = {}) => {
     case OPEN_MODAL:
       return {
         ...state,
-        showModal: !state.showModal,
+        showModal: true,
       };
     case CLOSE_MODAL:
       return {
@@ -44,7 +45,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         alias: action.alias,
         avatar: action.avatar,
-        id: action.id,
+        email: action.email,
       };
     case SUBMIT_LOGOUT:
       return {
@@ -58,7 +59,7 @@ const reducer = (state = initialState, action = {}) => {
     case CHANGE_INPUT:
       return {
         ...state,
-        [action.identifier]: action.newValue
+        [action.identifier]: action.newValue,
       };
     case REMOVE_INPUT:
       return {
@@ -67,6 +68,23 @@ const reducer = (state = initialState, action = {}) => {
         email: '',
         password: '',
         avatar: '',
+      };
+    case DELETE_USER:
+      return {
+        ...state,
+        alias: '',
+        email: '',
+        password: '',
+        avatar: '',
+        token: '',
+        logged: false,
+      };
+    case UPDATE_USER:
+      return {
+        ...state,
+        alias: action.alias,
+        avatar: action.avatar,
+        email: action.email,
       };
 
     default:

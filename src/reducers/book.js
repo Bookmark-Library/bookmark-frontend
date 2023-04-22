@@ -1,5 +1,3 @@
-// import dataBook from '../../utils/bookData';
-
 import {
   CHANGE_RATE_FIELD, CHANGE_TAB_KEY, CLOSE_MODAL_RATE, OPEN_MODAL_RATE,
   ADD_BOOKS_IN_APP, SAVE_USER_BOOKS, CHANGE_INPUT,
@@ -11,7 +9,6 @@ export const initialState = {
   bookList: [],
   libraries: [],
   isLoading: true,
-  // dataBook,
   tabKey: 'one',
   ModalRate: false,
   commentaire: '',

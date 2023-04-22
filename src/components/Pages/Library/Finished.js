@@ -1,7 +1,5 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-
-import bookFinished from '../../../assets/images/lu.svg';
 import bookHeart from '../../../assets/images/favoris-01.svg';
 import bookWish from '../../../assets/images/wishlist.svg';
 import MenuLeft from './MenuLeft';

@@ -12,6 +12,12 @@ export const SAVE_USER_INFO = 'SAVE_USER_INFO';
 export const SET_TOKEN_IN_STORAGE = 'SET_TOKEN_IN_STORAGE';
 // Create user
 export const CREATE_USER_IN_API = 'CREATE_USER_IN_API';
+export const DELETE_USER_IN_API = 'DELETE_USER_IN_API';
+export const UPDATE_USER_IN_API = 'UPDATE_USER_IN_API';
+// delete user in state and local storage
+export const DELETE_USER = 'DELETE_USER';
+// update user in state and local storage
+export const UPDATE_USER = 'UPDATE_USER';
 
 export const openModal = () => ({
   type: OPEN_MODAL,
@@ -38,11 +44,11 @@ export const submitLogout = () => ({
 export const fetchUserInfo = () => ({
   type: FETCH_USER_INFO,
 });
-export const SaveUserInfo = (alias, avatar, id) => ({
+export const SaveUserInfo = (alias, avatar, email) => ({
   type: SAVE_USER_INFO,
   alias: alias,
   avatar: avatar,
-  id: id,
+  email: email,
 });
 
 export const setTokenInStorage = (storage) => ({
@@ -52,6 +58,24 @@ export const setTokenInStorage = (storage) => ({
 });
 
 export const createUserInApi = () => ({
-
   type: CREATE_USER_IN_API,
+});
+
+export const updateUserInApi = () => ({
+  type: UPDATE_USER_IN_API,
+});
+
+export const deleteUserInApi = () => ({
+  type: DELETE_USER_IN_API,
+});
+
+export const deleteUser = () => ({
+  type: DELETE_USER,
+});
+
+export const updateUser = (alias, avatar, email) => ({
+  type: UPDATE_USER,
+  alias: alias,
+  avatar: avatar,
+  email: email,
 });

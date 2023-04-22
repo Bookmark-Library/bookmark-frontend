@@ -29,7 +29,7 @@ function Inscription() {
               <Field
                 identifier="alias"
                 placeholder=""
-                label="alias"
+                label="Alias"
                 value={alias}
                 changeField={(identifier, newValue) => {
                   dispatch(changeInput(identifier, newValue));
@@ -40,7 +40,7 @@ function Inscription() {
             <Field
               identifier="email"
               placeholder=""
-              label="email"
+              label="Email"
               value={email}
               changeField={(identifier, newValue) => {
                 dispatch(changeInput(identifier, newValue));
@@ -51,7 +51,7 @@ function Inscription() {
             <Field
               identifier="password"
               placeholder=""
-              label="password"
+              label="Mot de passe"
               type="password"
               value={password}
               changeField={(identifier, newValue) => {
@@ -64,7 +64,7 @@ function Inscription() {
             <Field
               identifier="avatar"
               placeholder="Coller l'url de votre image"
-              label="avatar"
+              label="Avatar"
               value={avatar}
               changeField={(identifier, newValue) => {
                 dispatch(changeInput(identifier, newValue));

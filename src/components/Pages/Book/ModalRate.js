@@ -12,7 +12,7 @@ function ModalRate() {
   const citation = useSelector((state) => state.book.citation);
   return (
     <Modal
-      size="md"
+      size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
       show={modalRate}
@@ -27,7 +27,7 @@ function ModalRate() {
       </Modal.Header>
       <Modal.Body>
         <form
-          className="settings-form"
+          className="settings-form g-2"
           onSubmit={(e) => {
             e.preventDefault();
             console.log('c\'est le moment de faire ma requête !');
@@ -52,50 +52,70 @@ function ModalRate() {
             }}
           />
           <div className="form-check form-check-inline">
-            <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
-            <label className="form-check-label" htmlFor="inlineCheckbox1">Lu</label>
+
+            <label className="form-check-label" htmlFor="inlineCheckbox1">Lu
+              <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
+            </label>
           </div>
           <div className="form-check form-check-inline">
-            <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" />
-            <label className="form-check-label" htmlFor="inlineCheckbox2">A lire</label>
+
+            <label className="form-check-label" htmlFor="inlineCheckbox2">A lire
+              <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" />
+            </label>
           </div>
           <div className="form-check form-check-inline">
-            <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" />
-            <label className="form-check-label" htmlFor="inlineCheckbox3">Acheté</label>
+
+            <label className="form-check-label" htmlFor="inlineCheckbox3">Acheté
+              <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" />
+            </label>
           </div>
           <div className="form-check form-check-inline">
-            <input className="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4" />
-            <label className="form-check-label" htmlFor="inlineCheckbox4">Mes envies</label>
+
+            <label className="form-check-label" htmlFor="inlineCheckbox4">Mes envies
+              <input className="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4" />
+            </label>
           </div>
           <div className="form-check form-check-inline">
-            <input className="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5" />
-            <label className="form-check-label" htmlFor="inlineCheckbox5">Coup de coeur</label>
+
+            <label className="form-check-label" htmlFor="inlineCheckbox5">Coup de coeur
+              <input className="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5" />
+            </label>
           </div>
           <p>Notez votre livre</p>
           <div className="form-check form-check-inline">
-            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
-            <label className="form-check-label" htmlFor="inlineRadio1">1</label>
+
+            <label className="form-check-label" htmlFor="inlineRadio1">1
+              <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+            </label>
           </div>
           <div className="form-check form-check-inline">
-            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-            <label className="form-check-label" htmlFor="inlineRadio2">2</label>
+
+            <label className="form-check-label" htmlFor="inlineRadio2">2
+              <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+            </label>
           </div>
           <div className="form-check form-check-inline">
-            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
-            <label className="form-check-label" htmlFor="inlineRadio3">3</label>
+
+            <label className="form-check-label" htmlFor="inlineRadio3">3
+              <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
+            </label>
           </div>
           <div className="form-check form-check-inline">
-            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4" />
-            <label className="form-check-label" htmlFor="inlineRadio4">4</label>
+
+            <label className="form-check-label" htmlFor="inlineRadio4">4
+              <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4" />
+            </label>
           </div>
           <div className="form-check form-check-inline">
-            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5" />
-            <label className="form-check-label" htmlFor="inlineRadio5">5</label>
+
+            <label className="form-check-label" htmlFor="inlineRadio5">5
+              <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5" />
+            </label>
           </div>
 
-          <div className="col-12">
+          <Modal.Footer>
             <button type="submit" className="btn btn-warning">Confirmer</button>
-          </div>
+          </Modal.Footer>
         </form>
       </Modal.Body>
     </Modal>
