@@ -16,6 +16,7 @@ const usersMiddleware = (store) => (next) => (action) => {
     case SUBMIT_LOGIN:
       axios.post(
         // url
+        // 'http://laurent-finana.vpnuser.lan:8000/api/login_check',
         'http://sandy-bouzid.vpnuser.lan:8000/api/login_check',
         // données
         {

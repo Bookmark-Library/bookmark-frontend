@@ -39,26 +39,26 @@ function App() {
     <div className="app">
 
       <Header />
-      {(isLoading) && <Loader />}
+      {/* {(isLoading) && <Loader />}
       {
-        (!isLoading) && (
+        (!isLoading) && ( */}
 
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/mentions-legales" element={<LegalNotice />} />
-            <Route path="/ajout-livre" element={<FormBook />} />
-            <Route path="/bibliotheque" element={<Library />} />
-            <Route path="/bibliotheque/lus" element={<Finished />} />
-            <Route path="/bibliotheque/a-lire" element={<Purchased />} />
-            <Route path="/bibliotheque/envies" element={<Wishlist />} />
-            <Route path="/bibliotheque/favoris" element={<Favorite />} />
-            <Route path="/bibliotheque/livre/:id" element={<Book />} />
-            <Route path="/user/:pseudo" element={<User />} />
-            <Route path="/inscription" element={<Inscription />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        )
-      }
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/mentions-legales" element={<LegalNotice />} />
+        <Route path="/ajout-livre" element={<FormBook />} />
+        <Route path="/bibliotheque" element={<Library />} />
+        <Route path="/bibliotheque/lus" element={<Finished />} />
+        <Route path="/bibliotheque/a-lire" element={<Purchased />} />
+        <Route path="/bibliotheque/envies" element={<Wishlist />} />
+        <Route path="/bibliotheque/favoris" element={<Favorite />} />
+        <Route path="/bibliotheque/livre/:id" element={<Book />} />
+        <Route path="/user/:pseudo" element={<User />} />
+        <Route path="/inscription" element={<Inscription />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+      {/* )
+      } */}
 
       {showModal
         && <ModalPassword />}
