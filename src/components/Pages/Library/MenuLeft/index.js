@@ -20,7 +20,7 @@ function MenuLeft() {
         <li className="allBookLink"><Link to="/bibliotheque">Tous mes livres</Link></li>
         <li className="bookFinished"><img src={bookLu} className="img-fluid" alt="..." /><Link to="/bibliotheque/lus">Livres lus</Link></li>
         <li className="bookPurchased"><img src={bookLire} className="img-fluid" alt="..." /><Link to="/bibliotheque/a-lire">Pile à lire</Link></li>
-        <li className="bookPurchased"><Link to="/bibliotheque/livres-achetes">Achetés</Link></li>
+        <li className="bookPurchased"><Link to="/bibliotheque/achetes">Achetés</Link></li>
         <li className="bookWish"><img src={bookWish} className="img-fluid" alt="..." /><Link to="/bibliotheque/envies">Mes envies </Link></li>
         <li className="bookFavorite"><img src={bookHeart} className="img-fluid" alt="..." /><Link to="/bibliotheque/favoris">Coups de coeur</Link></li>
       </ul>

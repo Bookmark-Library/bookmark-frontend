@@ -7,10 +7,11 @@ import MenuLeft from './MenuLeft';
 
 import './styles.scss';
 
-function Purchased() {
+function ToRead() {
   const libraries = useSelector((state) => state.book.libraries);
   const logged = useSelector((state) => state.user.logged);
-  const filtredByPurchased = libraries.filter((book) => book.purchased === true);
+  const filtredByPurchased = libraries.filter((book) => book.purchased === true
+  && book.finished === false);
 
   // For return at the home page when user is not connected
   if (!logged) {
@@ -47,4 +48,4 @@ function Purchased() {
   );
 }
 
-export default Purchased;
+export default ToRead;

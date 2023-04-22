@@ -22,6 +22,7 @@ import Favorite from '../Pages/Library/Favorite';
 import Wishlist from '../Pages/Library/Wishlist';
 import Loader from '../Loader';
 import ModalPassword from '../Pages/User/ModalPassword';
+import ToRead from '../Pages/Library/ToRead';
 
 function App() {
   const showModal = useSelector((state) => state.user.showModal);
@@ -49,7 +50,9 @@ function App() {
         <Route path="/ajout-livre" element={<FormBook />} />
         <Route path="/bibliotheque" element={<Library />} />
         <Route path="/bibliotheque/lus" element={<Finished />} />
-        <Route path="/bibliotheque/a-lire" element={<Purchased />} />
+        <Route path="/bibliotheque/achetes" element={<Purchased />} />
+
+        <Route path="/bibliotheque/a-lire" element={<ToRead />} />
         <Route path="/bibliotheque/envies" element={<Wishlist />} />
         <Route path="/bibliotheque/favoris" element={<Favorite />} />
         <Route path="/bibliotheque/livre/:id" element={<Book />} />
