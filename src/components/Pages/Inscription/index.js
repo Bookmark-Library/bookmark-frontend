@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-indent */
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,6 +14,7 @@ function Inscription() {
   const password = useSelector((state) => state.user.password);
   const avatar = useSelector((state) => state.user.avatar);
   const formErrors = useSelector((state) => state.user.formErrors);
+
   const validateForm = () => {
     const errors = {};
     // Vérifier les champs obligatoires
@@ -32,7 +34,7 @@ function Inscription() {
     }
     // Vérification du format du password
     const regExPassaword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
-    if(password && !regExPassaword.test(password)) {
+    if (password && !regExPassaword.test(password)) {
       errors.password = 'Le mot de passe doit comporter au moins 8 caractères, une majuscule, un chiffre et un caractère spécial';
     }
 
