@@ -1,13 +1,13 @@
 import {
   CHANGE_RATE_FIELD, CHANGE_TAB_KEY, CLOSE_MODAL_RATE, OPEN_MODAL_RATE,
   ADD_BOOKS_IN_APP, SAVE_USER_BOOKS, CHANGE_INPUT,
-  PUT_COMMENT_IN_STATE, PUT_QUOTE_IN_STATE, REMOVE_INPUT,
+  PUT_COMMENT_IN_STATE, PUT_QUOTE_IN_STATE, REMOVE_INPUT_BOOK_FORM,
 } from '../actions/book';
 import { SUBMIT_LOGOUT } from '../actions/user';
 
 export const initialState = {
   bookList: [],
-  libraries: [],
+  libraries: localStorage.getItem('bibliotheque') || [],
   isLoading: true,
   tabKey: 'one',
   ModalRate: false,
@@ -85,7 +85,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         [action.identifier]: action.newValue,
       };
-    case REMOVE_INPUT:
+    case REMOVE_INPUT_BOOK_FORM:
       return {
         ...state,
         title: '',

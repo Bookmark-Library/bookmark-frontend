@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { changeInput, sendBookCreateInApi } from '../../../actions/book';
+import { updateFormErrors } from '../../../actions/user';
 import Field from '../../Field';
 import FieldText from '../../FieldText';
 import './styles.scss';
@@ -15,8 +16,25 @@ function FormBook() {
   const price = useSelector((state) => state.book.price);
   const pages = useSelector((state) => state.book.pages);
   const isbn = useSelector((state) => state.book.isbn);
+  const formErrors = useSelector((state) => state.user.formErrors);
   // eslint-disable-next-line camelcase
   const publication_date = useSelector((state) => state.book.publication_date);
+  /* ********** Verification du formulaire */
+  const errors = {};
+  const validateBook = () => {
+    // Vérifier les champs obligatoires
+    if (!title.trim()) {
+      errors.title = 'Veuillez saisir le titre du livre';
+    }
+    if (firstname && !lastname) {
+      errors.lastname = 'Veuillez rentrer le nom de l\'auteur';
+    }
+    const priceRegex = /^\d*\.?\d+$|^\d+,\d*$/;
+    if (price && !priceRegex.test(price)) {
+      errors.price = 'Le champ doit contenir un nombre entier ou décimal.';
+    }
+    dispatch(updateFormErrors(errors));
+  };
 
   return (
 
@@ -47,11 +65,14 @@ function FormBook() {
             className="row g-2"
             onSubmit={(e) => {
               e.preventDefault();
+
+              validateBook();
               dispatch(sendBookCreateInApi());
             }}
           >
             <div className="col-12">
               <Field
+                required
                 identifier="title"
                 placeholder=""
                 label="Titre"
@@ -61,6 +82,8 @@ function FormBook() {
                   dispatch(changeInput(identifier, newValue));
                 }}
               />
+              {formErrors.title && <p className="error">{formErrors.title}</p>}
+
             </div>
             <div className="col-md-6">
               <Field
@@ -72,6 +95,8 @@ function FormBook() {
                   dispatch(changeInput(identifier, newValue));
                 }}
               />
+              {formErrors.lastname && <p className="error">{formErrors.lastname}</p>}
+
             </div>
             <div className="col-md-6">
               <Field
@@ -131,11 +156,12 @@ function FormBook() {
                 placeholder=""
                 label="Prix"
                 value={price}
-                type="number"
+                type="text"
                 changeField={(identifier, newValue) => {
                   dispatch(changeInput(identifier, newValue));
                 }}
               />
+              {formErrors.price && <p className="error">{formErrors.price}</p>}
             </div>
             <div className="col-md-4 ">
               <Field

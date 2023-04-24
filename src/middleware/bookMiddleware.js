@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-  addBooksInApp, GET_BOOKS_FROM_API, removeInput, SEND_BOOK_CREATE_IN_API,
+  addBooksInApp, GET_BOOKS_FROM_API, removeInput, removeInputBookForm, SEND_BOOK_CREATE_IN_API,
 } from '../actions/book';
 
 const bookMiddleware = (store) => (next) => (action) => {
@@ -22,6 +22,9 @@ const bookMiddleware = (store) => (next) => (action) => {
         });
       break;
     case SEND_BOOK_CREATE_IN_API:
+      if (Object.keys(store.getState().user.formErrors).length !== 0) {
+        return;
+      }
       axios.post(
         'http://sandy-bouzid.vpnuser.lan:8000/api/books',
 
@@ -49,7 +52,7 @@ const bookMiddleware = (store) => (next) => (action) => {
       )
         .then((response) => {
           console.log(response.data);
-          store.dispatch(removeInput());
+          store.dispatch(removeInputBookForm());
         })
         .catch((error) => {
           console.log(error);

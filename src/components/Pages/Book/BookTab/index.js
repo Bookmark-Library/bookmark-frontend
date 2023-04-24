@@ -5,8 +5,12 @@ import './styles.scss';
 import { Tabs } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import bookWish from '../../../../assets/images/wishlist.svg';
+import bookHeart from '../../../../assets/images/favoris-01.svg';
+import bookLu from '../../../../assets/images/lu.svg';
+import bookLire from '../../../../assets/images/lire.svg';
 import {
-  changeTabKey, openModalRate, putCommentInState, putQuoteInState,
+  changeTabKey, putCommentInState, putQuoteInState,
 } from '../../../../actions/book';
 
 function BookTab({
@@ -25,32 +29,18 @@ function BookTab({
           <p>
             {comment}
           </p>
-          <button
-            type="button"
-            className="btn btn-warning"
-            onClick={() => {
-              dispatch(openModalRate());
-            }}
-          >
-            Modifier
-          </button>
         </Tab>
         <Tab eventKey="two" title="Citation">
           <p>
             {quote}
           </p>
-          <button
-            type="button"
-            className="btn btn-warning"
-            onClick={() => {
-              dispatch(openModalRate());
-            }}
-          >
-            Modifier
-          </button>
         </Tab>
         <Tab eventKey="three" title="Bookmark">
-          <Link to="/ajout/bookmark"> modifier</Link>
+          {favorite && <img className="bookmark" src={bookHeart} alt="" />}
+          {wishlist && <img className="bookmark" src={bookWish} alt="" />}
+          {finished && <img className="bookmark" src={bookLu} alt="" />}
+          {purchased && !finished && <img className="bookmark" src={bookLire} alt="" />}
+          {/* {purchased && <img className="bookmark" src={bookAchete} alt="" />} */}
         </Tab>
         <Tab eventKey="four" title="Note">
           <p>{rate}</p>
