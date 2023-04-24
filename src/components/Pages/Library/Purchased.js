@@ -21,7 +21,7 @@ function Purchased() {
       <div className="row">
         <MenuLeft />
         <div className="col-12 col-md-8 col-right">
-          <h2>Livres à lire</h2>
+          <h2>Livres achetés</h2>
           <div className="row row-cols-1 row-cols-md-5 g-3">
             {filtredByPurchased
             && filtredByPurchased.map((library) => (
