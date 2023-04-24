@@ -24,19 +24,7 @@ function Book() {
   const bookToDisplay = libraries.find((book) => book.book.id == id);
   // console.log(bookToDisplay);
   // For return at the home page when user is not connected
-  const rating = () => {
-    let i;
-    if (bookToDisplay.rate !== 0) {
-      for (i = 1; i <= bookToDisplay.rate; i += 1) {
-        <img src={rateyellow} alt="" />;
-      }
-    }
-    if (bookToDisplay.rate < 5) {
-      for (i = bookToDisplay.rate; i <= 5; i += 1) {
-        <img src={rateGrey} alt="" />;
-      }
-    }
-  };
+
   if (!logged) {
     return <Navigate to="/" replace />;
   }
@@ -55,62 +43,120 @@ function Book() {
           <div className="col-md-3">
             <img className="book-image img-fluid" src={bookToDisplay.book.image} alt="" />
           </div>
-          <div className="book-synopsy d-flex flex-column col-md-9">
+          <div className="book-synopsy col-md-9">
             <h3 className="book-title">{bookToDisplay.book.title}</h3>
             <p className="book-description">{bookToDisplay.book.summary}
             </p>
-            <div className="book-author">
-              <strong>Auteur(s) :</strong>
-              {bookToDisplay.book.authors.map((author) => (
-                <p key={author.lastname} className="book-author"> {author.lastname} {author.firstname}</p>
-              ))}
+            <div className="row">
+              <div className="book-author col-md-6 col-12">
+                <strong>Auteur(s) :</strong>
+                {bookToDisplay.book.authors.map((author) => (
+                  <p key={author.lastname} className="book-author"> {author.lastname} {author.firstname}</p>
+                ))}
+                <p className="book-editor"><strong>Editeur :</strong> {bookToDisplay.book.editor}</p>
+                <p className="book-editor"><strong>Année de publication :</strong> {bookToDisplay.book.publication_date}</p>
+              </div>
+              <div className="col-md-6 col-12">
 
+                <p className="book-editor"><strong>Prix :</strong> {bookToDisplay.book.price}</p>
+                <p className="book-editor"><strong>Isbn :</strong> {bookToDisplay.book.isbn}</p>
+                <p className="book-editor"><strong>Nombre de page :</strong> {bookToDisplay.book.pages}</p>
+              </div>
             </div>
-
-            <p className="book-editor"><strong>Editeur :</strong> {bookToDisplay.book.editor}</p>
-            <p className="book-editor"><strong>Prix :</strong> {bookToDisplay.book.price}</p>
-            <p className="book-editor"><strong>Isbn :</strong> {bookToDisplay.book.isbn}</p>
-            <p className="book-editor"><strong>nombre de page :</strong> {bookToDisplay.book.pages}</p>
-            <p className="book-editor"><strong>Année de publication :</strong> {bookToDisplay.book.publcation_date}</p>
           </div>
-          <section className="row bookTab">
-            <div className="col-12 col-md-6">
-              <h5>Informations du livre</h5>
-              <BookTab {...bookToDisplay} />
-              <button
-                type="button"
-                className="btn btn-warning"
-                onClick={() => {
-                  dispatch(openModalRate());
-                }}
-              >
-                Modifier mes infos
-              </button>
-            </div>
-            <div className="col-12 col-md-6">
-              <h5>Caractéristiques</h5>
-              <div className="caracteristique d-flex">
-                <div className="col-12 col-md-6">
-                  <p>Mes bookMark</p>
-                  <p>
-                    {bookToDisplay.favorites && <img className="bookmark" src={bookHeart} alt="" />}
-                    {bookToDisplay.wishlist && <img className="bookmark" src={bookWish} alt="" />}
-                    {bookToDisplay.finished && <img className="bookmark" src={bookLu} alt="" />}
-                    {bookToDisplay.purchased && !bookToDisplay.finished && <img className="bookmark" src={bookLire} alt="" />}
-                    {bookToDisplay.purchased && <img className="bookmark" src={bookAchete} alt="" />}
-                  </p>
-                </div>
-                <div className="col-12 col-md-6">
-                  <p>Ma note</p>
-                  <p>{bookToDisplay.rate}
-                    {rating()}
-
-                  </p>
+        </div>
+        <section className="row bookTab">
+          <div className="col-12 col-md-6 colInfoLeft">
+            <BookTab {...bookToDisplay} />
+          </div>
+          <div className="col-12 col-md-6 colInfoRight">
+            <div className="caracteristique d-flex">
+              <div className="col-6 col-md-6">
+                <p>Mes bookMark</p>
+                <p>
+                  {bookToDisplay.favorites && <img className="bookmark" src={bookHeart} alt="" />}
+                  {bookToDisplay.wishlist && <img className="bookmark" src={bookWish} alt="" />}
+                  {bookToDisplay.finished && <img className="bookmark" src={bookLu} alt="" />}
+                  {bookToDisplay.purchased && !bookToDisplay.finished && <img className="bookmark" src={bookLire} alt="" />}
+                  {bookToDisplay.purchased && <img className="bookmark" src={bookAchete} alt="" />}
+                </p>
+              </div>
+              <div className="col-6 col-md-6">
+                <p>Ma note</p>
+                <div>
+                  {(() => {
+                    switch (bookToDisplay.rate) {
+                      case '1':
+                        return (
+                          <>
+                            <img src={rateyellow} alt="1/5" />
+                            <img src={rateGrey} alt="1/5" />
+                            <img src={rateGrey} alt="1/5" />
+                            <img src={rateGrey} alt="1/5" />
+                            <img src={rateGrey} alt="1/5" />
+                          </>
+                        );
+                      case '2':
+                        return (
+                          <>
+                            <img src={rateyellow} alt="2 étoiles" />
+                            <img src={rateyellow} alt="2 étoiles" />
+                            <img src={rateGrey} alt="1/5" />
+                            <img src={rateGrey} alt="1/5" />
+                            <img src={rateGrey} alt="1/5" />
+                          </>
+                        );
+                      case '3':
+                        return (
+                          <>
+                            <img src={rateyellow} alt="2 étoiles" />
+                            <img src={rateyellow} alt="2 étoiles" />
+                            <img src={rateyellow} alt="1/5" />
+                            <img src={rateGrey} alt="1/5" />
+                            <img src={rateGrey} alt="1/5" />
+                          </>
+                        );
+                      case '4':
+                        return (
+                          <>
+                            <img src={rateyellow} alt="2 étoiles" />
+                            <img src={rateyellow} alt="2 étoiles" />
+                            <img src={rateyellow} alt="1/5" />
+                            <img src={rateyellow} alt="1/5" />
+                            <img src={rateGrey} alt="1/5" />
+                          </>
+                        );
+                      case '5':
+                        return (
+                          <>
+                            <img src={rateyellow} alt="2 étoiles" />
+                            <img src={rateyellow} alt="2 étoiles" />
+                            <img src={rateyellow} alt="1/5" />
+                            <img src={rateyellow} alt="1/5" />
+                            <img src={rateyellow} alt="1/5" />
+                          </>
+                        );
+                      default:
+                        return null; // aucune image ne sera affichée si la note est invalide
+                    }
+                  })()}
                 </div>
               </div>
             </div>
-          </section>
-        </div>
+          </div>
+          <div className="col-md-6 mx-auto d-block text-center mt-4">
+            <button
+              type="button"
+              className="btn btn-warning"
+              onClick={() => {
+                dispatch(openModalRate());
+              }}
+            >
+              Modifier les infos du livre
+            </button>
+          </div>
+        </section>
+
       </div>
     </div>
 
