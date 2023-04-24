@@ -4,16 +4,19 @@ import './styles.scss';
 
 import { Tabs } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
+<<<<<<< HEAD
 import bookWish from '../../../../assets/images/wishlist.svg';
 import bookHeart from '../../../../assets/images/favoris-01.svg';
 import bookLu from '../../../../assets/images/lu.svg';
 import bookLire from '../../../../assets/images/lire.svg';
+=======
+>>>>>>> bookcss
 import {
   changeTabKey, putCommentInState, putQuoteInState,
 } from '../../../../actions/book';
 
 function BookTab({
-  comment, favorite, finished, purchased, quote, rate, wishlist,
+  comment, quote,
 }) {
   const dispatch = useDispatch();
   const tabkey = useSelector((state) => state.book.tabkey);
@@ -33,6 +36,7 @@ function BookTab({
           <p>
             {quote}
           </p>
+<<<<<<< HEAD
         </Tab>
         <Tab eventKey="three" title="Bookmark">
           {favorite && <img className="bookmark" src={bookHeart} alt="" />}
@@ -43,6 +47,8 @@ function BookTab({
         </Tab>
         <Tab eventKey="four" title="Note">
           <p>{rate}</p>
+=======
+>>>>>>> bookcss
         </Tab>
       </Tabs>
     </div>
@@ -52,10 +58,5 @@ function BookTab({
 BookTab.propTypes = {
   comment: PropTypes.string.isRequired,
   quote: PropTypes.string.isRequired,
-  favorite: PropTypes.bool.isRequired,
-  finished: PropTypes.bool.isRequired,
-  purchased: PropTypes.bool.isRequired,
-  rate: PropTypes.number.isRequired,
-  wishlist: PropTypes.bool.isRequired,
 };
 export default BookTab;
