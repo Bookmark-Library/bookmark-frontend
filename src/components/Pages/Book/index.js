@@ -24,19 +24,19 @@ function Book() {
   const bookToDisplay = libraries.find((book) => book.book.id == id);
   // console.log(bookToDisplay);
   // For return at the home page when user is not connected
-  // const rating = () => {
-  //   let i;
-  //   if (bookToDisplay.rate !== 0) {
-  //     for (i = 1; i <= bookToDisplay.rate :i ++) {
-  //       <img src={rateyellow} alt="" />;
-  //     }
-  //   }
-  //   if (rate < 4) {
-  //     for ($i = $rate; $i <= 5; $i++) {
-  //       <i className="bi bi-star" />;
-  //     }
-  //   }
-  // };
+  const rating = () => {
+    let i;
+    if (bookToDisplay.rate !== 0) {
+      for (i = 1; i <= bookToDisplay.rate; i += 1) {
+        <img src={rateyellow} alt="" />;
+      }
+    }
+    if (bookToDisplay.rate < 5) {
+      for (i = bookToDisplay.rate; i <= 5; i += 1) {
+        <img src={rateGrey} alt="" />;
+      }
+    }
+  };
   if (!logged) {
     return <Navigate to="/" replace />;
   }
@@ -103,10 +103,8 @@ function Book() {
                 <div className="col-12 col-md-6">
                   <p>Ma note</p>
                   <p>{bookToDisplay.rate}
+                    {rating()}
 
-                    {[...Array(bookToDisplay.rate)].map((rate) => (
-                      <img src={rateyellow} alt="" />
-                    ))}
                   </p>
                 </div>
               </div>
