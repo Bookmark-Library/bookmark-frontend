@@ -18,7 +18,7 @@ function FormBook() {
   const isbn = useSelector((state) => state.book.isbn);
   const formErrors = useSelector((state) => state.user.formErrors);
   // eslint-disable-next-line camelcase
-  const publication_date = useSelector((state) => state.book.publication_date);
+  const publicationDate = useSelector((state) => state.book.publicationDate);
   /* ********** Verification du formulaire */
   const errors = {};
   const validateBook = () => {
@@ -147,11 +147,11 @@ function FormBook() {
           </div> */}
             <div className="col-md-6">
               <Field
-                identifier="publication_date"
+                identifier="publicationDate"
                 placeholder=""
                 label="Année de publication"
                 // eslint-disable-next-line camelcase
-                value={publication_date || ''}
+                value={publicationDate || ''}
                 changeField={(identifier, newValue) => {
                   dispatch(changeInput(identifier, newValue));
                 }}

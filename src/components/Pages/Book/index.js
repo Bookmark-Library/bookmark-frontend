@@ -124,7 +124,7 @@ function Book() {
                   <p key={author.lastname} className="book-author"> {author.lastname} {author.firstname}</p>
                 ))}
                 <p className="book-editor"><strong>Editeur :</strong> {bookToDisplay.book.editor}</p>
-                <p className="book-editor"><strong>Année de publication :</strong> {bookToDisplay.book.publication_date}</p>
+                <p className="book-editor"><strong>Année de publication :</strong> {bookToDisplay.book.publicationDate}</p>
               </div>
               <div className="col-md-6 col-12">
 

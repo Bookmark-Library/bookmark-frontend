@@ -33,7 +33,7 @@ const bookMiddleware = (store) => (next) => (action) => {
           title: store.getState().book.title,
           editor: store.getState().book.editor,
           collection: store.getState().book.collection,
-          publication_date: parseInt(store.getState().book.publication_date, 10),
+          publicationDate: parseInt(store.getState().book.publicationDate, 10),
           price: store.getState().book.price,
           pages: parseInt(store.getState().book.pages, 10),
           summary: store.getState().book.summary,
