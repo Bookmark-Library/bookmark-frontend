@@ -80,10 +80,9 @@ export const deleteUserInApi = () => ({
 export const deleteUser = () => ({
   type: DELETE_USER,
 });
-export const removeInput= () => ({
+export const removeInput = () => ({
   type: REMOVE_INPUT,
 });
-
 
 export const updateUser = (alias, avatar, email, password) => ({
   type: UPDATE_USER,

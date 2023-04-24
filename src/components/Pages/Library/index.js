@@ -16,18 +16,14 @@ function Library() {
     return <Navigate to="/" replace />;
   }
   return (
-    <>
-      {isLoading && <Loader />}
-      {(!isLoading && (
 
-      <div className="container biblio mt-5">
-        <div className="row">
-          <MenuLeft />
-          <All />
-        </div>
+    <div className="container biblio mt-5">
+      <div className="row">
+        <MenuLeft />
+        <All />
       </div>
-      ))}
-    </>
+    </div>
+
   );
 }
 

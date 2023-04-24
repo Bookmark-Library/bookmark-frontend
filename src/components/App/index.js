@@ -22,10 +22,13 @@ import Favorite from '../Pages/Library/Favorite';
 import Wishlist from '../Pages/Library/Wishlist';
 import ModalPassword from '../Pages/User/ModalPassword';
 import ToRead from '../Pages/Library/ToRead';
+import Loader from '../Loader';
 
 function App() {
   const showModal = useSelector((state) => state.user.showModal);
   const modalRate = useSelector((state) => state.book.modalRate);
+  const isLoading = useSelector((state) => state.book.isLoading);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -37,19 +40,23 @@ function App() {
     <div className="app">
 
       <Header />
+      {isLoading && <Loader />}
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/mentions-legales" element={<LegalNotice />} />
         <Route path="/ajout-livre" element={<FormBook />} />
-        <Route path="/bibliotheque" element={<Library />} />
+        {!isLoading
+        && <Route path="/bibliotheque" element={<Library />} />}
         <Route path="/bibliotheque/lus" element={<Finished />} />
         <Route path="/bibliotheque/achetes" element={<Purchased />} />
 
         <Route path="/bibliotheque/a-lire" element={<ToRead />} />
         <Route path="/bibliotheque/envies" element={<Wishlist />} />
         <Route path="/bibliotheque/favoris" element={<Favorite />} />
-        <Route path="/bibliotheque/livre/:id" element={<Book />} />
+        {!isLoading
+
+        && <Route path="/bibliotheque/livre/:id" element={<Book />} />}
         <Route path="/user/:pseudo" element={<User />} />
         <Route path="/inscription" element={<Inscription />} />
         <Route path="/contact" element={<Contact />} />

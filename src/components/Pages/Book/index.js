@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import { openModalRate } from '../../../actions/book';
 import Loader from '../../Loader';
 import BookTab from './BookTab';
@@ -8,19 +8,21 @@ import './styles.scss';
 
 function Book() {
   const { id } = useParams();
+  const dispatch = useDispatch();
+  const logged = useSelector((state) => state.user.logged);
   const libraries = useSelector((state) => state.book.libraries);
   const isLoading = useSelector((state) => state.book.isLoading);
-  const dispatch = useDispatch();
 
   // eslint-disable-next-line eqeqeq
   const bookToDisplay = libraries.find((book) => book.book.id == id);
   // console.log(bookToDisplay);
+  // For return at the home page when user is not connected
+  if (!logged) {
+    return <Navigate to="/" replace />;
+  }
   return (
 
     <div className="container">
-      {isLoading && <Loader />}
-
-      {(!isLoading && (
 
       <div className="book-content container mt-5">
         <Link
@@ -65,7 +67,6 @@ function Book() {
           </section>
         </div>
       </div>
-      ))}
     </div>
 
   );
