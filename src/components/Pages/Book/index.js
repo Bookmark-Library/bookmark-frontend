@@ -11,38 +11,96 @@ import bookLire from '../../../assets/images/lire.svg';
 import bookAchete from '../../../assets/images/achetes.svg';
 import rateGrey from '../../../assets/images/note-gris.svg';
 import rateyellow from '../../../assets/images/note-jaune.svg';
-
 import './styles.scss';
+import Loader from '../../Loader';
 
 function Book() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const logged = useSelector((state) => state.user.logged);
   const libraries = useSelector((state) => state.book.libraries);
+  const isLoading = useSelector((state) => state.book.isLoading);
 
   // eslint-disable-next-line eqeqeq
   const bookToDisplay = libraries.find((book) => book.book.id == id);
-  // console.log(bookToDisplay);
-  // For return at the home page when user is not connected
-  const rating = () => {
-    let i;
-    if (bookToDisplay.rate !== 0) {
-      for (i = 1; i <= bookToDisplay.rate; i += 1) {
-        <img src={rateyellow} alt="" />;
-      }
-    }
-    if (bookToDisplay.rate < 5) {
-      for (i = bookToDisplay.rate; i <= 5; i += 1) {
-        <img src={rateGrey} alt="" />;
-      }
+  const rating = bookToDisplay.rate; // note du produit passée en paramètre
+  const getRatingImage = () => {
+    switch (rating) {
+      case 0:
+        return (
+          <>
+            <img src={rateGrey} alt="0/5" />
+            <img src={rateGrey} alt="0/5" />
+            <img src={rateGrey} alt="0/5" />
+            <img src={rateGrey} alt="0/5" />
+            <img src={rateGrey} alt="0/5" />
+          </>
+        );
+      case 1:
+        return (
+          <>
+            <img src={rateyellow} alt="1/5" />
+            <img src={rateGrey} alt="1/5" />
+            <img src={rateGrey} alt="1/5" />
+            <img src={rateGrey} alt="1/5" />
+            <img src={rateGrey} alt="1/5" />
+          </>
+        );
+
+      case 2:
+        return (
+          <>
+            <img src={rateyellow} alt="2/5" />
+            <img src={rateyellow} alt="2/5" />
+            <img src={rateGrey} alt="2/5" />
+            <img src={rateGrey} alt="2/5" />
+            <img src={rateGrey} alt="2/5" />
+          </>
+        );
+
+      case 3:
+        return (
+          <>
+            <img src={rateyellow} alt="3/5" />
+            <img src={rateyellow} alt="3/5" />
+            <img src={rateyellow} alt="3/5" />
+            <img src={rateGrey} alt="3/5" />
+            <img src={rateGrey} alt="3/5" />
+          </>
+        );
+      case 4:
+        return (
+          <>
+            <img src={rateyellow} alt="4/5" />
+            <img src={rateyellow} alt="4/5" />
+            <img src={rateyellow} alt="4/5" />
+            <img src={rateyellow} alt="4/5" />
+            <img src={rateGrey} alt="4/5" />
+          </>
+        );
+      case 5:
+        return (
+          <>
+            <img src={rateyellow} alt="5/5" />
+            <img src={rateyellow} alt="5/5" />
+            <img src={rateyellow} alt="5/5" />
+            <img src={rateyellow} alt="5/5" />
+            <img src={rateyellow} alt="5/5" />
+          </>
+        );
+      default:
+        return null; // aucune image ne sera affichée si la note est invalide
     }
   };
+  // For return at the home page when user is not connected
+
   if (!logged) {
     return <Navigate to="/" replace />;
   }
   return (
 
     <div className="container">
+      {isLoading && <Loader />}
 
       <div className="book-content container mt-5">
         <Link
@@ -102,10 +160,9 @@ function Book() {
                 </div>
                 <div className="col-12 col-md-6">
                   <p>Ma note</p>
-                  <p>{bookToDisplay.rate}
-                    {rating()}
 
-                  </p>
+                  {getRatingImage()}
+
                 </div>
               </div>
             </div>
