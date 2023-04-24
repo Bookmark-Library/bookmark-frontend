@@ -4,7 +4,6 @@ import './styles.scss';
 
 import { Tabs } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import bookWish from '../../../../assets/images/wishlist.svg';
 import bookHeart from '../../../../assets/images/favoris-01.svg';
 import bookLu from '../../../../assets/images/lu.svg';

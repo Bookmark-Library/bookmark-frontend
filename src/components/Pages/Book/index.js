@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, Navigate, useParams } from 'react-router-dom';
 
 import { openModalRate } from '../../../actions/book';
-import Loader from '../../Loader';
 import BookTab from './BookTab';
 
 import './styles.scss';
@@ -13,8 +12,6 @@ function Book() {
   const dispatch = useDispatch();
   const logged = useSelector((state) => state.user.logged);
   const libraries = useSelector((state) => state.book.libraries);
-  const isLoading = useSelector((state) => state.book.isLoading);
-  const dispatch = useDispatch();
 
   // eslint-disable-next-line eqeqeq
   const bookToDisplay = libraries.find((book) => book.book.id == id);
