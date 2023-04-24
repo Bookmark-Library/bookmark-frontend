@@ -86,6 +86,10 @@ const User = () => {
                       e.preventDefault();
                       dispatch(updateUserInApi());
                       dispatch(updateUser());
+                      dispatch(submitLogout());
+
+                      localStorage.setItem('pseudo', alias);
+                      localStorage.setItem('email', email);
                     }}
                   >
                     Oui, je veux enregistrer les modifications

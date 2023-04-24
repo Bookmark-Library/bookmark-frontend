@@ -14,6 +14,8 @@ export const SET_TOKEN_IN_STORAGE = 'SET_TOKEN_IN_STORAGE';
 export const CREATE_USER_IN_API = 'CREATE_USER_IN_API';
 export const DELETE_USER_IN_API = 'DELETE_USER_IN_API';
 export const UPDATE_USER_IN_API = 'UPDATE_USER_IN_API';
+export const UPDATE_USER_PASSWORD_IN_API = 'UPDATE_USER_PASSWORD_IN_API';
+
 // delete user in state and local storage
 export const DELETE_USER = 'DELETE_USER';
 // update user in state and local storage
@@ -66,6 +68,9 @@ export const createUserInApi = () => ({
 export const updateUserInApi = () => ({
   type: UPDATE_USER_IN_API,
 });
+export const updateUserPasswordInApi = () => ({
+  type: UPDATE_USER_PASSWORD_IN_API,
+});
 
 export const deleteUserInApi = () => ({
   type: DELETE_USER_IN_API,
@@ -75,11 +80,12 @@ export const deleteUser = () => ({
   type: DELETE_USER,
 });
 
-export const updateUser = (alias, avatar, email) => ({
+export const updateUser = (alias, avatar, email, password) => ({
   type: UPDATE_USER,
   alias: alias,
   avatar: avatar,
   email: email,
+  password: password,
 });
 
 export const updateFormErrors = (errors) => ({

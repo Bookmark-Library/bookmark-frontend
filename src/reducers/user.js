@@ -6,11 +6,11 @@ import {
 
 export const initialState = {
   logged: !!localStorage.getItem('token'),
-  email: '',
+  email: localStorage.getItem('email') || '',
   password: '',
-  token: localStorage.getItem('token'),
+  token: localStorage.getItem('token') || '',
   avatar: '',
-  alias: localStorage.getItem('pseudo'),
+  alias: localStorage.getItem('pseudo') || '',
   showModal: false,
   formErrors: {},
 
@@ -86,6 +86,7 @@ const reducer = (state = initialState, action = {}) => {
         alias: action.alias,
         avatar: action.avatar,
         email: action.email,
+        password: action.password,
       };
     case UPDATE_FORM_ERRORS:
       return {

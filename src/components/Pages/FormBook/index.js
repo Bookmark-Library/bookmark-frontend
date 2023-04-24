@@ -17,14 +17,13 @@ function FormBook() {
   const pages = useSelector((state) => state.book.pages);
   const isbn = useSelector((state) => state.book.isbn);
   const formErrors = useSelector((state) => state.user.formErrors);
-
   // eslint-disable-next-line camelcase
   const publication_date = useSelector((state) => state.book.publication_date);
   /* ********** Verification du formulaire */
+  const errors = {};
   const validateBook = () => {
-    const errors = {};
     // Vérifier les champs obligatoires
-    if (!title) {
+    if (!title.trim()) {
       errors.title = 'Veuillez saisir le titre du livre';
     }
     if (firstname && !lastname) {
@@ -37,6 +36,7 @@ function FormBook() {
 
     dispatch(updateFormErrors(errors));
   };
+
   return (
 
     <div className="container divInscription">
@@ -66,12 +66,17 @@ function FormBook() {
             className="row g-2"
             onSubmit={(e) => {
               e.preventDefault();
+
               validateBook();
-              dispatch(sendBookCreateInApi());
+              console.log(errors);
+              if (formErrors == {}) {
+                dispatch(sendBookCreateInApi());
+              }
             }}
           >
             <div className="col-12">
               <Field
+                required
                 identifier="title"
                 placeholder=""
                 label="Titre"

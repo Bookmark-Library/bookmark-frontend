@@ -50,11 +50,17 @@ function Inscription() {
             onSubmit={(e) => {
               e.preventDefault();
               validateForm();
+              if (formErrors !== {}) {
+                return console.log('il y a une erreur');
+              }
+
+              console.log('je fait la requete');
               dispatch(createUserInApi());
             }}
           >
             <div className="col-md-6">
               <Field
+                required
                 identifier="alias"
                 placeholder=""
                 label="Alias"

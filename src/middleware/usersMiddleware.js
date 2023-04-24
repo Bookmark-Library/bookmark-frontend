@@ -7,7 +7,7 @@ import {
   deleteUser,
   DELETE_USER_IN_API,
   fetchUserInfo, FETCH_USER_INFO, saveAuthData,
-  SaveUserInfo, SUBMIT_LOGIN, updateUser, UPDATE_USER_IN_API,
+  SaveUserInfo, SUBMIT_LOGIN, updateUser, UPDATE_USER_IN_API, UPDATE_USER_PASSWORD_IN_API,
 } from '../actions/user';
 
 const usersMiddleware = (store) => (next) => (action) => {
@@ -58,6 +58,7 @@ const usersMiddleware = (store) => (next) => (action) => {
           console.log(response.data);
           localStorage.setItem('pseudo', response.data.alias);
           localStorage.setItem('bibliotheque', JSON.stringify(response.data.libraries));
+          localStorage.setItem('email', response.data.email);
           store.dispatch(SaveUserInfo(
             response.data.alias,
             response.data.avatar,
@@ -121,6 +122,31 @@ const usersMiddleware = (store) => (next) => (action) => {
           alias: store.getState().user.alias,
           email: store.getState().user.email,
           avatar: store.getState().user.avatar,
+        },
+        {
+          headers: {
+            // nom du header: valeur
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        },
+      )
+        .then((response) => {
+          console.log(response.data);
+          store.dispatch(updateUser());
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+    case UPDATE_USER_PASSWORD_IN_API:
+      axios.put(
+        // URL
+        'http://sandy-bouzid.vpnuser.lan:8000/api/users/password',
+        // options (notamment les headers)
+        {
+          password: store.getState().user.password,
+          alias: store.getState().user.alias,
+          email: store.getState().user.email,
         },
         {
           headers: {

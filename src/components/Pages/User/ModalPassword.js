@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import Field from 'src/components/Field';
 
 import Modal from 'react-bootstrap/Modal';
-import { changeSettingsField, closeModal, submitLogin } from '../../../actions/user';
+import {
+  closeModal, submitLogout, updateUser, updateUserPasswordInApi,
+} from '../../../actions/user';
+import { changeInput } from '../../../actions/book';
 
 function ModalPassword() {
   const dispatch = useDispatch();
@@ -29,8 +32,10 @@ function ModalPassword() {
           className="settings-form"
           onSubmit={(e) => {
             e.preventDefault();
-            dispatch(submitLogin());
-            console.log('c\'est le moment de faire ma requête !');
+            dispatch(updateUserPasswordInApi());
+            dispatch(updateUser());
+            dispatch(submitLogout());
+            dispatch(closeModal());
           }}
         >
           <Field
@@ -40,7 +45,7 @@ function ModalPassword() {
             label="Mot de passe"
             value={passwordValue}
             changeField={(identifier, newValue) => {
-              dispatch(changeSettingsField(identifier, newValue));
+              dispatch(changeInput(identifier, newValue));
             }}
             type="password"
           />

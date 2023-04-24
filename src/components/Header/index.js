@@ -56,8 +56,8 @@ function Header() {
             <LoginForm
               email={emailValue}
               password={passwordValue}
-              changeField={(newValue, identifier) => {
-                dispatch(changeSettingsField(newValue, identifier));
+              changeField={(identifier, newValue) => {
+                dispatch(changeSettingsField(identifier, newValue));
               }}
               handleLogin={() => {
                 dispatch(submitLogin());
@@ -66,6 +66,7 @@ function Header() {
                 localStorage.removeItem('token');
                 localStorage.removeItem('pseudo');
                 localStorage.removeItem('bibliotheque');
+                localStorage.removeItem('email');
                 dispatch(submitLogout());
               }}
               isLogged={logged}
