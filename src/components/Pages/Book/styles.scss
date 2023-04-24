@@ -1,6 +1,3 @@
-.book-synopsy {
-}
-
 .book-image{
   margin-bottom: 3rem ;
   border:.1em solid #ccc;
@@ -11,9 +8,7 @@
 .book-title {
   margin-bottom: 2rem;
 }
-.book-author {
 
-}
 .book-editor {
   font-size: medium;
 
@@ -39,4 +34,15 @@
 
 .linkRetour:hover{
   color:#ffbb00;
+}
+
+.caracteristique{
+  border:1px solid #dee2e6;
+  border-radius: 0px 0px 0.5em 0.5em;
+  padding:2em;
+  background-color: #fff;
+}
+
+.caracteristique p img{
+  margin-left:1em;
 }

@@ -3,6 +3,11 @@ import { Link, useParams } from 'react-router-dom';
 import { openModalRate } from '../../../actions/book';
 import Loader from '../../Loader';
 import BookTab from './BookTab';
+import bookWish from '../../../assets/images/wishlist.svg';
+import bookHeart from '../../../assets/images/favoris-01.svg';
+import bookLu from '../../../assets/images/lu.svg';
+import bookLire from '../../../assets/images/lire.svg';
+import bookAchete from '../../../assets/images/achetes.svg';
 
 import './styles.scss';
 
@@ -38,8 +43,9 @@ function Book() {
             <p className="book-description">{bookToDisplay.book.summary}
             </p>
             <div className="book-author">
+              <strong>Auteur(s) :</strong>
               {bookToDisplay.book.authors.map((author) => (
-                <p key={author.lastname} className="book-author"><strong>Auteur(s) :</strong> {author.lastname} {author.firstname}</p>
+                <p key={author.lastname} className="book-author"> {author.lastname} {author.firstname}</p>
               ))}
 
             </div>
@@ -47,10 +53,9 @@ function Book() {
             <p className="book-editor"><strong>Editeur :</strong> {bookToDisplay.book.editor}</p>
           </div>
           <section className="row bookTab">
-            <div className="col-12 col-md-8">
+            <div className="col-12 col-md-6">
               <h5>Informations du livre</h5>
-            </div>
-            <div className="col-12 col-md-4 flex-end">
+              <BookTab {...bookToDisplay} />
               <button
                 type="button"
                 className="btn btn-warning"
@@ -61,7 +66,25 @@ function Book() {
                 Modifier mes infos
               </button>
             </div>
-            <BookTab {...bookToDisplay} />
+            <div className="col-12 col-md-6">
+              <h5>Caractéristiques</h5>
+              <div className="caracteristique d-flex">
+                <div className="col-12 col-md-6">
+                  <p>Mes bookMark</p>
+                  <p>
+                    {bookToDisplay.favorites && <img className="bookmark" src={bookHeart} alt="" />}
+                    {bookToDisplay.wishlist && <img className="bookmark" src={bookWish} alt="" />}
+                    {bookToDisplay.finished && <img className="bookmark" src={bookLu} alt="" />}
+                    {bookToDisplay.purchased && !bookToDisplay.finished && <img className="bookmark" src={bookLire} alt="" />}
+                    {bookToDisplay.purchased && <img className="bookmark" src={bookAchete} alt="" />}
+                  </p>
+                </div>
+                <div className="col-12 col-md-6">
+                  <p>Ma note</p>
+                  <p>{bookToDisplay.rate}</p>
+                </div>
+              </div>
+            </div>
           </section>
         </div>
       </div>

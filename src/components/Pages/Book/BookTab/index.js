@@ -4,13 +4,12 @@ import './styles.scss';
 
 import { Tabs } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import {
-  changeTabKey, openModalRate, putCommentInState, putQuoteInState,
+  changeTabKey, putCommentInState, putQuoteInState,
 } from '../../../../actions/book';
 
 function BookTab({
-  comment, favorite, finished, purchased, quote, rate, wishlist,
+  comment, quote,
 }) {
   const dispatch = useDispatch();
   const tabkey = useSelector((state) => state.book.tabkey);
@@ -25,35 +24,11 @@ function BookTab({
           <p>
             {comment}
           </p>
-          <button
-            type="button"
-            className="btn btn-warning"
-            onClick={() => {
-              dispatch(openModalRate());
-            }}
-          >
-            Modifier
-          </button>
         </Tab>
         <Tab eventKey="two" title="Citation">
           <p>
             {quote}
           </p>
-          <button
-            type="button"
-            className="btn btn-warning"
-            onClick={() => {
-              dispatch(openModalRate());
-            }}
-          >
-            Modifier
-          </button>
-        </Tab>
-        <Tab eventKey="three" title="Bookmark">
-          <Link to="/ajout/bookmark"> modifier</Link>
-        </Tab>
-        <Tab eventKey="four" title="Note">
-          <p>{rate}</p>
         </Tab>
       </Tabs>
     </div>
@@ -63,10 +38,5 @@ function BookTab({
 BookTab.propTypes = {
   comment: PropTypes.string.isRequired,
   quote: PropTypes.string.isRequired,
-  favorite: PropTypes.bool.isRequired,
-  finished: PropTypes.bool.isRequired,
-  purchased: PropTypes.bool.isRequired,
-  rate: PropTypes.number.isRequired,
-  wishlist: PropTypes.bool.isRequired,
 };
 export default BookTab;
