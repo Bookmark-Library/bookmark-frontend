@@ -9,6 +9,8 @@ import bookHeart from '../../../assets/images/favoris-01.svg';
 import bookLu from '../../../assets/images/lu.svg';
 import bookLire from '../../../assets/images/lire.svg';
 import bookAchete from '../../../assets/images/achetes.svg';
+import rateGrey from '../../../assets/images/note-gris.svg';
+import rateyellow from '../../../assets/images/note-jaune.svg';
 
 import './styles.scss';
 
@@ -22,6 +24,19 @@ function Book() {
   const bookToDisplay = libraries.find((book) => book.book.id == id);
   // console.log(bookToDisplay);
   // For return at the home page when user is not connected
+  // const rating = () => {
+  //   let i;
+  //   if (bookToDisplay.rate !== 0) {
+  //     for (i = 1; i <= bookToDisplay.rate :i ++) {
+  //       <img src={rateyellow} alt="" />;
+  //     }
+  //   }
+  //   if (rate < 4) {
+  //     for ($i = $rate; $i <= 5; $i++) {
+  //       <i className="bi bi-star" />;
+  //     }
+  //   }
+  // };
   if (!logged) {
     return <Navigate to="/" replace />;
   }
@@ -53,6 +68,10 @@ function Book() {
             </div>
 
             <p className="book-editor"><strong>Editeur :</strong> {bookToDisplay.book.editor}</p>
+            <p className="book-editor"><strong>Prix :</strong> {bookToDisplay.book.price}</p>
+            <p className="book-editor"><strong>Isbn :</strong> {bookToDisplay.book.isbn}</p>
+            <p className="book-editor"><strong>nombre de page :</strong> {bookToDisplay.book.pages}</p>
+            <p className="book-editor"><strong>Année de publication :</strong> {bookToDisplay.book.publcation_date}</p>
           </div>
           <section className="row bookTab">
             <div className="col-12 col-md-6">
@@ -83,7 +102,12 @@ function Book() {
                 </div>
                 <div className="col-12 col-md-6">
                   <p>Ma note</p>
-                  <p>{bookToDisplay.rate}</p>
+                  <p>{bookToDisplay.rate}
+
+                    {[...Array(bookToDisplay.rate)].map((rate) => (
+                      <img src={rateyellow} alt="" />
+                    ))}
+                  </p>
                 </div>
               </div>
             </div>

@@ -97,6 +97,7 @@ const reducer = (state = initialState, action = {}) => {
         price: '',
         pages: '',
         summary: '',
+        isbn: '',
       };
     default:
       return state;

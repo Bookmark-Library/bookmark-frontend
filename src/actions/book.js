@@ -15,6 +15,7 @@ export const SAVE_USER_BOOKS = 'SAVE_USER_BOOKS';
 export const CHANGE_INPUT = 'CHANGE_INPUT';
 /** ******* POST BOOK **************** */
 export const SEND_BOOK_CREATE_IN_API = 'SEND_BOOK_CREATE_IN_API';
+export const SEND_BOOK_BY_ISBN = 'SEND_BOOK_BY_ISBN';
 export const REMOVE_INPUT_BOOK_FORM = 'REMOVE_INPUT_BOOK_FORM';
 
 export const openModalRate = () => ({
@@ -66,6 +67,9 @@ export const changeInput = (identifier, newValue) => ({
 
 export const sendBookCreateInApi = () => ({
   type: SEND_BOOK_CREATE_IN_API,
+});
+export const sendBookByIsbn = () => ({
+  type: SEND_BOOK_BY_ISBN,
 });
 
 export const removeInputBookForm = () => ({

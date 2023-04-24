@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { changeInput, sendBookCreateInApi } from '../../../actions/book';
+import { changeInput, sendBookByIsbn, sendBookCreateInApi } from '../../../actions/book';
 import { updateFormErrors } from '../../../actions/user';
 import Field from '../../Field';
 import FieldText from '../../FieldText';
@@ -42,12 +42,19 @@ function FormBook() {
       <div className="container text-center titleAdd">Entrez l'ISBN du livre <strong>OU</strong> remplissez le formulaire d'ajout</div>
       <div className="row justify-content-around mt-5">
         <div className="col-md-5 col-12  text-center">
-          <form className="row  g-2 col-md-6 offset-md-3">
+          <form
+            className="row  g-2 col-md-6 offset-md-3"
+            onSubmit={(e) => {
+              e.preventDefault();
+
+              dispatch(sendBookByIsbn());
+            }}
+          >
             <div className="col-12">
               <Field
                 identifier="isbn"
-                placeholder="isbn"
-                label=""
+                placeholder="entrer l'isbn ou le code barre"
+                label="isbn"
                 value={isbn}
                 type="number"
                 changeField={(identifier, newValue) => {
