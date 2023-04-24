@@ -20,7 +20,7 @@ function FormBook() {
 
   // eslint-disable-next-line camelcase
   const publication_date = useSelector((state) => state.book.publication_date);
-
+  /* ********** Verification du formulaire */
   const validateBook = () => {
     const errors = {};
     // Vérifier les champs obligatoires

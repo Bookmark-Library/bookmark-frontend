@@ -14,7 +14,7 @@ function Inscription() {
   const password = useSelector((state) => state.user.password);
   const avatar = useSelector((state) => state.user.avatar);
   const formErrors = useSelector((state) => state.user.formErrors);
-
+  /* ********** Verification du formulaire */
   const validateForm = () => {
     const errors = {};
     // Vérifier les champs obligatoires
