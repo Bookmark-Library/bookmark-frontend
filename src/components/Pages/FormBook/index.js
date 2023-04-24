@@ -33,7 +33,6 @@ function FormBook() {
     if (price && !priceRegex.test(price)) {
       errors.price = 'Le champ doit contenir un nombre entier ou décimal.';
     }
-
     dispatch(updateFormErrors(errors));
   };
 
@@ -68,10 +67,7 @@ function FormBook() {
               e.preventDefault();
 
               validateBook();
-              console.log(errors);
-              if (formErrors == {}) {
-                dispatch(sendBookCreateInApi());
-              }
+              dispatch(sendBookCreateInApi());
             }}
           >
             <div className="col-12">

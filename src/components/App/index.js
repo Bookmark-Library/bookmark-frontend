@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import Footer from '../Footer';
 import Header from '../Header';
@@ -15,7 +15,7 @@ import Inscription from '../Pages/Inscription';
 import Contact from '../Pages/Contact';
 import ModalRate from '../Pages/Book/ModalRate';
 // import { getBooksFromApi } from '../../actions/book';
-// import { fetchUserInfo } from '../../actions/user';
+import { fetchUserInfo } from '../../actions/user';
 import Finished from '../Pages/Library/Finished';
 import Purchased from '../Pages/Library/Purchased';
 import Favorite from '../Pages/Library/Favorite';
@@ -26,10 +26,11 @@ import ToRead from '../Pages/Library/ToRead';
 function App() {
   const showModal = useSelector((state) => state.user.showModal);
   const modalRate = useSelector((state) => state.book.modalRate);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     // dispatch(getBooksFromApi());
-    // dispatch(fetchUserInfo());
+    dispatch(fetchUserInfo());
   }, []);
 
   return (

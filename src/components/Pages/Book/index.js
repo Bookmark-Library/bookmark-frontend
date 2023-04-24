@@ -1,5 +1,6 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
+import { openModalRate } from '../../../actions/book';
 import Loader from '../../Loader';
 import BookTab from './BookTab';
 
@@ -9,6 +10,7 @@ function Book() {
   const { id } = useParams();
   const libraries = useSelector((state) => state.book.libraries);
   const isLoading = useSelector((state) => state.book.isLoading);
+  const dispatch = useDispatch();
 
   // eslint-disable-next-line eqeqeq
   const bookToDisplay = libraries.find((book) => book.book.id == id);
@@ -44,7 +46,23 @@ function Book() {
 
             <p className="book-editor"><strong>Editeur :</strong> {bookToDisplay.book.editor}</p>
           </div>
-          <BookTab {...bookToDisplay} />
+          <section className="row bookTab">
+            <div className="col-12 col-md-8">
+              <h5>Informations du livre</h5>
+            </div>
+            <div className="col-12 col-md-4 flex-end">
+              <button
+                type="button"
+                className="btn btn-warning"
+                onClick={() => {
+                  dispatch(openModalRate());
+                }}
+              >
+                Modifier mes infos
+              </button>
+            </div>
+            <BookTab {...bookToDisplay} />
+          </section>
         </div>
       </div>
       ))}

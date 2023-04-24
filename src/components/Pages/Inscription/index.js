@@ -37,9 +37,9 @@ function Inscription() {
     if (password && !regExPassaword.test(password)) {
       errors.password = 'Le mot de passe doit comporter au moins 8 caractères, une majuscule, un chiffre et un caractère spécial';
     }
-
     dispatch(updateFormErrors(errors));
   };
+
   return (
     <div className="container">
       <div className="row justify-content-center mt-5">
@@ -50,11 +50,6 @@ function Inscription() {
             onSubmit={(e) => {
               e.preventDefault();
               validateForm();
-              if (formErrors !== {}) {
-                return console.log('il y a une erreur');
-              }
-
-              console.log('je fait la requete');
               dispatch(createUserInApi());
             }}
           >
