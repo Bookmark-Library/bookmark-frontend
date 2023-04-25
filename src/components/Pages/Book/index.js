@@ -9,6 +9,7 @@ import {
 } from '../../../actions/book';
 import BookTab from './BookTab';
 import bookWish from '../../../assets/images/wishlist.svg';
+import defaultBook from '../../../assets/images/default-img.jpg';
 import bookHeart from '../../../assets/images/favoris-01.svg';
 import bookLu from '../../../assets/images/lu.svg';
 import bookLire from '../../../assets/images/lire.svg';
@@ -29,6 +30,7 @@ function Book() {
 
   // eslint-disable-next-line eqeqeq
   const bookToDisplay = libraries.find((book) => book.book.id == id);
+  const bookdefault = bookToDisplay.book.image ?? defaultBook;
   dispatch(putCommentInState(bookToDisplay.comment));
   dispatch(putQuoteInState(bookToDisplay.quote));
   dispatch(putRateInState(bookToDisplay.rate));
@@ -126,7 +128,7 @@ function Book() {
         </Link>
         <div className="row">
           <div className="col-md-3">
-            <img className="book-image img-fluid" src={bookToDisplay.book.image} alt="" />
+            <img className="book-image img-fluid" src={bookdefault} alt="" />
           </div>
           <div className="book-synopsy col-md-9">
             <h3 className="book-title">{bookToDisplay.book.title}</h3>
