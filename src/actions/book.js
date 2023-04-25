@@ -6,7 +6,10 @@ export const CHANGE_TAB_KEY = 'CHANGE_TAB_KEY';
 export const CHANGE_RATE_FIELD = 'CHANGE_RATE_FIELD';
 export const PUT_COMMENT_IN_STATE = 'PUT_COMMENT_IN_STATE';
 export const PUT_QUOTE_IN_STATE = 'PUT_QUOTE_IN_STATE';
-
+export const PUT_RATE_IN_STATE = 'PUT_RATE_IN_STATE';
+export const PUT_BOOKMARKS_IN_STATE = 'PUT_BOOKMARKS_IN_STATE';
+export const HANDLE_RATE_CHANGE = 'HANDLE_RATE_CHANGE';
+export const TOGGLE_CHECKBOX = 'TOGGLE_CHECKBOX';
 /** ******* GET BOOKS ***************** */
 export const ADD_BOOKS_IN_APP = 'ADD_BOOKS_IN_APP';
 export const GET_BOOKS_FROM_API = 'GET_BOOKS_FROM_API';
@@ -39,6 +42,24 @@ export const putCommentInState = (value) => ({
 });
 export const putQuoteInState = (value) => ({
   type: PUT_QUOTE_IN_STATE,
+  value: value,
+});
+export const putRateInState = (value) => ({
+  type: PUT_RATE_IN_STATE,
+  value: value,
+});
+export const putBookmarksInState = (id, value) => ({
+  type: PUT_BOOKMARKS_IN_STATE,
+  id: id,
+  value: value,
+});
+export const handleRateChange = (value) => ({
+  type: HANDLE_RATE_CHANGE,
+  value: value,
+});
+export const toggleCheckbox = (id, value) => ({
+  type: TOGGLE_CHECKBOX,
+  id: id,
   value: value,
 });
 /** *******BOOKS ***************** */

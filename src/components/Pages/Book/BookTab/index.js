@@ -5,17 +5,14 @@ import './styles.scss';
 import { Tabs } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  changeTabKey, putCommentInState, putQuoteInState,
+  changeTabKey, putCommentInState, putQuoteInState, putRateInState,
 } from '../../../../actions/book';
 
 function BookTab({
-  comment, quote,
+  comment, quote, rate,
 }) {
   const dispatch = useDispatch();
   const tabkey = useSelector((state) => state.book.tabkey);
-
-  dispatch(putCommentInState(comment));
-  dispatch(putQuoteInState(quote));
 
   return (
     <div className="tabs">
@@ -38,5 +35,6 @@ function BookTab({
 BookTab.propTypes = {
   comment: PropTypes.string.isRequired,
   quote: PropTypes.string.isRequired,
+  rate: PropTypes.number.isRequired,
 };
 export default BookTab;

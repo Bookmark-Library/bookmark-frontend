@@ -1,7 +1,9 @@
 import {
   CHANGE_RATE_FIELD, CHANGE_TAB_KEY, CLOSE_MODAL_RATE, OPEN_MODAL_RATE,
   ADD_BOOKS_IN_APP, SAVE_USER_BOOKS, CHANGE_INPUT,
-  PUT_COMMENT_IN_STATE, PUT_QUOTE_IN_STATE, REMOVE_INPUT_BOOK_FORM,
+  PUT_COMMENT_IN_STATE, PUT_QUOTE_IN_STATE,
+  REMOVE_INPUT_BOOK_FORM, PUT_RATE_IN_STATE, HANDLE_RATE_CHANGE,
+  TOGGLE_CHECKBOX, PUT_BOOKMARKS_IN_STATE,
 } from '../actions/book';
 import { SUBMIT_LOGOUT } from '../actions/user';
 
@@ -17,6 +19,7 @@ export const initialState = {
   purchased: false,
   finished: false,
   wishlist: false,
+  rate: 0,
   /** FORM ADD BOOK */
   title: '',
   lastname: '',
@@ -62,6 +65,28 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         citation: action.value,
       };
+    case PUT_RATE_IN_STATE:
+      return {
+        ...state,
+        rate: action.value,
+      };
+    case PUT_BOOKMARKS_IN_STATE:
+      return {
+        ...state,
+        [action.id]: action.value,
+
+      };
+    case HANDLE_RATE_CHANGE:
+      return {
+        ...state,
+        rate: action.value,
+      };
+    case TOGGLE_CHECKBOX:
+      return {
+        ...state,
+        [action.id]: action.value,
+      };
+
     case ADD_BOOKS_IN_APP:
       return {
         ...state,

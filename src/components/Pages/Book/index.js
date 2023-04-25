@@ -2,7 +2,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Link, Navigate, useParams } from 'react-router-dom';
 
-import { openModalRate } from '../../../actions/book';
+import {
+  openModalRate, putBookmarksInState, putCommentInState, putQuoteInState, putRateInState,
+} from '../../../actions/book';
 import BookTab from './BookTab';
 import bookWish from '../../../assets/images/wishlist.svg';
 import bookHeart from '../../../assets/images/favoris-01.svg';
@@ -23,6 +25,14 @@ function Book() {
 
   // eslint-disable-next-line eqeqeq
   const bookToDisplay = libraries.find((book) => book.book.id == id);
+  dispatch(putCommentInState(bookToDisplay.comment));
+  dispatch(putQuoteInState(bookToDisplay.quote));
+  dispatch(putRateInState(bookToDisplay.rate));
+  dispatch(putBookmarksInState('finished', bookToDisplay.finished));
+  dispatch(putBookmarksInState('purchased', bookToDisplay.purchased));
+  dispatch(putBookmarksInState('favorite', bookToDisplay.favorite));
+  dispatch(putBookmarksInState('wishlist', bookToDisplay.wishlist));
+
   const rating = bookToDisplay.rate; // note du produit passée en paramètre
   const getRatingImage = () => {
     switch (rating) {
