@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, Navigate, useParams } from 'react-router-dom';
 
 import {
-  openModalRate, putBookmarksInState, putCommentInState, putQuoteInState, putRateInState,
+  deleteBook,
+  openModalRate, putBookmarksInState,
+  putCommentInState, putIdInState, putQuoteInState, putRateInState,
 } from '../../../actions/book';
 import BookTab from './BookTab';
 import bookWish from '../../../assets/images/wishlist.svg';
@@ -15,6 +17,7 @@ import rateGrey from '../../../assets/images/note-gris.svg';
 import rateyellow from '../../../assets/images/note-jaune.svg';
 import './styles.scss';
 import Loader from '../../Loader';
+import ModalRate from './ModalRate';
 
 function Book() {
   const { id } = useParams();
@@ -22,6 +25,7 @@ function Book() {
   const logged = useSelector((state) => state.user.logged);
   const libraries = useSelector((state) => state.book.libraries);
   const isLoading = useSelector((state) => state.book.isLoading);
+  const modalRate = useSelector((state) => state.book.modalRate);
 
   // eslint-disable-next-line eqeqeq
   const bookToDisplay = libraries.find((book) => book.book.id == id);
@@ -32,6 +36,7 @@ function Book() {
   dispatch(putBookmarksInState('purchased', bookToDisplay.purchased));
   dispatch(putBookmarksInState('favorite', bookToDisplay.favorite));
   dispatch(putBookmarksInState('wishlist', bookToDisplay.wishlist));
+  dispatch(putIdInState('id', bookToDisplay.id));
 
   const rating = bookToDisplay.rate; // note du produit passée en paramètre
   const getRatingImage = () => {
@@ -160,7 +165,7 @@ function Book() {
                     {bookToDisplay.purchased && <img className="bookmark" src={bookAchete} alt="" />}
                   </p>
                 </div>
-                <div className="col-6 col-md-6">
+                <div className="rateDiv col-6 col-md-6">
                   <p>Ma note</p>
 
                   {getRatingImage()}
@@ -172,13 +177,23 @@ function Book() {
             <div className="col-md-6 mx-auto d-block text-center mt-4">
               <button
                 type="button"
-                className="btn btn-warning"
+                className="btn btn-warning mr-2"
                 onClick={() => {
                   dispatch(openModalRate());
                 }}
               >
                 Modifier les infos du livre
               </button>
+              <button
+                type="submit"
+                className="btn btn-danger"
+                onClick={() => {
+                  dispatch(deleteBook());
+                }}
+              >
+                Supprimer le livre
+              </button>
+              {modalRate && <ModalRate />}
             </div>
           </section>
 

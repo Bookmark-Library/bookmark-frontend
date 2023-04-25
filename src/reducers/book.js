@@ -3,7 +3,7 @@ import {
   ADD_BOOKS_IN_APP, SAVE_USER_BOOKS, CHANGE_INPUT,
   PUT_COMMENT_IN_STATE, PUT_QUOTE_IN_STATE,
   REMOVE_INPUT_BOOK_FORM, PUT_RATE_IN_STATE, HANDLE_RATE_CHANGE,
-  TOGGLE_CHECKBOX, PUT_BOOKMARKS_IN_STATE,
+  TOGGLE_CHECKBOX, PUT_BOOKMARKS_IN_STATE, PUT_ID_IN_STATE, DELETE_BOOK_IN_STATE,
 } from '../actions/book';
 import { SUBMIT_LOGOUT } from '../actions/user';
 
@@ -20,6 +20,7 @@ export const initialState = {
   finished: false,
   wishlist: false,
   rate: 0,
+  id: 0,
   /** FORM ADD BOOK */
   title: '',
   lastname: '',
@@ -73,7 +74,13 @@ const reducer = (state = initialState, action = {}) => {
     case PUT_BOOKMARKS_IN_STATE:
       return {
         ...state,
-        [action.id]: action.value,
+        [action.identifier]: action.value,
+
+      };
+    case PUT_ID_IN_STATE:
+      return {
+        ...state,
+        [action.identifier]: action.value,
 
       };
     case HANDLE_RATE_CHANGE:
@@ -84,7 +91,7 @@ const reducer = (state = initialState, action = {}) => {
     case TOGGLE_CHECKBOX:
       return {
         ...state,
-        [action.id]: action.value,
+        [action.identifier]: action.value,
       };
 
     case ADD_BOOKS_IN_APP:
@@ -123,6 +130,19 @@ const reducer = (state = initialState, action = {}) => {
         pages: '',
         summary: '',
         isbn: '',
+      };
+    case DELETE_BOOK_IN_STATE:
+      return {
+        ...state,
+        commentaire: '',
+        citation: '',
+        favorite: false,
+        purchased: false,
+        finished: false,
+        wishlist: false,
+        rate: 0,
+        id: 0,
+
       };
     default:
       return state;

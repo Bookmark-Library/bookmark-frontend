@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {
-  addBooksInApp, GET_BOOKS_FROM_API,
-  removeInputBookForm, SEND_BOOK_BY_ISBN, SEND_BOOK_CREATE_IN_API,
+  addBooksInApp, closeModalRate, deleteBookInState, DELETE_BOOK, GET_BOOKS_FROM_API,
+  removeInputBookForm, SEND_BOOK_BY_ISBN, SEND_BOOK_CREATE_IN_API, SEND_RATE_TO_API,
 } from '../actions/book';
 
 const bookMiddleware = (store) => (next) => (action) => {
@@ -76,6 +76,53 @@ const bookMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           console.log(response.data);
           store.dispatch(removeInputBookForm());
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+    case SEND_RATE_TO_API:
+      axios.put(
+        `http://sandy-bouzid.vpnuser.lan:8000/api/libraries/${store.getState().book.id}`,
+
+        {
+          comment: store.getState().book.commentaire,
+          quote: store.getState().book.ciation,
+          rate: parseInt(store.getState().book.rate, 10),
+          purchased: store.getState().book.purchased,
+          favorite: store.getState().book.favorite,
+          wishlist: store.getState().book.wishlist,
+          finished: store.getState().book.finished,
+        },
+        {
+          headers: {
+            // nom du header: valeur
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        },
+      )
+        .then((response) => {
+          console.log(response.data);
+          store.dispatch(closeModalRate());
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+    case DELETE_BOOK:
+      axios.delete(
+        `http://sandy-bouzid.vpnuser.lan:8000/api/libraries/${store.getState().book.id}`,
+
+        {
+          headers: {
+            // nom du header: valeur
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        },
+      )
+        .then((response) => {
+          console.log(response.data);
+          store.dispatch(deleteBookInState());
         })
         .catch((error) => {
           console.log(error);

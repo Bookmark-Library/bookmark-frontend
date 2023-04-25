@@ -2,7 +2,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 
 import Modal from 'react-bootstrap/Modal';
-import { changeRateField, closeModalRate } from '../../../actions/book';
+import { changeRateField, closeModalRate, sendRateToApi } from '../../../actions/book';
 import FieldText from '../../FieldText';
 import RadioRate from './RadioRate';
 import CheckboxBookmark from './CheckboxBookmark';
@@ -12,6 +12,8 @@ function ModalRate() {
   const modalRate = useSelector((state) => state.book.modalRate);
   const commentaire = useSelector((state) => state.book.commentaire);
   const citation = useSelector((state) => state.book.citation);
+  const id = useSelector((state) => state.book.id);
+
   return (
     <Modal
       size="lg"
@@ -32,7 +34,7 @@ function ModalRate() {
           className="settings-form g-2"
           onSubmit={(e) => {
             e.preventDefault();
-            console.log('c\'est le moment de faire ma requête !');
+            dispatch(sendRateToApi(id));
           }}
         >
           <FieldText

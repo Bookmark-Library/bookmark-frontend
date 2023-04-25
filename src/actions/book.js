@@ -8,8 +8,13 @@ export const PUT_COMMENT_IN_STATE = 'PUT_COMMENT_IN_STATE';
 export const PUT_QUOTE_IN_STATE = 'PUT_QUOTE_IN_STATE';
 export const PUT_RATE_IN_STATE = 'PUT_RATE_IN_STATE';
 export const PUT_BOOKMARKS_IN_STATE = 'PUT_BOOKMARKS_IN_STATE';
+export const PUT_ID_IN_STATE = 'PUT_ID_IN_STATE';
+export const DELETE_BOOK = 'DELETE_BOOK';
+export const DELETE_BOOK_IN_STATE = 'DELETE_BOOK_IN_STATE';
 export const HANDLE_RATE_CHANGE = 'HANDLE_RATE_CHANGE';
 export const TOGGLE_CHECKBOX = 'TOGGLE_CHECKBOX';
+// Send rate and bookmarks in api
+export const SEND_RATE_TO_API = 'SEND_RATE_TO_API';
 /** ******* GET BOOKS ***************** */
 export const ADD_BOOKS_IN_APP = 'ADD_BOOKS_IN_APP';
 export const GET_BOOKS_FROM_API = 'GET_BOOKS_FROM_API';
@@ -48,19 +53,27 @@ export const putRateInState = (value) => ({
   type: PUT_RATE_IN_STATE,
   value: value,
 });
-export const putBookmarksInState = (id, value) => ({
+export const putBookmarksInState = (identifier, value) => ({
   type: PUT_BOOKMARKS_IN_STATE,
-  id: id,
+  identifier: identifier,
+  value: value,
+});
+export const putIdInState = (identifier, value) => ({
+  type: PUT_ID_IN_STATE,
+  identifier: identifier,
   value: value,
 });
 export const handleRateChange = (value) => ({
   type: HANDLE_RATE_CHANGE,
   value: value,
 });
-export const toggleCheckbox = (id, value) => ({
+export const toggleCheckbox = (identifier, value) => ({
   type: TOGGLE_CHECKBOX,
-  id: id,
+  identifier: identifier,
   value: value,
+});
+export const sendRateToApi = () => ({
+  type: SEND_RATE_TO_API,
 });
 /** *******BOOKS ***************** */
 export const addBooksInApp = (newList) => ({
@@ -95,4 +108,11 @@ export const sendBookByIsbn = () => ({
 
 export const removeInputBookForm = () => ({
   type: REMOVE_INPUT_BOOK_FORM,
+});
+
+export const deleteBook = () => ({
+  type: DELETE_BOOK,
+});
+export const deleteBookInState = () => ({
+  type: DELETE_BOOK_IN_STATE,
 });
