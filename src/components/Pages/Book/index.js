@@ -174,6 +174,13 @@ function Book() {
 
                 </div>
               </div>
+              <div className="navBookmark d-flex justify-content-between mt-3 text-center col-12">
+                <span><img src={bookLu} className="img-fluid mx-auto d-block" alt="..." />Livres lus</span>
+                <span><img src={bookLire} className="img-fluid" alt="..." />Pile à lire</span>
+                <span><img src={bookAchete} className="img-fluid" alt="..." />Achetés</span>
+                <span><img src={bookWish} className="img-fluid" alt="..." />Mes envies</span>
+                <span><img src={bookHeart} className="img-fluid" alt="..." />Coups de coeur</span>
+              </div>
             </div>
 
             <div className="col-md-6 mx-auto d-block text-center mt-4">
