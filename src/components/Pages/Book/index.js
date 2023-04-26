@@ -27,7 +27,7 @@ function Book() {
   const libraries = useSelector((state) => state.book.libraries);
   const isLoading = useSelector((state) => state.book.isLoading);
   const modalRate = useSelector((state) => state.book.modalRate);
-
+  console.log(libraries);
   // eslint-disable-next-line eqeqeq
   const bookToDisplay = libraries.find((book) => book.book.id == id);
   const bookdefault = bookToDisplay.book.image ?? defaultBook;

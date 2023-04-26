@@ -21,6 +21,11 @@ export const GET_BOOKS_FROM_API = 'GET_BOOKS_FROM_API';
 export const FETCH_FAVORITE_BOOKS = 'FETCH_FAVORITE_BOOKS';
 export const SAVE_USER_BOOKS = 'SAVE_USER_BOOKS';
 export const CHANGE_INPUT = 'CHANGE_INPUT';
+export const GET_HOME_GENDER_FROM_API = 'GET_HOME_GENDER_FROM_API';
+export const ADD_HOME_GENDER_IN_APP = 'ADD_HOME_GENDER_IN_APP';
+export const GET_GENDER_FROM_API = 'GET_GENDER_FROM_API';
+export const ADD_GENDER_IN_APP = 'ADD_GENDER_IN_APP';
+
 /** ******* POST BOOK **************** */
 export const SEND_BOOK_CREATE_IN_API = 'SEND_BOOK_CREATE_IN_API';
 export const SEND_BOOK_BY_ISBN = 'SEND_BOOK_BY_ISBN';
@@ -82,6 +87,20 @@ export const addBooksInApp = (newList) => ({
 });
 export const getBooksFromApi = () => ({
   type: GET_BOOKS_FROM_API,
+});
+export const getHomeGenderFromApi = () => ({
+  type: GET_HOME_GENDER_FROM_API,
+});
+export const addHomeGenderInApp = (genderList) => ({
+  type: ADD_HOME_GENDER_IN_APP,
+  genderList: genderList,
+});
+export const getGenderFromApi = () => ({
+  type: GET_GENDER_FROM_API,
+});
+export const addGenderInApp = (genderList) => ({
+  type: ADD_GENDER_IN_APP,
+  genderList: genderList,
 });
 
 export const fetchFavoriteBooks = () => ({

@@ -22,6 +22,7 @@ import Favorite from '../Pages/Library/Favorite';
 import Wishlist from '../Pages/Library/Wishlist';
 import ModalPassword from '../Pages/User/ModalPassword';
 import ToRead from '../Pages/Library/ToRead';
+import { getGenderFromApi, getHomeGenderFromApi } from '../../actions/book';
 
 function App() {
   const showModal = useSelector((state) => state.user.showModal);
@@ -33,6 +34,8 @@ function App() {
   useEffect(() => {
     // dispatch(getBooksFromApi());
     dispatch(fetchUserInfo());
+    dispatch(getHomeGenderFromApi());
+    dispatch(getGenderFromApi());
   }, []);
 
   return (

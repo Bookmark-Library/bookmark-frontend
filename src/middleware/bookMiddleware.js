@@ -1,6 +1,8 @@
 import axios from 'axios';
 import {
-  addBooksInApp, closeModalRate, deleteBookInState, DELETE_BOOK, GET_BOOKS_FROM_API,
+  addBooksInApp, addGenderInApp, addHomeGenderInApp, closeModalRate, deleteBookInState, DELETE_BOOK, GET_BOOKS_FROM_API,
+  GET_GENDER_FROM_API,
+  GET_HOME_GENDER_FROM_API,
   removeInputBookForm, SEND_BOOK_BY_ISBN, SEND_BOOK_CREATE_IN_API, SEND_RATE_TO_API,
 } from '../actions/book';
 
@@ -21,6 +23,34 @@ const bookMiddleware = (store) => (next) => (action) => {
           // eslint-disable-next-line no-console
           console.log(error);
         });
+      break;
+    case GET_HOME_GENDER_FROM_API:
+      axios.get(
+        'http://sandy-bouzid.vpnuser.lan:8000/api/genres/home',
+      )
+        .then((response) => {
+          console.log(response.data);
+          store.dispatch(addHomeGenderInApp(response.data));
+        })
+        .catch((error) => {
+          // eslint-disable-next-line no-console
+          console.log(error);
+        });
+
+      break;
+    case GET_GENDER_FROM_API:
+      axios.get(
+        'http://sandy-bouzid.vpnuser.lan:8000/api/genres',
+      )
+        .then((response) => {
+          console.log(response.data);
+          store.dispatch(addGenderInApp(response.data));
+        })
+        .catch((error) => {
+          // eslint-disable-next-line no-console
+          console.log(error);
+        });
+
       break;
     case SEND_BOOK_CREATE_IN_API:
       if (Object.keys(store.getState().user.formErrors).length !== 0) {

@@ -3,7 +3,8 @@ import {
   ADD_BOOKS_IN_APP, SAVE_USER_BOOKS, CHANGE_INPUT,
   PUT_COMMENT_IN_STATE, PUT_QUOTE_IN_STATE,
   REMOVE_INPUT_BOOK_FORM, PUT_RATE_IN_STATE, HANDLE_RATE_CHANGE,
-  TOGGLE_CHECKBOX, PUT_BOOKMARKS_IN_STATE, PUT_ID_IN_STATE, DELETE_BOOK_IN_STATE,
+  TOGGLE_CHECKBOX, PUT_BOOKMARKS_IN_STATE, PUT_ID_IN_STATE,
+  DELETE_BOOK_IN_STATE, ADD_HOME_GENDER_IN_APP, ADD_GENDER_IN_APP,
 } from '../actions/book';
 import { SUBMIT_LOGOUT } from '../actions/user';
 
@@ -21,6 +22,8 @@ export const initialState = {
   wishlist: false,
   rate: 0,
   id: 0,
+  gender: [],
+  homeGender: [],
   /** FORM ADD BOOK */
   title: '',
   lastname: '',
@@ -99,13 +102,24 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         bookList: action.newList,
         // isBooksLoaded: true,
-
       };
     case SAVE_USER_BOOKS:
       return {
         ...state,
         libraries: action.userLibrary,
         isLoading: false,
+      };
+    case ADD_HOME_GENDER_IN_APP:
+      return {
+        ...state,
+        homeGender: action.genderList,
+        // isLoading: false,
+      };
+    case ADD_GENDER_IN_APP:
+      return {
+        ...state,
+        gender: action.genderList,
+        // isLoading: false,
       };
     case SUBMIT_LOGOUT:
       return {
