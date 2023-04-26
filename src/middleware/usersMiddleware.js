@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import { saveUserBooks } from '../actions/book';
 // import { fetchFavoriteRecipes } from '../actions/recipes';
 import {
@@ -55,7 +56,7 @@ const usersMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           localStorage.setItem('pseudo', response.data.alias);
           localStorage.setItem('bibliotheque', JSON.stringify(response.data.libraries));
           localStorage.setItem('email', response.data.email);
@@ -90,6 +91,8 @@ const usersMiddleware = (store) => (next) => (action) => {
       )
         .then((response) => {
           console.log(response.data);
+          toast.success('Inscription réussie, veuillez vous connecter avec vos identifiants !');
+
           store.dispatch(removeInput());
         })
         .catch((error) => {
@@ -109,11 +112,13 @@ const usersMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
+          toast.success('Votre profil a bien été supprimé');
           store.dispatch(deleteUser());
         })
         .catch((error) => {
           console.log(error);
+          toast.warning('Une erreur est survenu veuillez réessayer');
         });
       break;
     case UPDATE_USER_IN_API:
@@ -134,7 +139,8 @@ const usersMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
+          toast.success('Votre profil a bien été mis à jour');
           store.dispatch(updateUser());
         })
         .catch((error) => {
@@ -159,7 +165,7 @@ const usersMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           store.dispatch(updateUser());
         })
         .catch((error) => {

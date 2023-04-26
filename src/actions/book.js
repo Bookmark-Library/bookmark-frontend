@@ -9,6 +9,8 @@ export const PUT_QUOTE_IN_STATE = 'PUT_QUOTE_IN_STATE';
 export const PUT_RATE_IN_STATE = 'PUT_RATE_IN_STATE';
 export const PUT_BOOKMARKS_IN_STATE = 'PUT_BOOKMARKS_IN_STATE';
 export const PUT_ID_IN_STATE = 'PUT_ID_IN_STATE';
+export const PUT_BOOK_ID_IN_STATE = 'PUT_BOOK_ID_IN_STATE';
+
 export const DELETE_BOOK = 'DELETE_BOOK';
 export const DELETE_BOOK_IN_STATE = 'DELETE_BOOK_IN_STATE';
 export const HANDLE_RATE_CHANGE = 'HANDLE_RATE_CHANGE';
@@ -132,6 +134,7 @@ export const removeInputBookForm = () => ({
 export const deleteBook = () => ({
   type: DELETE_BOOK,
 });
-export const deleteBookInState = () => ({
+export const deleteBookInState = (index) => ({
   type: DELETE_BOOK_IN_STATE,
+  index: index,
 });

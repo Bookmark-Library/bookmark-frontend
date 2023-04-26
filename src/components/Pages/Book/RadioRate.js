@@ -16,7 +16,7 @@ const RadioRate = () => {
             name="inlineRadioOptions"
             id="inlineRadio1"
             value="1"
-            checked={rate === 1}
+            checked={rate === '1'}
             onChange={(e) => {
               dispatch(handleRateChange(e.target.value));
             }}
@@ -32,7 +32,7 @@ const RadioRate = () => {
             name="inlineRadioOptions"
             id="inlineRadio2"
             value="2"
-            checked={rate === 2}
+            checked={rate === '2'}
             onChange={(e) => {
               dispatch(handleRateChange(e.target.value));
             }}
@@ -48,7 +48,7 @@ const RadioRate = () => {
             name="inlineRadioOptions"
             id="inlineRadio3"
             value="3"
-            checked={rate === 3}
+            checked={rate === '3'}
             onChange={(e) => {
               dispatch(handleRateChange(e.target.value));
             }}
@@ -64,7 +64,7 @@ const RadioRate = () => {
             name="inlineRadioOptions"
             id="inlineRadio4"
             value="4"
-            checked={rate === 4}
+            checked={rate === '4'}
             onChange={(e) => {
               dispatch(handleRateChange(e.target.value));
             }}
@@ -80,7 +80,7 @@ const RadioRate = () => {
             name="inlineRadioOptions"
             id="inlineRadio5"
             value="5"
-            checked={rate === 5}
+            checked={rate === '5'}
             onChange={(e) => {
               dispatch(handleRateChange(e.target.value));
             }}

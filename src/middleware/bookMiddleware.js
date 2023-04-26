@@ -1,10 +1,16 @@
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import {
-  addBooksInApp, addGenderInApp, addHomeGenderInApp, closeModalRate, deleteBookInState, DELETE_BOOK, GET_BOOKS_FROM_API,
+  addBooksInApp, addGenderInApp, addHomeGenderInApp,
+  closeModalRate, deleteBookInState, DELETE_BOOK, GET_BOOKS_FROM_API,
   GET_GENDER_FROM_API,
   GET_HOME_GENDER_FROM_API,
+  putBookmarksInState,
+  putCommentInState,
+  putQuoteInState,
   removeInputBookForm, SEND_BOOK_BY_ISBN, SEND_BOOK_CREATE_IN_API, SEND_RATE_TO_API,
 } from '../actions/book';
+import { fetchUserInfo } from '../actions/user';
 
 const bookMiddleware = (store) => (next) => (action) => {
   // console.log('authMiddleware, on a reçu une action', action);
@@ -29,7 +35,7 @@ const bookMiddleware = (store) => (next) => (action) => {
         'http://sandy-bouzid.vpnuser.lan:8000/api/genres/home',
       )
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           store.dispatch(addHomeGenderInApp(response.data));
         })
         .catch((error) => {
@@ -43,7 +49,7 @@ const bookMiddleware = (store) => (next) => (action) => {
         'http://sandy-bouzid.vpnuser.lan:8000/api/genres',
       )
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           store.dispatch(addGenderInApp(response.data));
         })
         .catch((error) => {
@@ -82,7 +88,9 @@ const bookMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
+          toast.success('votre livre a bien été ajouté');
+          store.dispatch(fetchUserInfo());
           store.dispatch(removeInputBookForm());
         })
         .catch((error) => {
@@ -105,10 +113,17 @@ const bookMiddleware = (store) => (next) => (action) => {
       )
         .then((response) => {
           console.log(response.data);
+          toast.success('Votre livre a bien été ajouté');
           store.dispatch(removeInputBookForm());
         })
         .catch((error) => {
           console.log(error);
+          if (error.request.status === 500) {
+            toast.info('Livre introuvable, veuillez le rentrer via le formulaire');
+          }
+          if (error.request.status === 409) {
+            toast.info('Le livre est deja présent dans votre bibliothèque');
+          }
         });
       break;
     case SEND_RATE_TO_API:
@@ -117,12 +132,14 @@ const bookMiddleware = (store) => (next) => (action) => {
 
         {
           comment: store.getState().book.commentaire,
-          quote: store.getState().book.ciation,
+          quote: store.getState().book.citation,
           rate: parseInt(store.getState().book.rate, 10),
           purchased: store.getState().book.purchased,
           favorite: store.getState().book.favorite,
           wishlist: store.getState().book.wishlist,
           finished: store.getState().book.finished,
+          // bookId: store.getState().book.bookId,
+          genre_id: store.getState().book.genderId,
         },
         {
           headers: {
@@ -133,6 +150,10 @@ const bookMiddleware = (store) => (next) => (action) => {
       )
         .then((response) => {
           console.log(response.data);
+          toast.success('Vos modifications ont bien été prises en compte');
+          store.dispatch(fetchUserInfo());
+          store.dispatch(closeModalRate());
+
           store.dispatch(closeModalRate());
         })
         .catch((error) => {
@@ -152,6 +173,8 @@ const bookMiddleware = (store) => (next) => (action) => {
       )
         .then((response) => {
           console.log(response.data);
+          toast.success('Votre livre a bien été supprimé');
+          store.dispatch(fetchUserInfo());
           store.dispatch(deleteBookInState());
         })
         .catch((error) => {

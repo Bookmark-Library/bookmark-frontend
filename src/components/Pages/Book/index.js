@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Link, Navigate, useParams } from 'react-router-dom';
+import {
+  Link, Navigate, useParams, useNavigate,
+} from 'react-router-dom';
 
 import {
   deleteBook,
@@ -23,11 +25,11 @@ import ModalRate from './ModalRate';
 function Book() {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const logged = useSelector((state) => state.user.logged);
   const libraries = useSelector((state) => state.book.libraries);
   const isLoading = useSelector((state) => state.book.isLoading);
   const modalRate = useSelector((state) => state.book.modalRate);
-  console.log(libraries);
   // eslint-disable-next-line eqeqeq
   const bookToDisplay = libraries.find((book) => book.book.id == id);
   const bookdefault = bookToDisplay.book.image ?? defaultBook;
@@ -146,7 +148,7 @@ function Book() {
               <div className="col-md-6 col-12">
 
                 <p className="book-editor"><strong>Prix :</strong> {bookToDisplay.book.price}</p>
-                <p className="book-editor"><strong>Isbn :</strong> {bookToDisplay.book.isbn}</p>
+                {bookToDisplay.book.isbn === null ? '' : <p className="book-editor"><strong>Isbn :</strong> {bookToDisplay.book.isbn}</p>}
                 <p className="book-editor"><strong>Nombre de page :</strong> {bookToDisplay.book.pages}</p>
               </div>
             </div>
@@ -160,7 +162,7 @@ function Book() {
                 <div className="col-6 col-md-6">
                   <p>Mes bookMark</p>
                   <p>
-                    {bookToDisplay.favorites && <img className="bookmark" src={bookHeart} alt="" />}
+                    {bookToDisplay.favorite && <img className="bookmark" src={bookHeart} alt="" />}
                     {bookToDisplay.wishlist && <img className="bookmark" src={bookWish} alt="" />}
                     {bookToDisplay.finished && <img className="bookmark" src={bookLu} alt="" />}
                     {bookToDisplay.purchased && !bookToDisplay.finished && <img className="bookmark" src={bookLire} alt="" />}
@@ -198,6 +200,7 @@ function Book() {
                 className="btn btn-danger"
                 onClick={() => {
                   dispatch(deleteBook());
+                  navigate('/bibliotheque');
                 }}
               >
                 Supprimer le livre

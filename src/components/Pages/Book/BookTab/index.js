@@ -27,11 +27,6 @@ function BookTab({
             {quote}
           </p>
         </Tab>
-        <Tab eventKey="three" title="Genre">
-          <p>
-            genre
-          </p>
-        </Tab>
       </Tabs>
     </div>
   );

@@ -1,6 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Footer from '../Footer';
 import Header from '../Header';
 import Book from '../Pages/Book';
@@ -14,6 +16,7 @@ import User from '../Pages/User';
 import Inscription from '../Pages/Inscription';
 import Contact from '../Pages/Contact';
 import ModalRate from '../Pages/Book/ModalRate';
+
 // import { getBooksFromApi } from '../../actions/book';
 import { fetchUserInfo } from '../../actions/user';
 import Finished from '../Pages/Library/Finished';
@@ -42,6 +45,18 @@ function App() {
     <div className="app">
 
       <Header />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
 
       <Routes>
         <Route path="/" element={<Home />} />

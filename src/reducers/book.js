@@ -23,6 +23,7 @@ export const initialState = {
   rate: 0,
   id: 0,
   gender: [],
+  genderId: null,
   homeGender: [],
   /** FORM ADD BOOK */
   title: '',
@@ -35,6 +36,7 @@ export const initialState = {
   pages: null,
   summary: null,
   isbn: null,
+  bookId: 0,
 };
 
 const reducer = (state = initialState, action = {}) => {
