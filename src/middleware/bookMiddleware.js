@@ -114,6 +114,7 @@ const bookMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           console.log(response.data);
           toast.success('Votre livre a bien été ajouté');
+          store.dispatch(fetchUserInfo());
           store.dispatch(removeInputBookForm());
         })
         .catch((error) => {
@@ -152,8 +153,6 @@ const bookMiddleware = (store) => (next) => (action) => {
           console.log(response.data);
           toast.success('Vos modifications ont bien été prises en compte');
           store.dispatch(fetchUserInfo());
-          store.dispatch(closeModalRate());
-
           store.dispatch(closeModalRate());
         })
         .catch((error) => {

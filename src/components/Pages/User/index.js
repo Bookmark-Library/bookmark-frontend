@@ -78,7 +78,7 @@ const User = () => {
               </div>
               <div className="col-12">
                 <button type="button" className="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Enregistrer</button>
-                <div className="dropdown-menu">
+                <div className="dropdown-menu mr-2">
                   <button
                     type="submit"
                     className="dropdown-item"

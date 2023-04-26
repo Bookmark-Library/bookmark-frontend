@@ -41,7 +41,7 @@ function FormBook() {
     <div className="container divInscription">
       <div className="container text-center titleAdd">Entrez l'ISBN du livre <strong>OU</strong> remplissez le formulaire d'ajout</div>
       <div className="row justify-content-around mt-5">
-        <div className="col-md-5 col-12  text-center">
+        <div className="col-md-6 col-12  text-center">
           <form
             className="row  g-2 col-md-6 offset-md-3"
             onSubmit={(e) => {
@@ -53,7 +53,6 @@ function FormBook() {
             <div className="col-12">
               <Field
                 identifier="isbn"
-                placeholder="entrer l'isbn ou le code barre"
                 label="isbn"
                 value={isbn}
                 type="number"
@@ -65,9 +64,14 @@ function FormBook() {
             <div className="col-12">
               <button type="submit" className="btn btn-warning">Ajouter</button>
             </div>
+            <div className="infoIsbn col-12 mt-5 p-3">
+              <p>Point info</p>Pour les livres les plus récents l'ISBN correspond bien souvent au code barre.
+              <br />Cependant sur des livres plus anciens, il peut être différent du code barre, il est donc préférable de le vérifier sur la page d'information du livre au début ou à la fin. 
+              
+            </div>
           </form>
         </div>
-        <div className="col-md-5 col-12">
+        <div className="col-md-6 col-12">
           <form
             className="row g-2"
             onSubmit={(e) => {
@@ -81,8 +85,7 @@ function FormBook() {
               <Field
                 required
                 identifier="title"
-                placeholder=""
-                label="Titre"
+                label="Titre *"
                 className="required"
                 value={title}
                 changeField={(identifier, newValue) => {
@@ -96,7 +99,7 @@ function FormBook() {
               <Field
                 identifier="lastname"
                 placeholder=""
-                label="Nom de l'Auteur"
+                label="Nom de l'Auteur *"
                 value={lastname}
                 changeField={(identifier, newValue) => {
                   dispatch(changeInput(identifier, newValue));

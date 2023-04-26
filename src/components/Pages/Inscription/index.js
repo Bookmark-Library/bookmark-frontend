@@ -58,7 +58,7 @@ function Inscription() {
                 required
                 identifier="alias"
                 placeholder=""
-                label="Alias"
+                label="Alias *"
                 value={alias}
                 changeField={(identifier, newValue) => {
                   dispatch(changeInput(identifier, newValue));
@@ -70,7 +70,7 @@ function Inscription() {
             <Field
               identifier="email"
               placeholder=""
-              label="Email"
+              label="Email *"
               value={email}
               changeField={(identifier, newValue) => {
                 dispatch(changeInput(identifier, newValue));
@@ -82,7 +82,7 @@ function Inscription() {
             <Field
               identifier="password"
               placeholder=""
-              label="Mot de passe"
+              label="Mot de passe *"
               type="password"
               value={password}
               changeField={(identifier, newValue) => {

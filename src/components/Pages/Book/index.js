@@ -178,17 +178,17 @@ function Book() {
               </div>
               <div className="navBookmark d-flex justify-content-between mt-3 text-center col-12">
                 <span><img src={bookLu} className="img-fluid mx-auto d-block" alt="..." />Livres lus</span>
-                <span><img src={bookLire} className="img-fluid" alt="..." />Pile à lire</span>
-                <span><img src={bookAchete} className="img-fluid" alt="..." />Achetés</span>
-                <span><img src={bookWish} className="img-fluid" alt="..." />Mes envies</span>
-                <span><img src={bookHeart} className="img-fluid" alt="..." />Coups de coeur</span>
+                <span><img src={bookLire} className="img-fluid mx-auto d-block" alt="..." />Pile à lire</span>
+                <span><img src={bookAchete} className="img-fluid mx-auto d-block" alt="..." />Achetés</span>
+                <span><img src={bookWish} className="img-fluid mx-auto d-block" alt="..." />Mes envies</span>
+                <span><img src={bookHeart} className="img-fluid mx-auto d-blockc" alt="..." />Coups de coeur</span>
               </div>
             </div>
 
             <div className="col-md-6 mx-auto d-block text-center mt-4">
               <button
                 type="button"
-                className="btn btn-warning mr-2"
+                className="btn btn-warning"
                 onClick={() => {
                   dispatch(openModalRate());
                 }}

@@ -19,7 +19,7 @@ const Field = ({
   };
 
   return (
-    <div className="field ">
+    <div className="field">
       <input
         className="input form-control"
         id={identifier}

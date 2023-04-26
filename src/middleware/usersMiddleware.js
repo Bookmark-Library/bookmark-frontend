@@ -92,7 +92,6 @@ const usersMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           console.log(response.data);
           toast.success('Inscription réussie, veuillez vous connecter avec vos identifiants !');
-
           store.dispatch(removeInput());
         })
         .catch((error) => {
