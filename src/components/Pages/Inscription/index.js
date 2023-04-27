@@ -53,8 +53,9 @@ function Inscription() {
             onSubmit={(e) => {
               e.preventDefault();
               validateForm();
-              navigate('/');
-              dispatch(createUserInApi());
+              if (dispatch(createUserInApi())) {
+                navigate('/');
+              }
             }}
           >
             <div className="col-md-6">

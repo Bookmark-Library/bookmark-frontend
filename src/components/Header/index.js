@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import {
-  changeSettingsField, submitLogin, submitLogout,
+  changeSettingsField, submitLogin, submitLogout, updateFormErrors,
 } from '../../actions/user';
 import bookMarkLogo from '../../assets/images/bookmark-logo-copie.svg';
 import LoginForm from '../LoginForm';
@@ -14,6 +14,17 @@ function Header() {
   const passwordValue = useSelector((state) => state.user.password);
   const logged = useSelector((state) => state.user.logged);
   const alias = useSelector((state) => state.user.alias);
+  const validateForm = () => {
+    const errors = {};
+    // Vérifier les champs obligatoires
+    if (!emailValue) {
+      errors.alias = 'Veuillez saisir votre email';
+    }
+    if (!password) {
+      errors.password = 'Veuillez saisir votre mot de passe';
+    }
+    dispatch(updateFormErrors(errors));
+  };
   return (
     <header>
       <nav className="navbar navbar-expand-lg">
@@ -60,6 +71,7 @@ function Header() {
                 dispatch(changeSettingsField(identifier, newValue));
               }}
               handleLogin={() => {
+                validateForm();
                 dispatch(submitLogin());
               }}
               handleLogout={() => {
