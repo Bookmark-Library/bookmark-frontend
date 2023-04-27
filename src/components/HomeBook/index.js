@@ -10,7 +10,7 @@ const HomeBook = () => {
 
   return (
 
-    <div className="row row-cols-1 row-cols-md-4 g-4 mt-2">
+    <div className="row row-cols-1 row-cols-md-2  row-cols-lg-4 g-4 mt-2">
       {homeGender.map((gender) => (
         <div key={gender.id} className="col-sm-3 text-center">
           <div className="card border-light h-100">
