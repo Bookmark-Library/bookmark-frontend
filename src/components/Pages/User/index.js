@@ -6,7 +6,7 @@ import { Navigate } from 'react-router-dom';
 import Field from '../../Field';
 import { changeInput } from '../../../actions/book';
 import {
-  deleteUserInApi, openModal, submitLogout, updateUser, updateUserInApi,
+  deleteUserInApi, openModal, previewAvatar, submitLogout, updateUser, updateUserInApi, uploadFile,
 } from '../../../actions/user';
 
 const User = () => {
@@ -16,6 +16,16 @@ const User = () => {
   const alias = useSelector((state) => state.user.alias);
   const email = useSelector((state) => state.user.email);
   const logged = useSelector((state) => state.user.logged);
+  const preview = useSelector((state) => state.user.avatarPreview);
+
+  const handleChange = (e) => {
+    const selectedFile = e.target.files[0];
+    console.log(selectedFile);
+    dispatch(uploadFile(selectedFile));
+    const filePreview = URL.createObjectURL(selectedFile);
+    console.log(filePreview);
+    dispatch(previewAvatar(filePreview));
+  };
 
   if (!logged) {
     return <Navigate to="/" replace />;
@@ -27,6 +37,7 @@ const User = () => {
 
           <h2>Informations personnelles</h2>
           <div className="row">
+            {avatar && <img src={avatar} alt={avatar.name} /> }
             <img src={avatar} className="img-thumbnail img-fluid mx-auto d-block" alt="..." />
             <button
               type="button"
@@ -43,7 +54,9 @@ const User = () => {
         <form className="row g-3">
           <div className="col-md-12">
             <div className="col-md-12">
-              <Field
+              <input type="file" name="avatar" onChange={(e) => handleChange(e)} />
+
+              {/* <Field
                 identifier="avatar"
                 placeholder="Coller l'url de votre image"
                 label="Avatar"
@@ -51,7 +64,7 @@ const User = () => {
                 changeField={(identifier, newValue) => {
                   dispatch(changeInput(identifier, newValue));
                 }}
-              />
+              /> */}
             </div>
             <div className="row">
               <div className="col-md-6">

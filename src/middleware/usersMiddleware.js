@@ -96,7 +96,7 @@ const usersMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           console.log(response.data);
           toast.success('Inscription réussie, veuillez vous connecter avec vos identifiants !');
-          
+
           store.dispatch(removeInput());
         })
         .catch((error) => {
@@ -127,9 +127,12 @@ const usersMiddleware = (store) => (next) => (action) => {
         });
       break;
     case UPDATE_USER_IN_API:
+      const formData = new FormData();
+      formData.append('avatar', store.getState().user.avatar);
       axios.put(
         // URL
         'http://sandy-bouzid.vpnuser.lan:8000/api/users',
+        formData,
         // options (notamment les headers)
         {
           alias: store.getState().user.alias,
@@ -138,13 +141,14 @@ const usersMiddleware = (store) => (next) => (action) => {
         },
         {
           headers: {
+            'enc-type': 'multipart/form-data',
             // nom du header: valeur
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
         },
       )
         .then((response) => {
-          // console.log(response.data);
+          console.log(response.data);
           toast.success('Votre profil a bien été mis à jour');
           store.dispatch(fetchUserInfo());
           store.dispatch(updateUser());

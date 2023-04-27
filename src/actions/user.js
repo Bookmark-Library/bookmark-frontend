@@ -16,6 +16,8 @@ export const DELETE_USER_IN_API = 'DELETE_USER_IN_API';
 export const UPDATE_USER_IN_API = 'UPDATE_USER_IN_API';
 export const UPDATE_USER_PASSWORD_IN_API = 'UPDATE_USER_PASSWORD_IN_API';
 export const REMOVE_INPUT = 'REMOVE_INPUT';
+export const UPLOAD_FILE = 'UPLOAD_FILE';
+export const PREVIEW_AVATAR = 'PREVIEW_AVATAR';
 
 // delete user in state and local storage
 export const DELETE_USER = 'DELETE_USER';
@@ -95,4 +97,12 @@ export const updateUser = (alias, avatar, email, password) => ({
 export const updateFormErrors = (errors) => ({
   type: 'UPDATE_FORM_ERRORS',
   errors: errors,
+});
+export const uploadFile = (file) => ({
+  type: 'UPLOAD_FILE',
+  file: file,
+});
+export const previewAvatar = (fileUrl) => ({
+  type: 'PREVIEW_AVATAR',
+  fileUrl: fileUrl,
 });
