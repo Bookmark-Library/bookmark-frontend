@@ -53,7 +53,7 @@ function FormBook() {
             <div className="col-12">
               <Field
                 identifier="isbn"
-                label="ISBN"
+                label="ISBN ou code barre"
                 value={isbn}
                 type="number"
                 changeField={(identifier, newValue) => {
