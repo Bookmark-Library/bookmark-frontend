@@ -4,7 +4,7 @@ import {
   PUT_COMMENT_IN_STATE, PUT_QUOTE_IN_STATE,
   REMOVE_INPUT_BOOK_FORM, PUT_RATE_IN_STATE, HANDLE_RATE_CHANGE,
   TOGGLE_CHECKBOX, PUT_BOOKMARKS_IN_STATE, PUT_ID_IN_STATE,
-  DELETE_BOOK_IN_STATE, ADD_HOME_GENDER_IN_APP, ADD_GENDER_IN_APP,
+  DELETE_BOOK_IN_STATE, ADD_HOME_GENDER_IN_APP, ADD_GENDER_IN_APP, FILTER_BOOK, SET_SORT_BY,
 } from '../actions/book';
 import { SUBMIT_LOGOUT } from '../actions/user';
 
@@ -161,10 +161,16 @@ const reducer = (state = initialState, action = {}) => {
         id: 0,
 
       };
-    case 'SET_SORT_BY':
+    case SET_SORT_BY:
       return {
         ...state,
-        sortBy: action.payload,
+        sortBy: action.sortBy,
+      };
+
+    case FILTER_BOOK:
+      return {
+        ...state,
+        libraries: action.filteredBooks,
       };
     default:
       return state;
