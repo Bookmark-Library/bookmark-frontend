@@ -3,6 +3,7 @@
 /* eslint-disable react/jsx-indent */
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { changeInput } from '../../../actions/book';
 import { createUserInApi, updateFormErrors } from '../../../actions/user';
 import Field from '../../Field';
@@ -31,7 +32,7 @@ function Inscription() {
       errors.password = 'Veuillez saisir votre mot de passe';
     }
     // Vérifier le format de l'adresse e-mail
-    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    const emailRegex = /^[^\W][a-zA-Z0-9\-\._]+[^\W]@[^\W][a-zA-Z0-9\-\._]+[^\W]\.[a-zA-Z]{2,6}$/;
     if (email && !emailRegex.test(email)) {
       errors.email = 'Veuillez saisir une adresse e-mail valide';
     }
@@ -53,8 +54,7 @@ function Inscription() {
             onSubmit={(e) => {
               e.preventDefault();
               validateForm();
-              if (!dispatch(createUserInApi()));
-              navigate('/');
+              dispatch(createUserInApi());
             }}
           >
             <div className="col-md-6">

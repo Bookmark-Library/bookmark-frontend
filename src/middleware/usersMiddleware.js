@@ -40,7 +40,10 @@ const usersMiddleware = (store) => (next) => (action) => {
         .catch((error) => {
           // le serveur nous retourne 401 si les identifiants ne sont pas bons
           // eslint-disable-next-line no-console
-          toast.warning('identifiants invalide');
+          if (error.request.status === 401) {
+            toast.warning('identifiants invalide');
+          }
+          toast.warning('Une erreur est survenue veuillez réessayer');
           console.warn(error);
         });
       break;
@@ -93,10 +96,12 @@ const usersMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           console.log(response.data);
           toast.success('Inscription réussie, veuillez vous connecter avec vos identifiants !');
+          
           store.dispatch(removeInput());
         })
         .catch((error) => {
           console.log(error);
+          toast.warning('Une erreur est survenue veuillez réessayer');
         });
       break;
     case DELETE_USER_IN_API:

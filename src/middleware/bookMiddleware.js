@@ -5,9 +5,6 @@ import {
   closeModalRate, deleteBookInState, DELETE_BOOK, GET_BOOKS_FROM_API,
   GET_GENDER_FROM_API,
   GET_HOME_GENDER_FROM_API,
-  putBookmarksInState,
-  putCommentInState,
-  putQuoteInState,
   removeInputBookForm, SEND_BOOK_BY_ISBN, SEND_BOOK_CREATE_IN_API, SEND_RATE_TO_API,
 } from '../actions/book';
 import { fetchUserInfo } from '../actions/user';
