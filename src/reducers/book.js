@@ -25,6 +25,7 @@ export const initialState = {
   gender: [],
   genderId: null,
   homeGender: [],
+  sortBy: '',
   /** FORM ADD BOOK */
   title: '',
   lastname: '',
@@ -159,6 +160,11 @@ const reducer = (state = initialState, action = {}) => {
         rate: 0,
         id: 0,
 
+      };
+    case 'SET_SORT_BY':
+      return {
+        ...state,
+        sortBy: action.payload,
       };
     default:
       return state;

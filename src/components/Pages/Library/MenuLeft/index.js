@@ -6,8 +6,16 @@ import bookLire from '../../../../assets/images/lire.svg';
 import bookAchete from '../../../../assets/images/achetes.svg';
 
 import './styles.scss';
+import { setSortBy } from '../../../../actions/book';
+import { useDispatch } from 'react-redux';
 
 function MenuLeft() {
+  const dispatch = useDispatch();
+
+  const handleSortByChange = (event) => {
+    dispatch(setSortBy(event.target.value));
+  };
+
   return (
     <div className="col-12 col-md-4 searchBiblio">
       <Link
@@ -25,11 +33,11 @@ function MenuLeft() {
         <li className="bookWish"><img src={bookWish} className="img-fluid" alt="..." /><Link to="/bibliotheque/envies">Mes envies </Link></li>
         <li className="bookFavorite"><img src={bookHeart} className="img-fluid" alt="..." /><Link to="/bibliotheque/favoris">Coups de coeur</Link></li>
       </ul>
-      <select className="form-select form-select-sm" aria-label=".form-select-sm example">
+      <select onChange={handleSortByChange} className="form-select form-select-sm" aria-label=".form-select-sm example">
         <option defaultValue>Recherche par...</option>
-        <option value="1">Titre</option>
-        <option value="2">Auteur</option>
-        <option value="3">Genre</option>
+        <option value="title">Titre</option>
+        <option value="publicationDate">date de publication</option>
+        <option value="editor">editeur</option>
       </select>
     </div>
   );
