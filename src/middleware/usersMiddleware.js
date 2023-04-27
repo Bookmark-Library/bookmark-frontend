@@ -79,6 +79,7 @@ const usersMiddleware = (store) => (next) => (action) => {
         });
       break;
     case CREATE_USER_IN_API:
+      console.log(store.getState().user.avatar);
       if (Object.keys(store.getState().user.formErrors).length !== 0) {
         return;
       }
@@ -90,7 +91,7 @@ const usersMiddleware = (store) => (next) => (action) => {
           alias: store.getState().user.alias,
           email: store.getState().user.emailInscription,
           password: store.getState().user.passwordInscription,
-          avatar: store.getState().user.avatar,
+          avatar: URL.createObjectURL(store.getState().user.avatar),
         },
       )
         .then((response) => {
@@ -127,12 +128,9 @@ const usersMiddleware = (store) => (next) => (action) => {
         });
       break;
     case UPDATE_USER_IN_API:
-      const formData = new FormData();
-      formData.append('avatar', store.getState().user.avatar);
       axios.put(
         // URL
         'http://sandy-bouzid.vpnuser.lan:8000/api/users',
-        formData,
         // options (notamment les headers)
         {
           alias: store.getState().user.alias,
@@ -143,7 +141,6 @@ const usersMiddleware = (store) => (next) => (action) => {
           headers: {
             // nom du header: valeur
             Authorization: `Bearer ${localStorage.getItem('token')}`,
-            'enc-type': 'multipart/form-data',
           },
         },
       )
