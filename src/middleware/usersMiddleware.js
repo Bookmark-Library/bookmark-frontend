@@ -40,6 +40,7 @@ const usersMiddleware = (store) => (next) => (action) => {
         .catch((error) => {
           // le serveur nous retourne 401 si les identifiants ne sont pas bons
           // eslint-disable-next-line no-console
+          toast.warning('identifiants invalide');
           console.warn(error);
         });
       break;
@@ -84,8 +85,8 @@ const usersMiddleware = (store) => (next) => (action) => {
         // options (notamment les headers)
         {
           alias: store.getState().user.alias,
-          email: store.getState().user.email,
-          password: store.getState().user.password,
+          email: store.getState().user.emailInscription,
+          password: store.getState().user.passwordInscription,
           avatar: store.getState().user.avatar,
         },
       )

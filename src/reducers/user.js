@@ -9,6 +9,8 @@ export const initialState = {
   logged: !!localStorage.getItem('token'),
   email: localStorage.getItem('email') || '',
   password: '',
+  emailInscription: '',
+  passwordInscription: '',
   token: localStorage.getItem('token') || '',
   avatar: '',
   alias: localStorage.getItem('pseudo') || '',

@@ -13,8 +13,8 @@ function Inscription() {
   const navigate = useNavigate();
 
   const alias = useSelector((state) => state.user.alias);
-  const email = useSelector((state) => state.user.email);
-  const password = useSelector((state) => state.user.password);
+  const email = useSelector((state) => state.user.emailInscription);
+  const password = useSelector((state) => state.user.passwordInscription);
   const avatar = useSelector((state) => state.user.avatar);
   const formErrors = useSelector((state) => state.user.formErrors);
   /* ********** Verification du formulaire */
@@ -72,7 +72,7 @@ function Inscription() {
             </div>
             <div className="col-12">
             <Field
-              identifier="email"
+              identifier="emailInscription"
               placeholder=""
               label="Email *"
               value={email}
@@ -84,7 +84,7 @@ function Inscription() {
             </div>
             <div className="col-12">
             <Field
-              identifier="password"
+              identifier="passwordInscription"
               placeholder=""
               label="Mot de passe *"
               type="password"
