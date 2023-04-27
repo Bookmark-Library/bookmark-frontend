@@ -16,6 +16,9 @@ const HomeBook = () => {
           <div className="card border-light h-100">
             <img src={gender.books[0].image} className="card-img-top" alt="..." />
             <div className="card-body">
+            
+            </div>
+            <div className="card-footer bg-light">
               <a href="#" className="btn-book">{gender.name}</a>
             </div>
           </div>
