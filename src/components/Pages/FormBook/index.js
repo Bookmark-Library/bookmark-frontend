@@ -53,7 +53,7 @@ function FormBook() {
             <div className="col-12">
               <Field
                 identifier="isbn"
-                label="isbn"
+                label="ISBN"
                 value={isbn}
                 type="number"
                 changeField={(identifier, newValue) => {
@@ -65,9 +65,12 @@ function FormBook() {
               <button type="submit" className="btn btn-warning">Ajouter</button>
             </div>
             <div className="infoIsbn col-12 mt-5 p-3">
-              <p>Point info</p>Pour les livres les plus récents l'ISBN correspond bien souvent au code barre.
-              <br />Cependant sur des livres plus anciens, il peut être différent du code barre, il est donc préférable de le vérifier sur la page d'information du livre au début ou à la fin. 
-              
+              <p>Point info</p>Pour les livres les plus récents
+              l'ISBN correspond bien souvent au code barre.
+              <br />Cependant sur des livres plus anciens, il peut être différent du code barre,
+              il est donc préférable de le vérifier
+              sur la page d'information au début ou à la fin du livre.
+
             </div>
           </form>
         </div>

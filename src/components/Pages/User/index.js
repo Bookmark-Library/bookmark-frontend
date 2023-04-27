@@ -86,7 +86,7 @@ const User = () => {
                       e.preventDefault();
                       dispatch(updateUserInApi());
                       dispatch(updateUser());
-                      dispatch(submitLogout());
+                      // dispatch(submitLogout());
 
                       localStorage.setItem('pseudo', alias);
                       localStorage.setItem('email', email);
