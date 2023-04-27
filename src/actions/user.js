@@ -17,6 +17,8 @@ export const UPDATE_USER_IN_API = 'UPDATE_USER_IN_API';
 export const UPDATE_USER_PASSWORD_IN_API = 'UPDATE_USER_PASSWORD_IN_API';
 export const REMOVE_INPUT = 'REMOVE_INPUT';
 
+export const FORM_SUBMITTED = 'FORM_SUBMITTED';
+
 // delete user in state and local storage
 export const DELETE_USER = 'DELETE_USER';
 // update user in state and local storage
@@ -95,4 +97,9 @@ export const updateUser = (alias, avatar, email, password) => ({
 export const updateFormErrors = (errors) => ({
   type: 'UPDATE_FORM_ERRORS',
   errors: errors,
+});
+
+export const formSubmitted = (data) => ({
+  type: FORM_SUBMITTED,
+  data: data,
 });

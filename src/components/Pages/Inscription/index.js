@@ -3,15 +3,17 @@
 /* eslint-disable react/jsx-indent */
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { changeInput } from '../../../actions/book';
-import { createUserInApi, updateFormErrors } from '../../../actions/user';
+import { createUserInApi, formSubmitted, updateFormErrors } from '../../../actions/user';
 import Field from '../../Field';
 import './styles.scss';
 
 function Inscription() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { handleSubmit, register, formState: { errors } } = useForm();
 
   const alias = useSelector((state) => state.user.alias);
   const email = useSelector((state) => state.user.emailInscription);
@@ -43,7 +45,11 @@ function Inscription() {
     }
     dispatch(updateFormErrors(errors));
   };
-
+  const onSubmit = (data) => {
+    dispatch(formSubmitted(data));
+    dispatch(createUserInApi());
+    console.log(data);
+  };
   return (
     <div className="container">
       <div className="row justify-content-center mt-5">
@@ -51,61 +57,27 @@ function Inscription() {
           <h2>Inscription</h2>
           <form
             className="row g-2 inscription"
-            onSubmit={(e) => {
-              e.preventDefault();
-              validateForm();
-              dispatch(createUserInApi());
-            }}
+            onSubmit={handleSubmit(onSubmit)}
           >
             <div className="col-md-6">
-              <Field
-                required
-                identifier="alias"
-                placeholder=""
-                label="Alias *"
-                value={alias}
-                changeField={(identifier, newValue) => {
-                  dispatch(changeInput(identifier, newValue));
-                }}
-              />
+              <label htmlFor="Pseudo"> Pseudo *</label>
+              <input type="text" {...register('pseudo')} />
               {formErrors.alias && <p className="error">{formErrors.alias}</p>}
             </div>
             <div className="col-12">
-            <Field
-              identifier="emailInscription"
-              placeholder=""
-              label="Email *"
-              value={email}
-              changeField={(identifier, newValue) => {
-                dispatch(changeInput(identifier, newValue));
-              }}
-            />
+            <label htmlFor="Email"> Email *</label>
+              <input type="email" {...register('email')} />
             {formErrors.email && <p className="error">{formErrors.email}</p>}
             </div>
             <div className="col-12">
-            <Field
-              identifier="passwordInscription"
-              placeholder=""
-              label="Mot de passe *"
-              type="password"
-              value={password}
-              changeField={(identifier, newValue) => {
-                dispatch(changeInput(identifier, newValue));
-              }}
-            />
+            <label htmlFor="mot de passe"> Mot de passe *</label>
+              <input type="password" {...register('password')} />
             {formErrors.password && <p className="error">{formErrors.password}</p>}
             </div>
             <div className="col-12">
 
-            <Field
-              identifier="avatar"
-              placeholder="Coller l'url de votre image"
-              label="Avatar"
-              value={avatar}
-              changeField={(identifier, newValue) => {
-                dispatch(changeInput(identifier, newValue));
-              }}
-            />
+            <label htmlFor="avatar"> Avatar</label>
+              <input type="file" {...register('avatar')} />
             </div>
             <div className="col-12">
               <button type="submit" className="btn btn-warning">Enregistrer</button>

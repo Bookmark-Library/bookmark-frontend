@@ -90,13 +90,12 @@ const usersMiddleware = (store) => (next) => (action) => {
           alias: store.getState().user.alias,
           email: store.getState().user.emailInscription,
           password: store.getState().user.passwordInscription,
-          avatar: store.getState().user.avatar,
+          avatar: URL.createObjectURL(store.getState().user.avatarUpload[0]),
         },
       )
         .then((response) => {
           console.log(response.data);
           toast.success('Inscription réussie, veuillez vous connecter avec vos identifiants !');
-          
           store.dispatch(removeInput());
         })
         .catch((error) => {
