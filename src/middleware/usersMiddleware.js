@@ -144,7 +144,7 @@ const usersMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          // console.log(response.data);
+          console.log(response.data);
           toast.success('Votre profil a bien été mis à jour');
           store.dispatch(fetchUserInfo());
           store.dispatch(updateUser());

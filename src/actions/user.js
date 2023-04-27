@@ -23,6 +23,8 @@ export const DELETE_USER = 'DELETE_USER';
 export const UPDATE_USER = 'UPDATE_USER';
 // Errors
 export const UPDATE_FORM_ERRORS = 'UPDATE_FORM_ERRORS';
+// file input
+export const UPDATE_FILE_INPUT = 'UPDATE_FILE_INPUT';
 
 export const openModal = () => ({
   type: OPEN_MODAL,
@@ -95,4 +97,8 @@ export const updateUser = (alias, avatar, email, password) => ({
 export const updateFormErrors = (errors) => ({
   type: 'UPDATE_FORM_ERRORS',
   errors: errors,
+});
+export const updateFileInput = (file) => ({
+  type: UPDATE_FILE_INPUT,
+  file: file,
 });

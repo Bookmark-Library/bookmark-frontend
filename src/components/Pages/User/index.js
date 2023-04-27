@@ -3,20 +3,38 @@ import './styles.scss';
 // import avatar from '../../../assets/images/user-128.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import Field from '../../Field';
 import { changeInput } from '../../../actions/book';
 import {
-  deleteUserInApi, openModal, submitLogout, updateUser, updateUserInApi,
+  deleteUserInApi, openModal, submitLogout, updateFileInput, updateUser, updateUserInApi,
 } from '../../../actions/user';
 
 const User = () => {
   const dispatch = useDispatch();
+  const register = useForm();
 
   const avatar = useSelector((state) => state.user.avatar);
   const alias = useSelector((state) => state.user.alias);
   const email = useSelector((state) => state.user.email);
   const logged = useSelector((state) => state.user.logged);
 
+  // const handleFileInputChange = (event) => {
+  //   event.preventDefault();
+  //   console.log(event.target.files[0]);
+  //   const file = event.target.files[0];
+  //   dispatch(updateFileInput(file));
+  // };
+  const handleChange = (e) => {
+    e.preventDefault();
+    console.log(e);
+    if (e.target.files.length) {
+      dispatch(updateFileInput({
+        raw: e.target.files[0],
+
+      }));
+    }
+  };
   if (!logged) {
     return <Navigate to="/" replace />;
   }
@@ -27,7 +45,7 @@ const User = () => {
 
           <h2>Informations personnelles</h2>
           <div className="row">
-            <img src={avatar} className="img-thumbnail img-fluid mx-auto d-block" alt="..." />
+            <img src={avatar.preview} className="img-thumbnail img-fluid mx-auto d-block" alt="..." />
             <button
               type="button"
               className="btn btn-link"
@@ -43,7 +61,8 @@ const User = () => {
         <form className="row g-3">
           <div className="col-md-12">
             <div className="col-md-12">
-              <Field
+              <input type="file" name="avatar" onChange={handleChange} />
+              {/* <Field
                 identifier="avatar"
                 placeholder="Coller l'url de votre image"
                 label="Avatar"
@@ -51,7 +70,7 @@ const User = () => {
                 changeField={(identifier, newValue) => {
                   dispatch(changeInput(identifier, newValue));
                 }}
-              />
+              /> */}
             </div>
             <div className="row">
               <div className="col-md-6">
@@ -84,7 +103,8 @@ const User = () => {
                     className="dropdown-item"
                     onClick={(e) => {
                       e.preventDefault();
-                      dispatch(updateUserInApi());
+                      console.log(e.target);
+                      dispatch(updateUserInApi(e.target.file[0]));
                       dispatch(updateUser());
                       // dispatch(submitLogout());
 
