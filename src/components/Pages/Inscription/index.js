@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-indent */
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { changeInput } from '../../../actions/book';
 import { createUserInApi, updateFormErrors } from '../../../actions/user';
 import Field from '../../Field';
@@ -9,6 +10,8 @@ import './styles.scss';
 
 function Inscription() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const alias = useSelector((state) => state.user.alias);
   const email = useSelector((state) => state.user.email);
   const password = useSelector((state) => state.user.password);
@@ -50,6 +53,7 @@ function Inscription() {
             onSubmit={(e) => {
               e.preventDefault();
               validateForm();
+              navigate('/');
               dispatch(createUserInApi());
             }}
           >
