@@ -28,7 +28,7 @@ function Purchased() {
             && filtredByPurchased.map((library) => (
               <div key={library.book.id} className="col bookCard text-center border-warning">
                 <div className="card h-100 border-warning">
-                  <Link to={`/bibliotheque/livre/${library.book.id}`}><img src={library.book.image ? library.book.image : defaultBook} className="img-fluid" alt={library.book.title} /></Link>
+                  <Link to={`/bibliotheque/livre/${library.book.slug}`}><img src={library.book.image ? library.book.image : defaultBook} className="img-fluid" alt={library.book.title} /></Link>
                   <div className="card-body">
                     <h5 className="card-title">{library.book.title}</h5>
                   </div>

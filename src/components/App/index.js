@@ -72,7 +72,7 @@ function App() {
         <Route path="/bibliotheque/favoris" element={<Favorite />} />
         {!isLoading
 
-        && <Route path="/bibliotheque/livre/:id" element={<Book />} />}
+        && <Route path="/bibliotheque/livre/:slug" element={<Book />} />}
         <Route path="/user/:pseudo" element={<User />} />
         <Route path="/inscription" element={<Inscription />} />
         <Route path="/contact" element={<Contact />} />

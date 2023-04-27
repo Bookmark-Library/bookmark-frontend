@@ -146,6 +146,7 @@ const usersMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
+          toast.warning('Une erreur c\'est produite');
         });
       break;
     case UPDATE_USER_PASSWORD_IN_API:

@@ -18,7 +18,7 @@ function All() {
           <div className="col bookCard text-center" key={library.book.id}>
             <div className="card h-100 border-warning">
               <Link
-                to={`/bibliotheque/livre/${library.book.id}`}
+                to={`/bibliotheque/livre/${library.book.slug}`}
               >
                 <img src={library.book.image ? library.book.image : defaultBook} className="img-fluid" alt={library.book.title} />
               </Link>

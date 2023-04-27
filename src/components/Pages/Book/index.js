@@ -23,7 +23,7 @@ import Loader from '../../Loader';
 import ModalRate from './ModalRate';
 
 function Book() {
-  const { id } = useParams();
+  const { slug } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const logged = useSelector((state) => state.user.logged);
@@ -31,7 +31,7 @@ function Book() {
   const isLoading = useSelector((state) => state.book.isLoading);
   const modalRate = useSelector((state) => state.book.modalRate);
   // eslint-disable-next-line eqeqeq
-  const bookToDisplay = libraries.find((book) => book.book.id == id);
+  const bookToDisplay = libraries.find((book) => book.book.slug === slug);
   const bookdefault = bookToDisplay.book.image ?? defaultBook;
   dispatch(putCommentInState(bookToDisplay.comment));
   dispatch(putQuoteInState(bookToDisplay.quote));
