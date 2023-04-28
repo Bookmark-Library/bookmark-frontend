@@ -30,6 +30,12 @@ const LegalNotice = () => (
             sans l'accord préalable des responsables du site.
 
           </p>
+          <p> Données originales téléchargées sur :
+            <ul>
+              <li>Notice bibliographique : https://api.bnf.fr/api-sru-catalogue-general</li>
+              <li>Image de couverture :https://github.com/hackathonBnF/hackathon2016/wiki/API-Couverture-Service </li>
+            </ul>
+          </p>
         </div>
       </div>
     </div>
