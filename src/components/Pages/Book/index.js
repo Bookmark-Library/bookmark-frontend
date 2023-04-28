@@ -159,7 +159,7 @@ function Book() {
             </div>
             <div className="col-12 col-md-6 colInfoRight">
               <div className="caracteristique d-flex">
-                <div className="col-6 col-md-6">
+                <div className="col-6 col-md-4">
                   <p>Mes bookMark</p>
                   <p>
                     {bookToDisplay.favorite && <img className="bookmark" src={bookHeart} alt="" />}
@@ -169,8 +169,14 @@ function Book() {
                     {bookToDisplay.purchased && <img className="bookmark" src={bookAchete} alt="" />}
                   </p>
                 </div>
-                <div className="rateDiv col-6 col-md-6">
+                <div className="rateDiv col-6 col-md-4">
                   <p>Ma note</p>
+
+                  {getRatingImage()}
+
+                </div>
+                <div className="rateDiv col-6 col-md-4">
+                  <p>Genres sélectionnés </p>
 
                   {getRatingImage()}
 
