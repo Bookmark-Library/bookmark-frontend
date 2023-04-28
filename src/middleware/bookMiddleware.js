@@ -2,10 +2,10 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import {
   addBooksInApp, addGenderInApp, addHomeGenderInApp,
-  closeModalRate, deleteBookInState, DELETE_BOOK, GET_BOOKS_FROM_API,
+  closeModalRate, deleteBookInState, DELETE_BOOK, GET_ACTU, GET_BOOKS_FROM_API,
   GET_GENDER_FROM_API,
   GET_HOME_GENDER_FROM_API,
-  removeInputBookForm, SEND_BOOK_BY_ISBN, SEND_BOOK_CREATE_IN_API, SEND_RATE_TO_API,
+  removeInputBookForm, SEND_BOOK_BY_ISBN, SEND_BOOK_CREATE_IN_API, SEND_RATE_TO_API, setActu,
 } from '../actions/book';
 import { fetchUserInfo } from '../actions/user';
 
@@ -176,6 +176,20 @@ const bookMiddleware = (store) => (next) => (action) => {
         .catch((error) => {
           console.log(error);
         });
+      break;
+    case GET_ACTU:
+      axios.get(
+        'http://sandy-bouzid.vpnuser.lan:8000/api/editorials',
+      )
+        .then((response) => {
+          // console.log(response.data);
+          store.dispatch(setActu(response.data));
+        })
+        .catch((error) => {
+          // eslint-disable-next-line no-console
+          console.log(error);
+        });
+
       break;
     default:
   }
