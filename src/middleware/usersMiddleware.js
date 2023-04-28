@@ -133,7 +133,32 @@ const usersMiddleware = (store) => (next) => (action) => {
         {
           alias: store.getState().user.alias,
           email: store.getState().user.email,
-          avatar: store.getState().user.avatar,
+        },
+        {
+          headers: {
+            // nom du header: valeur
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        },
+      )
+        .then((response) => {
+          // console.log(response.data);
+          toast.success('Votre profil a bien été mis à jour');
+          store.dispatch(fetchUserInfo());
+          store.dispatch(updateUser());
+        })
+        .catch((error) => {
+          console.log(error);
+          toast.warning('Une erreur c\'est produite');
+        });
+      break;
+    case UPDATE_USER_AVATAR:
+      axios.put(
+        // URL
+        'http://sandy-bouzid.vpnuser.lan:8000/api/users',
+        // options (notamment les headers)
+        {
+          Avatar
         },
         {
           headers: {
