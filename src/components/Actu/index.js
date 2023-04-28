@@ -7,7 +7,7 @@ const Actu = () => {
   const actuContent = useSelector((state) => state.book.actu);
   console.log(actuContent[0]);
   const url = 'http://sandy-bouzid.vpnuser.lan:8000';
-  const image = '/assets/images/editorials/';
+  const image = '/assets/images/avatars/';
   return (
     <aside className="card actu border-light">
       {actuContent.map((actu) => (
