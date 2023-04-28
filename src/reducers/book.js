@@ -5,7 +5,7 @@ import {
   REMOVE_INPUT_BOOK_FORM, PUT_RATE_IN_STATE, HANDLE_RATE_CHANGE,
   TOGGLE_CHECKBOX, PUT_BOOKMARKS_IN_STATE, PUT_ID_IN_STATE,
   DELETE_BOOK_IN_STATE, ADD_HOME_GENDER_IN_APP, ADD_GENDER_IN_APP,
-  SET_SORT_BY, SET_GENDER_ID, SET_ACTU,
+  SET_SORT_BY, SET_GENDER_ID, SET_ACTU, SET_SEARCH_TERM,
 } from '../actions/book';
 import { SUBMIT_LOGOUT } from '../actions/user';
 
@@ -41,6 +41,8 @@ export const initialState = {
   /** HOME */
   homeGender: [],
   actu: [],
+  // Searchbar
+  searchInput: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -178,6 +180,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         actu: action.actu,
+      };
+    case SET_SEARCH_TERM:
+      return {
+        ...state,
+        searchInput: action.value,
       };
     default:
       return state;
