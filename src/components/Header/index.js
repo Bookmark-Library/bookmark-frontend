@@ -14,6 +14,10 @@ function Header() {
   const passwordValue = useSelector((state) => state.user.password);
   const logged = useSelector((state) => state.user.logged);
   const alias = useSelector((state) => state.user.alias);
+  const avatar = useSelector((state) => state.user.avatar);
+  const url = 'http://sandy-bouzid.vpnuser.lan:8000';
+  const image = '/assets/images/avatars';
+
   return (
     <header>
       <nav className="navbar navbar-expand-lg">
@@ -46,12 +50,6 @@ function Header() {
               </NavLink>
               )}
             </ul>
-            {logged
-            && (
-            <form className="d-flex" role="search">
-              <input className="form-control me-4" type="search" placeholder="Rechercher" aria-label="Search" />
-            </form>
-            )}
 
             <LoginForm
               email={emailValue}
@@ -70,7 +68,7 @@ function Header() {
                 dispatch(submitLogout());
               }}
               isLogged={logged}
-              loggedMessage=<Link to={`/user/${alias}`}>{`Bienvenue ${alias}`}</Link>
+              loggedMessage=<Link to={`/user/${alias}`}><img src={`${url}${image}/${avatar}`} className="img-thumbnail img-fluid mx-auto d-block" alt="..." />{`Bienvenue ${alias}`}</Link>
             />
             {/* <Link
               to="/inscription"

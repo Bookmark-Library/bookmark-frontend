@@ -28,6 +28,7 @@ const LoginForm = ({
 
     <div className="login-form">
       {isLogged && (
+
         <div className="login-form-logged">
           <p className="login-form-message">
             {loggedMessage}
