@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { changeInput } from '../../../actions/book';
-import { createUserInApi, updateFormErrors } from '../../../actions/user';
+import { createUserInApi, previewAvatar, updateFormErrors, uploadFile } from '../../../actions/user';
 import Field from '../../Field';
 import './styles.scss';
 
@@ -42,6 +42,14 @@ function Inscription() {
       errors.password = 'Le mot de passe doit comporter au moins 8 caractères, une majuscule, un chiffre et un caractère spécial';
     }
     dispatch(updateFormErrors(errors));
+  };
+  const handleChange = (e) => {
+    const selectedFile = e.target.files[0];
+    console.log(selectedFile);
+    dispatch(uploadFile(selectedFile));
+    const filePreview = URL.createObjectURL(selectedFile);
+    console.log(filePreview);
+    dispatch(previewAvatar(filePreview));
   };
 
   return (
@@ -97,15 +105,7 @@ function Inscription() {
             </div>
             <div className="col-12">
 
-            <Field
-              identifier="avatar"
-              placeholder="Coller l'url de votre image"
-              label="Avatar"
-              value={avatar}
-              changeField={(identifier, newValue) => {
-                dispatch(changeInput(identifier, newValue));
-              }}
-            />
+            <input type="file" name="avatar" onChange={(e) => handleChange(e)} />
             </div>
             <div className="col-12">
               <button type="submit" className="btn btn-warning">Enregistrer</button>
