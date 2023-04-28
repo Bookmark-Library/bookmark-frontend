@@ -1,18 +1,29 @@
 import './styles.scss';
 
-import actu from '../../assets/images/gallica.jpg';
+import { useSelector } from 'react-redux';
+// import actu from '../../assets/images/gallica.jpg';
 
-const Actu = () => (
+const Actu = () => {
+  const actuContent = useSelector((state) => state.book.actu);
+  console.log(actuContent[0]);
+  const url = 'http://sandy-bouzid.vpnuser.lan:8000';
+  const image = '/assets/images/editorials/';
+  return (
+    <aside className="card actu border-light">
+      {actuContent.map((actu) => (
+        <div key={actu.id}>
+          <h5 className="titleActu text-center">Actualités</h5>
+          <img className="card-img-top" src={`${url}${image}${actu.image}`} alt="Card img cap" />
+          <div className="card-body">
+            <h6 className="card-title">{actu.title}</h6>
+            <p className="card-text">{actu.content}</p>
+          </div>
+        </div>
+      ))}
 
-  <aside className="card actu border-light">
-    <h5 className="titleActu text-center">Actualités</h5>
-    <img className="card-img-top" src={actu} alt="Card img cap" />
-    <div className="card-body">
-      <h6 className="card-title">Gallica numérise 10 millions de documents</h6>
-      <p className="card-text">Avec sa bibliothèque numérique, la Bibliothèque nationale de France et ses partenaires sont résolument engagés dans une politique de partage et de diffusion des collections patrimoniales. Lancée en 1997 avec quelques milliers de documents, Gallica s'est considérablement enrichie au fil du temps : à l'occasion de ses vingt-cinq ans d'existence, elle vient de franchir le cap des 10 millions de documents accessibles en ligne.</p>
-    </div>
-  </aside>
+    </aside>
 
-);
+  );
+};
 
 export default Actu;

@@ -35,6 +35,10 @@ export const REMOVE_INPUT_BOOK_FORM = 'REMOVE_INPUT_BOOK_FORM';
 export const SET_SORT_BY = 'SET_SORT_BY';
 export const SET_GENDER_ID = 'SET_GENDER_ID';
 
+/** ************** HOME  ********** */
+export const GET_ACTU = 'GET_ACTU';
+export const SET_ACTU = 'SET_ACTU';
+
 export const openModalRate = () => ({
   type: OPEN_MODAL_RATE,
 });
@@ -149,4 +153,12 @@ export const setSortBy = (sortBy) => ({
 export const setGenderId = (genderId) => ({
   type: SET_GENDER_ID,
   genderId: genderId,
+});
+/** ******* HOME ***************** */
+export const getActu = () => ({
+  type: GET_ACTU,
+});
+export const setActu = (actu) => ({
+  type: SET_ACTU,
+  actu: actu,
 });

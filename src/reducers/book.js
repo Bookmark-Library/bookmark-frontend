@@ -4,7 +4,8 @@ import {
   PUT_COMMENT_IN_STATE, PUT_QUOTE_IN_STATE,
   REMOVE_INPUT_BOOK_FORM, PUT_RATE_IN_STATE, HANDLE_RATE_CHANGE,
   TOGGLE_CHECKBOX, PUT_BOOKMARKS_IN_STATE, PUT_ID_IN_STATE,
-  DELETE_BOOK_IN_STATE, ADD_HOME_GENDER_IN_APP, ADD_GENDER_IN_APP, SET_SORT_BY, SET_GENDER_ID,
+  DELETE_BOOK_IN_STATE, ADD_HOME_GENDER_IN_APP, ADD_GENDER_IN_APP,
+  SET_SORT_BY, SET_GENDER_ID, SET_ACTU,
 } from '../actions/book';
 import { SUBMIT_LOGOUT } from '../actions/user';
 
@@ -24,7 +25,6 @@ export const initialState = {
   id: 0,
   gender: [],
   genderId: null,
-  homeGender: [],
   sortBy: '',
   /** FORM ADD BOOK */
   title: '',
@@ -38,6 +38,9 @@ export const initialState = {
   summary: null,
   isbn: null,
   bookId: 0,
+  /** HOME */
+  homeGender: [],
+  actu: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -170,6 +173,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         genderId: action.genderId,
+      };
+    case SET_ACTU:
+      return {
+        ...state,
+        actu: action.actu,
       };
     default:
       return state;
