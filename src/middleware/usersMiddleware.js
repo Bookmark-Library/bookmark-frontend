@@ -8,7 +8,8 @@ import {
   deleteUser,
   DELETE_USER_IN_API,
   fetchUserInfo, FETCH_USER_INFO, removeInput, saveAuthData,
-  SaveUserInfo, SUBMIT_LOGIN, updateUser, UPDATE_USER_AVATAR_IN_API, UPDATE_USER_IN_API, UPDATE_USER_PASSWORD_IN_API,
+  SaveUserInfo, SUBMIT_LOGIN, updateUser, UPDATE_USER_AVATAR_IN_API,
+  UPDATE_USER_IN_API, UPDATE_USER_PASSWORD_IN_API,
 } from '../actions/user';
 
 const usersMiddleware = (store) => (next) => (action) => {
@@ -199,7 +200,7 @@ const usersMiddleware = (store) => (next) => (action) => {
           },
         )
           .then((response) => {
-            console.log(response.data);
+            // console.log(response.data);
             store.dispatch(updateUser());
           })
           .catch((error) => {
