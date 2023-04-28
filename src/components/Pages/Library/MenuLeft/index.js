@@ -24,6 +24,9 @@ function MenuLeft() {
       >
         Ajouter un livre
       </Link>
+      <form className="d-flex" role="search">
+        <input className="form-control me-4" type="search" placeholder="Rechercher un livre" aria-label="Search" />
+      </form>
       <ul className="navLibrary mt-3">
         <li className="allBookLink"><Link to="/bibliotheque">Tous mes livres</Link></li>
         <li className="bookFinished"><img src={bookLu} className="img-fluid" alt="..." /><Link to="/bibliotheque/lus">Livres lus</Link></li>
@@ -33,7 +36,7 @@ function MenuLeft() {
         <li className="bookFavorite"><img src={bookHeart} className="img-fluid" alt="..." /><Link to="/bibliotheque/favoris">Coups de coeur</Link></li>
       </ul>
       <select onChange={handleSortByChange} className="form-select form-select-sm" aria-label=".form-select-sm example">
-        <option defaultValue>Recherche par...</option>
+        <option defaultValue>Trier par...</option>
         <option value="title">Titre</option>
         <option value="publicationDate">date de publication</option>
         <option value="editor">editeur</option>
