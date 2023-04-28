@@ -14,6 +14,7 @@ export const initialState = {
   token: localStorage.getItem('token') || '',
   avatar: '',
   previewAvatar: '',
+  file: '',
   alias: localStorage.getItem('pseudo') || '',
   showModal: false,
   formErrors: {},
@@ -101,7 +102,7 @@ const reducer = (state = initialState, action = {}) => {
     case UPLOAD_FILE:
       return {
         ...state,
-        avatar: action.file,
+        file: action.file,
       };
     case PREVIEW_AVATAR:
       return {

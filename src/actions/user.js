@@ -15,6 +15,7 @@ export const CREATE_USER_IN_API = 'CREATE_USER_IN_API';
 export const DELETE_USER_IN_API = 'DELETE_USER_IN_API';
 export const UPDATE_USER_IN_API = 'UPDATE_USER_IN_API';
 export const UPDATE_USER_PASSWORD_IN_API = 'UPDATE_USER_PASSWORD_IN_API';
+export const UPDATE_USER_AVATAR_IN_API = 'UPDATE_USER_AVATAR_IN_API';
 export const REMOVE_INPUT = 'REMOVE_INPUT';
 export const UPLOAD_FILE = 'UPLOAD_FILE';
 export const PREVIEW_AVATAR = 'PREVIEW_AVATAR';
@@ -73,6 +74,9 @@ export const updateUserInApi = () => ({
 });
 export const updateUserPasswordInApi = () => ({
   type: UPDATE_USER_PASSWORD_IN_API,
+});
+export const updateUserAvatardInApi = () => ({
+  type: UPDATE_USER_AVATAR_IN_API,
 });
 
 export const deleteUserInApi = () => ({
