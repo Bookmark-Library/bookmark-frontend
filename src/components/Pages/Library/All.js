@@ -23,7 +23,6 @@ function All() {
     }
     return 0;
   }));
-  console.log(libraries);
   return (
     <div className="col-12 col-md-8 col-right">
       <h2>Bibliothèque</h2>
