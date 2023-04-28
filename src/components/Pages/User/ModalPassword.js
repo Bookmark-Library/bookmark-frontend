@@ -41,7 +41,18 @@ function ModalPassword() {
           <Field
             required
             identifier="password"
-            placeholder="Mot de passe"
+            placeholder="ancien mot de passe"
+            label="Ancien mot de passe"
+            value={passwordValue}
+            changeField={(identifier, newValue) => {
+              dispatch(changeInput(identifier, newValue));
+            }}
+            type="password"
+          />
+          <Field
+            required
+            identifier="password"
+            placeholder="nouveau mot de passe"
             label="Mot de passe"
             value={passwordValue}
             changeField={(identifier, newValue) => {
