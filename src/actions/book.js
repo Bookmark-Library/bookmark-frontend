@@ -33,6 +33,7 @@ export const SEND_BOOK_CREATE_IN_API = 'SEND_BOOK_CREATE_IN_API';
 export const SEND_BOOK_BY_ISBN = 'SEND_BOOK_BY_ISBN';
 export const REMOVE_INPUT_BOOK_FORM = 'REMOVE_INPUT_BOOK_FORM';
 export const SET_SORT_BY = 'SET_SORT_BY';
+export const SET_GENDER_ID = 'SET_GENDER_ID';
 
 export const openModalRate = () => ({
   type: OPEN_MODAL_RATE,
@@ -143,4 +144,9 @@ export const deleteBookInState = (index) => ({
 export const setSortBy = (sortBy) => ({
   type: SET_SORT_BY,
   sortBy: sortBy,
+});
+
+export const setGenderId = (genderId) => ({
+  type: SET_GENDER_ID,
+  genderId: genderId,
 });

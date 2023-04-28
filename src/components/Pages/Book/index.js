@@ -177,8 +177,8 @@ function Book() {
                 </div>
                 <div className="rateDiv col-6 col-md-4">
                   <p>Genres sélectionnés </p>
-
-                  {getRatingImage()}
+                  {bookToDisplay.genre !== null
+                   && <p key={bookToDisplay.genre.id} className="book-author"> {bookToDisplay.genre.name}</p>}
 
                 </div>
               </div>

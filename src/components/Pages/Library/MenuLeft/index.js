@@ -24,7 +24,7 @@ function MenuLeft() {
       >
         Ajouter un livre
       </Link>
-      <form className="d-flex" role="search">
+      <form className="d-flex mt-4" role="search">
         <input className="form-control me-4" type="search" placeholder="Rechercher un livre" aria-label="Search" />
       </form>
       <ul className="navLibrary mt-3">
