@@ -68,7 +68,7 @@ function Header() {
                 dispatch(submitLogout());
               }}
               isLogged={logged}
-              loggedMessage=<Link className="imgAvatar" to={`/user/${alias}`}><img src={`${url}${image}/${avatar}`} className="img-thumbnail img-fluid rounded-circle" alt="..." />{`Bienvenue ${alias}`}</Link>
+              loggedMessage=<Link className="" to={`/user/${alias}`}><img src={`${url}${image}/${avatar}`} className="imgAvatar img-thumbnail" alt="..." />{`Bienvenue ${alias}`}</Link>
             />
             {/* <Link
               to="/inscription"

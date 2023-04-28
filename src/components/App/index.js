@@ -26,6 +26,7 @@ import Wishlist from '../Pages/Library/Wishlist';
 import ModalPassword from '../Pages/User/ModalPassword';
 import ToRead from '../Pages/Library/ToRead';
 import { getActu, getGenderFromApi, getHomeGenderFromApi } from '../../actions/book';
+import Gender from '../Pages/Library/Gender';
 
 function App() {
   const showModal = useSelector((state) => state.user.showModal);
@@ -77,6 +78,7 @@ function App() {
         <Route path="/user/:pseudo" element={<User />} />
         <Route path="/inscription" element={<Inscription />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/genre" element={<Gender />} />
       </Routes>
 
       {showModal
