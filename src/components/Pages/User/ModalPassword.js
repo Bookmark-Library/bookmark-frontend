@@ -12,6 +12,8 @@ function ModalPassword() {
   const dispatch = useDispatch();
   const showModal = useSelector((state) => state.user.showModal);
   const passwordValue = useSelector((state) => state.user.password);
+  const passwordCheck = useSelector((state) => state.user.passwordCheck);
+
   return (
     <Modal
       size="md"
@@ -40,9 +42,20 @@ function ModalPassword() {
         >
           <Field
             required
+            identifier="passwordCheck"
+            placeholder="Ancien mot de passe"
+            label=" Ancien mot de passe"
+            value={passwordCheck}
+            changeField={(identifier, newValue) => {
+              dispatch(changeInput(identifier, newValue));
+            }}
+            type="password"
+          />
+          <Field
+            required
             identifier="password"
-            placeholder="Mot de passe"
-            label="Mot de passe"
+            placeholder="Nouveau mot de passe"
+            label="Nouveau mot de passe"
             value={passwordValue}
             changeField={(identifier, newValue) => {
               dispatch(changeInput(identifier, newValue));

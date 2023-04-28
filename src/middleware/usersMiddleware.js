@@ -162,6 +162,7 @@ const usersMiddleware = (store) => (next) => (action) => {
         // options (notamment les headers)
         {
           password: store.getState().user.password,
+          password_check: store.getState().user.passwordCheck,
           alias: store.getState().user.alias,
           email: store.getState().user.email,
         },

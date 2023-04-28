@@ -90,12 +90,13 @@ export const removeInput = () => ({
   type: REMOVE_INPUT,
 });
 
-export const updateUser = (alias, avatar, email, password) => ({
+export const updateUser = (alias, avatar, email, password, passwordCheck) => ({
   type: UPDATE_USER,
   alias: alias,
   avatar: avatar,
   email: email,
   password: password,
+  passwordCheck: passwordCheck,
 });
 
 export const updateFormErrors = (errors) => ({

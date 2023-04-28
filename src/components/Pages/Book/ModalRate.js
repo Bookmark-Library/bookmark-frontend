@@ -6,6 +6,7 @@ import { changeRateField, closeModalRate, sendRateToApi } from '../../../actions
 import FieldText from '../../FieldText';
 import RadioRate from './RadioRate';
 import CheckboxBookmark from './CheckboxBookmark';
+import GenreList from './GenreList';
 
 function ModalRate() {
   const dispatch = useDispatch();
@@ -55,6 +56,7 @@ function ModalRate() {
               dispatch(changeRateField(identifier, newValue));
             }}
           />
+          <GenreList />
           <CheckboxBookmark />
           <RadioRate />
 

@@ -9,6 +9,7 @@ export const initialState = {
   logged: !!localStorage.getItem('token'),
   email: localStorage.getItem('email') || '',
   password: '',
+  passwordCheck: '',
   emailInscription: '',
   passwordInscription: '',
   token: localStorage.getItem('token') || '',
@@ -92,6 +93,7 @@ const reducer = (state = initialState, action = {}) => {
         avatar: action.avatar,
         email: action.email,
         password: action.password,
+        passwordCheck: action.passwordCheck,
       };
     case UPDATE_FORM_ERRORS:
       return {
