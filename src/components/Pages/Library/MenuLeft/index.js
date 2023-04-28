@@ -11,14 +11,9 @@ import { filterBook, setSortBy } from '../../../../actions/book';
 
 function MenuLeft() {
   const dispatch = useDispatch();
-  const libraries = useSelector((state) => state.book.libraries);
 
   const handleSortByChange = (event) => {
     dispatch(setSortBy(event.target.value));
-  };
-  const filterByStatus = (status) => {
-    const filteredBooks = libraries.filter((book) => book.status === status);
-    dispatch(filterBook(filteredBooks));
   };
   return (
     <div className="col-12 col-md-4 searchBiblio">
@@ -30,12 +25,12 @@ function MenuLeft() {
         Ajouter un livre
       </Link>
       <ul className="navLibrary mt-3">
-        <li className="allBookLink" onClick={() => dispatch(filterBook(libraries))}>Tous mes livres</li>
-        <li className="bookFinished" onClick={() => filterByStatus('finished')}><img src={bookLu} className="img-fluid" alt="..." />Livres lus</li>
-        {/* <li className="bookPurchased" onClick={() => filterByStatus('toRead')}><img src={bookLire} className="img-fluid" alt="..." />Pile à lire</li> */}
-        <li className="bookPurchased" onClick={() => filterByStatus('purchased')}><img src={bookAchete} className="img-fluid" alt="..." />Achetés</li>
-        <li className="bookWish" onClick={() => filterByStatus('wishlist')}><img src={bookWish} className="img-fluid" alt="..." />Mes envies </li>
-        <li className="bookFavorite" onClick={() => filterByStatus('favorite')}><img src={bookHeart} className="img-fluid" alt="..." />Coups de coeur</li>
+        <li className="allBookLink"><Link to="/bibliotheque">Tous mes livres</Link></li>
+        <li className="bookFinished"><img src={bookLu} className="img-fluid" alt="..." /><Link to="/bibliotheque/lus">Livres lus</Link></li>
+        <li className="bookPurchased"><img src={bookLire} className="img-fluid" alt="..." /><Link to="/bibliotheque/a-lire">Pile à lire</Link></li>
+        <li className="bookPurchased"><img src={bookAchete} className="img-fluid" alt="..." /><Link to="/bibliotheque/achetes">Achetés</Link></li>
+        <li className="bookWish"><img src={bookWish} className="img-fluid" alt="..." /><Link to="/bibliotheque/envies">Mes envies </Link></li>
+        <li className="bookFavorite"><img src={bookHeart} className="img-fluid" alt="..." /><Link to="/bibliotheque/favoris">Coups de coeur</Link></li>
       </ul>
       <select onChange={handleSortByChange} className="form-select form-select-sm" aria-label=".form-select-sm example">
         <option defaultValue>Recherche par...</option>

@@ -11,7 +11,20 @@ function WishList() {
   const libraries = useSelector((state) => state.book.libraries);
   const logged = useSelector((state) => state.user.logged);
   const filtredByWishlist = libraries.filter((book) => book.wishlist === true);
+  const sortBy = useSelector((state) => state.book.sortBy);
 
+  const sortedBooks = [...filtredByWishlist].sort(((a, b) => {
+    if (sortBy === 'title') {
+      return a.book.title.localeCompare(b.book.title);
+    }
+    if (sortBy === 'publicationDate') {
+      return a.book.publicationDate < (b.book.publicationDate);
+    }
+    if (sortBy === 'editor') {
+      return a.book.editor.localeCompare(b.book.editor);
+    }
+    return 0;
+  }));
   // For return at the home page when user is not connected
   if (!logged) {
     return <Navigate to="/" replace />;
@@ -24,7 +37,7 @@ function WishList() {
           <h2>Mes envies</h2>
           <div className="row row-cols-1 row-cols-md-5 g-3">
             {filtredByWishlist
-            && filtredByWishlist.map((library) => (
+            && sortedBooks.map((library) => (
               <div key={library.book.id} className="col bookCard text-center border-warning">
                 <div className="card h-100 border-warning">
                   <Link to={`/bibliotheque/livre/${library.book.slug}`}><img src={library.book.image ? library.book.image : defaultBook} className="img-fluid" alt={library.book.title} /></Link>
