@@ -14,7 +14,6 @@ export const initialState = {
   passwordInscription: '',
   token: localStorage.getItem('token') || '',
   avatar: '',
-  previewAvatar: '',
   file: '',
   alias: localStorage.getItem('pseudo') || '',
   showModal: false,
@@ -105,11 +104,6 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         file: action.file,
-      };
-    case PREVIEW_AVATAR:
-      return {
-        ...state,
-        previewAvatar: action.fileUrl,
       };
     default:
       return state;
