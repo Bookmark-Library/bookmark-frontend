@@ -26,7 +26,7 @@ function All() {
   }));
 
   const filteredBooks = sortedBooks.filter((book) =>
-  book.title.toLowerCase().includes(searchInput.toLowerCase()));
+    book.book.title.toLowerCase().includes(searchInput.toLowerCase()));
   return (
     <div className="col-12 col-md-8 col-right">
       <h2>Bibliothèque</h2>
