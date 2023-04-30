@@ -78,7 +78,7 @@ function App() {
         <Route path="/user/:pseudo" element={<User />} />
         <Route path="/inscription" element={<Inscription />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/genre" element={<Gender />} />
+        <Route path="/genre/:id" element={<Gender />} />
       </Routes>
 
       {showModal
