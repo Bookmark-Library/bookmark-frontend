@@ -13,6 +13,7 @@ const bookMiddleware = (store) => (next) => (action) => {
   // console.log('authMiddleware, on a reçu une action', action);
 
   switch (action.type) {
+    // TODO pas besoin du token pour recuperer la liste (voir avec le back)
     case GET_BOOKS_FROM_API:
       axios.get(
         // URL
