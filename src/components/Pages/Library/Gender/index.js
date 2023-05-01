@@ -1,12 +1,12 @@
 import './style.scss';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import {
   getGenderFromApi, putGenderIdInState, putIsbnInState, sendBookByIsbn,
 } from '../../../../actions/book';
 import { fetchUserInfo } from '../../../../actions/user';
 import Loader from '../../../Loader';
-import { useEffect } from 'react';
 
 function Gender() {
   const { id } = useParams();
@@ -75,11 +75,10 @@ function Gender() {
     );
   }
   return (
-    <div className=" row col-12 col-md-8 ">
+    <div className=" row col-12  ">
       {isLoading && <Loader />}
-      <div className="row row-cols-1 row-cols-md-6 g-3">
-
-        <h2>{genderToDisplay.name}</h2>
+      <h2>{genderToDisplay.name}</h2>
+      <div className="row row-cols-1 row-cols-lg-6 g-3">
         {genderToDisplay.books.map((genderBook) => (
 
           <div key={genderBook.id} className="col bookCard text-center">
