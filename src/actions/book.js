@@ -10,6 +10,7 @@ export const PUT_RATE_IN_STATE = 'PUT_RATE_IN_STATE';
 export const PUT_BOOKMARKS_IN_STATE = 'PUT_BOOKMARKS_IN_STATE';
 export const PUT_ID_IN_STATE = 'PUT_ID_IN_STATE';
 export const PUT_BOOK_ID_IN_STATE = 'PUT_BOOK_ID_IN_STATE';
+export const PUT_GENDER_ID_IN_STATE = 'PUT_GENDER_ID_IN_STATE';
 
 export const DELETE_BOOK = 'DELETE_BOOK';
 export const DELETE_BOOK_IN_STATE = 'DELETE_BOOK_IN_STATE';
@@ -31,6 +32,7 @@ export const ADD_GENDER_IN_APP = 'ADD_GENDER_IN_APP';
 /** ******* POST BOOK **************** */
 export const SEND_BOOK_CREATE_IN_API = 'SEND_BOOK_CREATE_IN_API';
 export const SEND_BOOK_BY_ISBN = 'SEND_BOOK_BY_ISBN';
+export const PUT_ISBN_IN_STATE = 'PUT_ISBN_IN_STATE';
 export const REMOVE_INPUT_BOOK_FORM = 'REMOVE_INPUT_BOOK_FORM';
 export const SET_SORT_BY = 'SET_SORT_BY';
 export const SET_GENDER_ID = 'SET_GENDER_ID';
@@ -75,6 +77,11 @@ export const putBookmarksInState = (identifier, value) => ({
 });
 export const putIdInState = (identifier, value) => ({
   type: PUT_ID_IN_STATE,
+  identifier: identifier,
+  value: value,
+});
+export const putGenderIdInState = (identifier, value) => ({
+  type: PUT_GENDER_ID_IN_STATE,
   identifier: identifier,
   value: value,
 });
@@ -133,6 +140,10 @@ export const sendBookCreateInApi = () => ({
 });
 export const sendBookByIsbn = () => ({
   type: SEND_BOOK_BY_ISBN,
+});
+export const putIsbnInState = (isbnToAdd) => ({
+  type: PUT_ISBN_IN_STATE,
+  isbnToAdd: isbnToAdd,
 });
 
 export const removeInputBookForm = () => ({

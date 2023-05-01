@@ -5,7 +5,7 @@ import {
   REMOVE_INPUT_BOOK_FORM, PUT_RATE_IN_STATE, HANDLE_RATE_CHANGE,
   TOGGLE_CHECKBOX, PUT_BOOKMARKS_IN_STATE, PUT_ID_IN_STATE,
   DELETE_BOOK_IN_STATE, ADD_HOME_GENDER_IN_APP, ADD_GENDER_IN_APP,
-  SET_SORT_BY, SET_GENDER_ID, SET_ACTU, SET_SEARCH_TERM,
+  SET_SORT_BY, SET_GENDER_ID, SET_ACTU, PUT_ISBN_IN_STATE, PUT_GENDER_ID_IN_STATE, SET_SEARCH_TERM,
 } from '../actions/book';
 import { SUBMIT_LOGOUT } from '../actions/user';
 
@@ -24,19 +24,19 @@ export const initialState = {
   rate: 0,
   id: 0,
   gender: [],
-  genderId: null,
+  genderId: null || '',
   sortBy: '',
   /** FORM ADD BOOK */
   title: '',
   lastname: '',
-  firstname: null,
-  editor: null,
-  collection: null,
-  publicationDate: null,
-  price: null,
-  pages: null,
-  summary: null,
-  isbn: null,
+  firstname: null || '',
+  editor: null || '',
+  collection: null || '',
+  publicationDate: null || '',
+  price: null || '',
+  pages: null || '',
+  summary: null || '',
+  isbn: null || '',
   bookId: 0,
   /** HOME */
   homeGender: [],
@@ -93,6 +93,17 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         [action.identifier]: action.value,
 
+      };
+    case PUT_GENDER_ID_IN_STATE:
+      return {
+        ...state,
+        [action.identifier]: action.value,
+
+      };
+    case PUT_ISBN_IN_STATE:
+      return {
+        ...state,
+        isbn: action.isbnToAdd,
       };
     case HANDLE_RATE_CHANGE:
       return {

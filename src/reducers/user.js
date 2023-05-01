@@ -2,7 +2,7 @@ import { CHANGE_INPUT } from '../actions/book';
 import {
   OPEN_MODAL, CHANGE_SETTINGS_FIELD, CLOSE_MODAL,
   SAVE_AUTH_DATA, SAVE_USER_INFO, SUBMIT_LOGOUT, DELETE_USER,
-  UPDATE_USER, UPDATE_FORM_ERRORS, REMOVE_INPUT, UPLOAD_FILE, PREVIEW_AVATAR,
+  UPDATE_USER, UPDATE_FORM_ERRORS, REMOVE_INPUT, UPLOAD_FILE,
 } from '../actions/user';
 
 export const initialState = {
@@ -14,7 +14,6 @@ export const initialState = {
   passwordInscription: '',
   token: localStorage.getItem('token') || '',
   avatar: '',
-  previewAvatar: '',
   file: '',
   alias: localStorage.getItem('pseudo') || '',
   showModal: false,
@@ -61,6 +60,7 @@ const reducer = (state = initialState, action = {}) => {
         alias: '',
         token: '',
         email: '',
+        avatar: '',
 
       };
     case CHANGE_INPUT:
@@ -105,11 +105,6 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         file: action.file,
-      };
-    case PREVIEW_AVATAR:
-      return {
-        ...state,
-        previewAvatar: action.fileUrl,
       };
     default:
       return state;

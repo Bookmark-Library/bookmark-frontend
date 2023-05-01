@@ -17,6 +17,12 @@ const bookMiddleware = (store) => (next) => (action) => {
       axios.get(
         // URL
         'http://sandy-bouzid.vpnuser.lan:8000/api/books',
+        {
+          headers: {
+            // nom du header: valeur
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        },
       )
         .then((response) => {
           // console.log(response);
@@ -109,14 +115,14 @@ const bookMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           toast.success('Votre livre a bien été ajouté');
           store.dispatch(fetchUserInfo());
           store.dispatch(removeInputBookForm());
         })
         .catch((error) => {
-          console.log(error);
-          if (error.request.status === 500) {
+          // console.log(error);
+          if (error.request.status === 422 || error.request.status === 500) {
             toast.info('Livre introuvable, veuillez le rentrer via le formulaire');
           }
           if (error.request.status === 409) {
@@ -147,7 +153,7 @@ const bookMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           toast.success('Vos modifications ont bien été prises en compte');
           store.dispatch(fetchUserInfo());
           store.dispatch(closeModalRate());
@@ -168,7 +174,7 @@ const bookMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           toast.success('Votre livre a bien été supprimé');
           store.dispatch(fetchUserInfo());
           store.dispatch(deleteBookInState());

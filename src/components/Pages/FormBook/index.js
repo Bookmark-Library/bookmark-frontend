@@ -54,6 +54,7 @@ function FormBook() {
               <Field
                 identifier="isbn"
                 label="ISBN ou code barre"
+                placeholder=""
                 value={isbn}
                 type="number"
                 changeField={(identifier, newValue) => {
@@ -89,6 +90,7 @@ function FormBook() {
                 required
                 identifier="title"
                 label="Titre *"
+                placeholder=""
                 className="required"
                 value={title}
                 changeField={(identifier, newValue) => {

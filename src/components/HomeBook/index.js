@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 // import book1 from '../../assets/images/book1.jpg';
 // import book2 from '../../assets/images/book2.jpg';
 // import book3 from '../../assets/images/book3.jpg';
@@ -15,15 +16,13 @@ const HomeBook = () => {
         <div key={gender.id} className="col-sm-3 text-center">
           <div className="card border-light h-100">
             <img src={gender.books[0].image} className="card-img-top" alt="..." />
-            <div className="card-body">
-            </div>
+            <div className="card-body" />
             <div className="card-footer bg-light">
-              <a href="#" className="btn-book">{gender.name}</a>
+              <Link to={`/genre/${gender.id}`} className="btn-book">{gender.name}</Link>
             </div>
           </div>
         </div>
       ))}
-
     </div>
   );
 };
