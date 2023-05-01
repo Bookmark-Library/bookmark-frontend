@@ -28,7 +28,6 @@ function Book() {
   const navigate = useNavigate();
   const logged = useSelector((state) => state.user.logged);
   const libraries = useSelector((state) => state.book.libraries);
-  const genderlist = useSelector((state) => state.book.gender);
   const isLoading = useSelector((state) => state.book.isLoading);
   const modalRate = useSelector((state) => state.book.modalRate);
   // eslint-disable-next-line eqeqeq
@@ -154,10 +153,6 @@ function Book() {
               </div>
             </div>
           </div>
-          {bookToDisplay
-            .some((book) => genderlist.some((genderBook) => genderBook.title === book.title))
-
-          && (
           <section className="row bookTab">
             <div className="col-12 col-md-6 colInfoLeft">
               <BookTab {...bookToDisplay} />
@@ -219,7 +214,6 @@ function Book() {
               {modalRate && <ModalRate />}
             </div>
           </section>
-          )}
 
         </div>
       </div>
