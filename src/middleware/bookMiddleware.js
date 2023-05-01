@@ -17,9 +17,15 @@ const bookMiddleware = (store) => (next) => (action) => {
       axios.get(
         // URL
         'http://sandy-bouzid.vpnuser.lan:8000/api/books',
+        {
+          headers: {
+            // nom du header: valeur
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        },
       )
         .then((response) => {
-          // console.log(response);
+          console.log(response);
           store.dispatch(addBooksInApp(response.data));
         })
         .catch((error) => {
@@ -116,7 +122,7 @@ const bookMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
-          if (error.request.status === 500) {
+          if (error.request.status === 422 || error.request.status === 500) {
             toast.info('Livre introuvable, veuillez le rentrer via le formulaire');
           }
           if (error.request.status === 409) {

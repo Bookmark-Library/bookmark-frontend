@@ -5,7 +5,7 @@ import {
   REMOVE_INPUT_BOOK_FORM, PUT_RATE_IN_STATE, HANDLE_RATE_CHANGE,
   TOGGLE_CHECKBOX, PUT_BOOKMARKS_IN_STATE, PUT_ID_IN_STATE,
   DELETE_BOOK_IN_STATE, ADD_HOME_GENDER_IN_APP, ADD_GENDER_IN_APP,
-  SET_SORT_BY, SET_GENDER_ID, SET_ACTU, PUT_ISBN_IN_STATE,
+  SET_SORT_BY, SET_GENDER_ID, SET_ACTU, PUT_ISBN_IN_STATE, PUT_GENDER_ID_IN_STATE,
 } from '../actions/book';
 import { SUBMIT_LOGOUT } from '../actions/user';
 
@@ -87,6 +87,12 @@ const reducer = (state = initialState, action = {}) => {
 
       };
     case PUT_ID_IN_STATE:
+      return {
+        ...state,
+        [action.identifier]: action.value,
+
+      };
+    case PUT_GENDER_ID_IN_STATE:
       return {
         ...state,
         [action.identifier]: action.value,

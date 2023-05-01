@@ -10,6 +10,7 @@ export const PUT_RATE_IN_STATE = 'PUT_RATE_IN_STATE';
 export const PUT_BOOKMARKS_IN_STATE = 'PUT_BOOKMARKS_IN_STATE';
 export const PUT_ID_IN_STATE = 'PUT_ID_IN_STATE';
 export const PUT_BOOK_ID_IN_STATE = 'PUT_BOOK_ID_IN_STATE';
+export const PUT_GENDER_ID_IN_STATE = 'PUT_GENDER_ID_IN_STATE';
 
 export const DELETE_BOOK = 'DELETE_BOOK';
 export const DELETE_BOOK_IN_STATE = 'DELETE_BOOK_IN_STATE';
@@ -74,6 +75,11 @@ export const putBookmarksInState = (identifier, value) => ({
 });
 export const putIdInState = (identifier, value) => ({
   type: PUT_ID_IN_STATE,
+  identifier: identifier,
+  value: value,
+});
+export const putGenderIdInState = (identifier, value) => ({
+  type: PUT_GENDER_ID_IN_STATE,
   identifier: identifier,
   value: value,
 });
