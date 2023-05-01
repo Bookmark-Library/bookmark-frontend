@@ -33,7 +33,11 @@ function BookTab({
 }
 
 BookTab.propTypes = {
-  comment: PropTypes.string.isRequired,
-  quote: PropTypes.string.isRequired,
+  comment: PropTypes.string,
+  quote: PropTypes.string,
+};
+BookTab.defaultProps = {
+  comment: '',
+  quote: '',
 };
 export default BookTab;

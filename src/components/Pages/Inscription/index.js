@@ -104,10 +104,6 @@ function Inscription() {
             {formErrors.password && <p className="error">{formErrors.password}</p>}
             </div>
             <div className="col-12">
-
-            <input type="file" name="avatar" onChange={(e) => handleChange(e)} />
-            </div>
-            <div className="col-12">
               <button type="submit" className="btn btn-warning">Enregistrer</button>
             </div>
           </form>

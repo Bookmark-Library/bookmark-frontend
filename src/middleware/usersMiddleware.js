@@ -96,7 +96,9 @@ const usersMiddleware = (store) => (next) => (action) => {
       )
         .then((response) => {
           console.log(response.data);
-          toast.success('Inscription réussie, veuillez vous connecter avec vos identifiants !');
+          toast.success('Inscription réussie, veuillez vous connecter avec vos identifiants!');
+          toast.success('Rendez vous sur votre profil pour ajouter un avatar');
+
           store.dispatch(removeInput());
         })
         .catch((error) => {
@@ -202,6 +204,7 @@ const usersMiddleware = (store) => (next) => (action) => {
           .then((response) => {
             // console.log(response.data);
             store.dispatch(updateUser());
+            store.dispatch(fetchUserInfo);
           })
           .catch((error) => {
             console.log(error);

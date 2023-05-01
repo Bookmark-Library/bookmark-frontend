@@ -2,7 +2,7 @@ import { CHANGE_INPUT } from '../actions/book';
 import {
   OPEN_MODAL, CHANGE_SETTINGS_FIELD, CLOSE_MODAL,
   SAVE_AUTH_DATA, SAVE_USER_INFO, SUBMIT_LOGOUT, DELETE_USER,
-  UPDATE_USER, UPDATE_FORM_ERRORS, REMOVE_INPUT, UPLOAD_FILE, PREVIEW_AVATAR,
+  UPDATE_USER, UPDATE_FORM_ERRORS, REMOVE_INPUT, UPLOAD_FILE,
 } from '../actions/user';
 
 export const initialState = {
@@ -60,6 +60,7 @@ const reducer = (state = initialState, action = {}) => {
         alias: '',
         token: '',
         email: '',
+        avatar: '',
 
       };
     case CHANGE_INPUT:

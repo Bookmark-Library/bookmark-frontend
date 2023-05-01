@@ -25,7 +25,7 @@ const bookMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response);
+          // console.log(response);
           store.dispatch(addBooksInApp(response.data));
         })
         .catch((error) => {
@@ -115,13 +115,13 @@ const bookMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           toast.success('Votre livre a bien été ajouté');
           store.dispatch(fetchUserInfo());
           store.dispatch(removeInputBookForm());
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
           if (error.request.status === 422 || error.request.status === 500) {
             toast.info('Livre introuvable, veuillez le rentrer via le formulaire');
           }
@@ -153,7 +153,7 @@ const bookMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           toast.success('Vos modifications ont bien été prises en compte');
           store.dispatch(fetchUserInfo());
           store.dispatch(closeModalRate());
@@ -174,7 +174,7 @@ const bookMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           toast.success('Votre livre a bien été supprimé');
           store.dispatch(fetchUserInfo());
           store.dispatch(deleteBookInState());

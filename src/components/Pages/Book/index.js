@@ -4,6 +4,7 @@ import {
   Link, Navigate, useParams, useNavigate,
 } from 'react-router-dom';
 
+import { useEffect } from 'react';
 import {
   deleteBook,
   openModalRate, putBookmarksInState,
@@ -33,14 +34,16 @@ function Book() {
   // eslint-disable-next-line eqeqeq
   const bookToDisplay = libraries.find((book) => book.book.slug === slug);
   const bookdefault = bookToDisplay.book.image ?? defaultBook;
-  dispatch(putCommentInState(bookToDisplay.comment));
-  dispatch(putQuoteInState(bookToDisplay.quote));
-  dispatch(putRateInState(bookToDisplay.rate));
-  dispatch(putBookmarksInState('finished', bookToDisplay.finished));
-  dispatch(putBookmarksInState('purchased', bookToDisplay.purchased));
-  dispatch(putBookmarksInState('favorite', bookToDisplay.favorite));
-  dispatch(putBookmarksInState('wishlist', bookToDisplay.wishlist));
-  dispatch(putIdInState('id', bookToDisplay.id));
+  useEffect(() => {
+    dispatch(putCommentInState(bookToDisplay.comment));
+    dispatch(putQuoteInState(bookToDisplay.quote));
+    dispatch(putRateInState(bookToDisplay.rate));
+    dispatch(putBookmarksInState('finished', bookToDisplay.finished));
+    dispatch(putBookmarksInState('purchased', bookToDisplay.purchased));
+    dispatch(putBookmarksInState('favorite', bookToDisplay.favorite));
+    dispatch(putBookmarksInState('wishlist', bookToDisplay.wishlist));
+    dispatch(putIdInState('id', bookToDisplay.id));
+  }, []);
 
   const rating = bookToDisplay.rate; // note du produit passée en paramètre
   const getRatingImage = () => {

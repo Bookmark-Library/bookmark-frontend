@@ -1,13 +1,8 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import {
-  Link, useParams, useNavigate,
+  Link, useParams,
 } from 'react-router-dom';
-
-import {
-  putBookmarksInState,
-  putCommentInState, putIdInState, putQuoteInState, putRateInState,
-} from '../../../actions/book';
 
 import defaultBook from '../../../assets/images/default-img.jpg';
 import './styles.scss';
@@ -15,24 +10,13 @@ import Loader from '../../Loader';
 
 function BookLte() {
   const { slug } = useParams();
-  const dispatch = useDispatch();
-  const libraries = useSelector((state) => state.book.libraries);
   const bookList = useSelector((state) => state.book.bookList);
   const genderId = useSelector((state) => state.book.genderId);
 
   const isLoading = useSelector((state) => state.book.isLoading);
-  console.log(libraries);
   // eslint-disable-next-line eqeqeq
   const bookToDisplay = bookList.find((book) => book.slug == slug);
   const bookdefault = bookToDisplay.image ?? defaultBook;
-  dispatch(putCommentInState(bookToDisplay.comment));
-  dispatch(putQuoteInState(bookToDisplay.quote));
-  dispatch(putRateInState(bookToDisplay.rate));
-  dispatch(putBookmarksInState('finished', bookToDisplay.finished));
-  dispatch(putBookmarksInState('purchased', bookToDisplay.purchased));
-  dispatch(putBookmarksInState('favorite', bookToDisplay.favorite));
-  dispatch(putBookmarksInState('wishlist', bookToDisplay.wishlist));
-  dispatch(putIdInState('id', bookToDisplay.id));
 
   return (
 

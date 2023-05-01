@@ -6,6 +6,7 @@ import {
 } from '../../../../actions/book';
 import { fetchUserInfo } from '../../../../actions/user';
 import Loader from '../../../Loader';
+import { useEffect } from 'react';
 
 function Gender() {
   const { id } = useParams();
@@ -17,15 +18,16 @@ function Gender() {
 
   // eslint-disable-next-line eqeqeq
   const genderToDisplay = genderlist.find((gender) => gender.id == id);
-  dispatch(putGenderIdInState('genderId', genderToDisplay.id));
-  dispatch(getGenderFromApi());
+  useEffect(() => {
+    dispatch(putGenderIdInState('genderId', genderToDisplay.id));
+  });
 
   if (logged) {
     return (
-      <div className=" row col-12 col-md-8 ">
+      <div className=" row col-12 ">
         {isLoading && <Loader />}
         <h2>{genderToDisplay.name}</h2>
-        <div className="row row-cols-1 row-cols-md-6 g-3">
+        <div className="row row-cols-1 row-cols-lg-6 g-3">
 
           {genderToDisplay.books.map((genderBook) => (
 
@@ -55,6 +57,7 @@ function Gender() {
                       dispatch(putIsbnInState(genderBook.isbn));
                       dispatch(sendBookByIsbn());
                       dispatch(fetchUserInfo());
+                      dispatch(getGenderFromApi());
                     }}
                   > ajouter a ma bibliothèque
                   </button>
