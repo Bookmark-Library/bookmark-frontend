@@ -7,7 +7,7 @@ import {
   DELETE_BOOK_IN_STATE, ADD_HOME_GENDER_IN_APP, ADD_GENDER_IN_APP,
   SET_SORT_BY, SET_GENDER_ID, SET_ACTU, PUT_ISBN_IN_STATE, PUT_GENDER_ID_IN_STATE, SET_SEARCH_TERM,
 } from '../actions/book';
-import { SUBMIT_LOGOUT } from '../actions/user';
+import { SUBMIT_LOGIN, SUBMIT_LOGOUT } from '../actions/user';
 
 export const initialState = {
   bookList: [],
@@ -122,6 +122,11 @@ const reducer = (state = initialState, action = {}) => {
         bookList: action.newList,
         // isBooksLoaded: true,
       };
+    case SUBMIT_LOGIN:
+      return {
+        // isLoading: true,
+
+      };
     case SAVE_USER_BOOKS:
       return {
         ...state,
@@ -132,7 +137,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         homeGender: action.genderList,
-        // isLoading: false,
+        isLoading: false,
       };
     case ADD_GENDER_IN_APP:
       return {

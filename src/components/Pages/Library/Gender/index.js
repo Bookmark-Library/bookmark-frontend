@@ -24,10 +24,12 @@ function Gender() {
 
   if (logged) {
     return (
+
       <div className="container mt-5">
         {isLoading && <Loader />}
         <h2>{genderToDisplay.name}</h2>
         <div className="row row-cols-1 row-cols-lg-6 g-3 mt-4">
+
 
           {genderToDisplay.books.map((genderBook) => (
 
@@ -74,6 +76,7 @@ function Gender() {
       </div>
     );
   }
+
   return (
     <div className="container mt-5">
       {isLoading && <Loader />}
