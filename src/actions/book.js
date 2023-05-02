@@ -40,6 +40,8 @@ export const SET_GENDER_ID = 'SET_GENDER_ID';
 /** ************** HOME  ********** */
 export const GET_ACTU = 'GET_ACTU';
 export const SET_ACTU = 'SET_ACTU';
+// SEARCH BAR
+export const SET_SEARCH_TERM = 'SET_SEARCH_TERM';
 
 export const openModalRate = () => ({
   type: OPEN_MODAL_RATE,
@@ -172,4 +174,9 @@ export const getActu = () => ({
 export const setActu = (actu) => ({
   type: SET_ACTU,
   actu: actu,
+});
+// search bar
+export const setSearchTerm = (value) => ({
+  type: SET_SEARCH_TERM,
+  value: value,
 });

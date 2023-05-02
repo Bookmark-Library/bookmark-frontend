@@ -10,6 +10,7 @@ import './styles.scss';
 function All() {
   const libraries = useSelector((state) => state.book.libraries);
   const sortBy = useSelector((state) => state.book.sortBy);
+  const searchInput = useSelector((state) => state.book.searchInput);
 
   const sortedBooks = [...libraries].sort(((a, b) => {
     if (sortBy === 'title') {
@@ -23,11 +24,14 @@ function All() {
     }
     return 0;
   }));
+
+  const filteredBooks = sortedBooks.filter((book) =>
+    book.book.title.toLowerCase().includes(searchInput.toLowerCase()));
   return (
     <div className="col-12 col-md-8 col-right">
       <h2>Bibliothèque</h2>
       <div className="row row-cols-1 row-cols-md-5 g-3">
-        { sortedBooks.map((library) => (
+        { filteredBooks.map((library) => (
           <div className="col bookCard text-center" key={library.book.id}>
             <div className="card h-100 border-warning">
               <Link

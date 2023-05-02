@@ -7,10 +7,11 @@ import bookLire from '../../../../assets/images/lire.svg';
 import bookAchete from '../../../../assets/images/achetes.svg';
 
 import './styles.scss';
-import { filterBook, setSortBy } from '../../../../actions/book';
+import { filterBook, setSearchTerm, setSortBy } from '../../../../actions/book';
 
 function MenuLeft() {
   const dispatch = useDispatch();
+  const searchInput = useSelector((state) => state.book.searchInput);
 
   const handleSortByChange = (event) => {
     dispatch(setSortBy(event.target.value));
@@ -25,7 +26,16 @@ function MenuLeft() {
         Ajouter un livre
       </Link>
       <form className="d-flex mt-4" role="search">
-        <input className="form-control me-4" type="search" placeholder="Rechercher un livre" aria-label="Search" />
+        <input
+          className="form-control me-4"
+          type="search"
+          placeholder="Rechercher un livre"
+          aria-label="Search"
+          value={searchInput}
+          onChange={(e) => {
+            dispatch(setSearchTerm(e.target.value));
+          }}
+        />
       </form>
       <ul className="navLibrary mt-3">
         <li className="allBookLink"><Link to="/bibliotheque">Tous mes livres</Link></li>
