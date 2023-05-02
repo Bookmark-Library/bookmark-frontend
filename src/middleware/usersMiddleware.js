@@ -13,13 +13,14 @@ import {
 } from '../actions/user';
 
 const usersMiddleware = (store) => (next) => (action) => {
-  // console.log('authMiddleware, on a reçu une action', action);
+
+  const url = 'http://sandy-bouzid-server.eddi.cloud/projet-02-marque-page-back/public/api/';
+  // const url = 'http://sandy-bouzid.vpnuser.lan:8000/api/';
+
   switch (action.type) {
     case SUBMIT_LOGIN:
       axios.post(
-        // url
-        // 'http://laurent-finana.vpnuser.lan:8000/api/login_check',
-        'http://sandy-bouzid.vpnuser.lan:8000/api/login_check',
+        `${url}login_check`,
         // données
         {
           username: store.getState().user.email,
@@ -51,7 +52,7 @@ const usersMiddleware = (store) => (next) => (action) => {
     case FETCH_USER_INFO:
       axios.get(
         // URL
-        'http://sandy-bouzid.vpnuser.lan:8000/api/libraries',
+        `${url}secure/libraries`,
         // options (notamment les headers)
         {
           headers: {
@@ -85,7 +86,7 @@ const usersMiddleware = (store) => (next) => (action) => {
       }
       axios.post(
         // URL
-        'http://sandy-bouzid.vpnuser.lan:8000/api/users',
+        `${url}users`,
         // options (notamment les headers)
         {
           alias: store.getState().user.alias,
@@ -109,7 +110,7 @@ const usersMiddleware = (store) => (next) => (action) => {
     case DELETE_USER_IN_API:
       axios.delete(
         // URL
-        'http://sandy-bouzid.vpnuser.lan:8000/api/users',
+        `${url}secure/users`,
         // options (notamment les headers)
         {
           headers: {
@@ -131,7 +132,7 @@ const usersMiddleware = (store) => (next) => (action) => {
     case UPDATE_USER_IN_API:
       axios.put(
         // URL
-        'http://sandy-bouzid.vpnuser.lan:8000/api/users',
+        `${url}secure/users`,
         // options (notamment les headers)
         {
           alias: store.getState().user.alias,
@@ -159,7 +160,7 @@ const usersMiddleware = (store) => (next) => (action) => {
     case UPDATE_USER_PASSWORD_IN_API:
       axios.put(
         // URL
-        'http://sandy-bouzid.vpnuser.lan:8000/api/users/password',
+        `${url}secure/users/password`,
         // options (notamment les headers)
         {
           password: store.getState().user.password,
@@ -190,7 +191,7 @@ const usersMiddleware = (store) => (next) => (action) => {
         formData.append('name', store.getState().user.file.name);
         axios.post(
           // URL
-          'http://sandy-bouzid.vpnuser.lan:8000/api/users/avatar',
+          `${url}secure/users/avatar`,
           formData,
           // options (notamment les headers)
           {

@@ -24,10 +24,10 @@ function Gender() {
 
   if (logged) {
     return (
-      <div className=" row col-12 ">
+      <div className="container mt-5">
         {isLoading && <Loader />}
         <h2>{genderToDisplay.name}</h2>
-        <div className="row row-cols-1 row-cols-lg-6 g-3">
+        <div className="row row-cols-1 row-cols-lg-6 g-3 mt-4">
 
           {genderToDisplay.books.map((genderBook) => (
 
@@ -75,9 +75,9 @@ function Gender() {
     );
   }
   return (
-    <div className=" row col-12 col-md-8 ">
+    <div className="container mt-5">
       {isLoading && <Loader />}
-      <div className="row row-cols-1 row-cols-md-6 g-3">
+      <div className="row row-cols-1 row-cols-md-6 g-3 mt-4">
 
         <h2>{genderToDisplay.name}</h2>
         {genderToDisplay.books.map((genderBook) => (
