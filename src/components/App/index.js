@@ -25,7 +25,9 @@ import Favorite from '../Pages/Library/Favorite';
 import Wishlist from '../Pages/Library/Wishlist';
 import ModalPassword from '../Pages/User/ModalPassword';
 import ToRead from '../Pages/Library/ToRead';
-import { getActu, getBooksFromApi, getGenderFromApi, getHomeGenderFromApi } from '../../actions/book';
+import {
+  getActu, getBooksFromApi, getGenderFromApi, getHomeGenderFromApi,
+} from '../../actions/book';
 import Gender from '../Pages/Library/Gender';
 import BookLte from '../Pages/Book/BookLte';
 

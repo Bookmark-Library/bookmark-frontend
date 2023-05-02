@@ -74,6 +74,7 @@ function Gender() {
       </div>
     );
   }
+
   return (
     <div className=" row col-12  ">
       {isLoading && <Loader />}
