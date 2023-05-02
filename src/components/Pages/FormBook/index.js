@@ -17,12 +17,11 @@ function FormBook() {
   const pages = useSelector((state) => state.book.pages);
   const isbn = useSelector((state) => state.book.isbn);
   const formErrors = useSelector((state) => state.user.formErrors);
-  // eslint-disable-next-line camelcase
   const publicationDate = useSelector((state) => state.book.publicationDate);
-  /* ********** Verification du formulaire */
+  /* ********** Form Verification */
   const errors = {};
   const validateBook = () => {
-    // Vérifier les champs obligatoires
+    // Check required fields
     if (!title.trim()) {
       errors.title = 'Veuillez saisir le titre du livre';
     }
@@ -146,19 +145,11 @@ function FormBook() {
                 }}
               />
             </div>
-            {/* <div className="col-md-6">
-            <label htmlFor="genre" className="form-label">Genre</label>
-            <select id="genre" className="form-select">
-              <option selected>Choix...</option>
-              <option>...</option>
-            </select>
-          </div> */}
             <div className="col-md-6">
               <Field
                 identifier="publicationDate"
                 placeholder=""
                 label="Année de publication"
-                // eslint-disable-next-line camelcase
                 value={publicationDate || ''}
                 changeField={(identifier, newValue) => {
                   dispatch(changeInput(identifier, newValue));

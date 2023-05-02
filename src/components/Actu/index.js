@@ -1,15 +1,13 @@
 import './styles.scss';
-
 import { useSelector } from 'react-redux';
-// import actu from '../../assets/images/gallica.jpg';
-
+/* display of news on the homepage */
 const Actu = () => {
   const actuContent = useSelector((state) => state.book.actu);
 
   const url = 'http://sandy-bouzid-server.eddi.cloud/projet-02-marque-page-back/public';
   // const url = 'http://sandy-bouzid.vpnuser.lan:8000';
-
   const image = '/assets/images/avatars/';
+
   return (
     <aside className="card actu border-light">
       {actuContent.map((actu) => (

@@ -1,12 +1,12 @@
 import './style.scss';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import {
   getGenderFromApi, putGenderIdInState, putIsbnInState, sendBookByIsbn,
 } from '../../../../actions/book';
 import { fetchUserInfo } from '../../../../actions/user';
 import Loader from '../../../Loader';
-import { useEffect } from 'react';
 
 function Gender() {
   const { id } = useParams();
@@ -36,12 +36,12 @@ function Gender() {
                 {!libraries.some((book) => book.book.id === genderBook.id)
             && (
             <Link to={`/livre/${genderBook.slug}`}>
-              <img className="book-image img-fluid" src={genderBook.image} alt="" />
+              <img className="img-fluid" src={genderBook.image} alt="" />
             </Link>
             )}
                 {libraries.some((book) => book.book.id === genderBook.id) && (
                 <Link to={`/bibliotheque/livre/${genderBook.slug}`}>
-                  <img className="book-image img-fluid" src={genderBook.image} alt="" />
+                  <img className="img-fluid" src={genderBook.image} alt="" />
                 </Link>
                 )}
                 <div className="card-body">
@@ -77,15 +77,15 @@ function Gender() {
   return (
     <div className="container mt-5">
       {isLoading && <Loader />}
+      <h2>{genderToDisplay.name}</h2>
       <div className="row row-cols-1 row-cols-md-6 g-3 mt-4">
 
-        <h2>{genderToDisplay.name}</h2>
         {genderToDisplay.books.map((genderBook) => (
 
           <div key={genderBook.id} className="col bookCard text-center">
             <div className="card h-100 border-warning">
               <Link to={`/livre/${genderBook.slug}`}>
-                <img className="book-image img-fluid" src={genderBook.image} alt="" />
+                <img className="img-fluid" src={genderBook.image} alt="" />
               </Link>
               <div className="card-body">
                 <h5 className="card-title">{genderBook.title}</h5>

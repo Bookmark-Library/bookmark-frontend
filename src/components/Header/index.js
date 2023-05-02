@@ -71,13 +71,6 @@ function Header() {
               isLogged={logged}
               loggedMessage=<Link className="" to={`/user/${alias}`}><img src={`${url}${image}/${avatar}`} className="imgAvatar img-thumbnail" alt="..." />{`Bienvenue ${alias}`}</Link>
             />
-            {/* <Link
-              to="/inscription"
-              className="btn-inscription"
-            >
-              s'inscrire
-            </Link> */}
-
           </div>
         </div>
       </nav>

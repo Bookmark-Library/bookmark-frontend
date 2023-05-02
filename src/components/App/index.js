@@ -16,8 +16,6 @@ import User from '../Pages/User';
 import Inscription from '../Pages/Inscription';
 import Contact from '../Pages/Contact';
 import ModalRate from '../Pages/Book/ModalRate';
-
-// import { getBooksFromApi } from '../../actions/book';
 import { fetchUserInfo } from '../../actions/user';
 import Finished from '../Pages/Library/Finished';
 import Purchased from '../Pages/Library/Purchased';
@@ -25,7 +23,9 @@ import Favorite from '../Pages/Library/Favorite';
 import Wishlist from '../Pages/Library/Wishlist';
 import ModalPassword from '../Pages/User/ModalPassword';
 import ToRead from '../Pages/Library/ToRead';
-import { getActu, getBooksFromApi, getGenderFromApi, getHomeGenderFromApi } from '../../actions/book';
+import {
+  getActu, getBooksFromApi, getGenderFromApi, getHomeGenderFromApi,
+} from '../../actions/book';
 import Gender from '../Pages/Library/Gender';
 import BookLte from '../Pages/Book/BookLte';
 
@@ -48,6 +48,7 @@ function App() {
     <div className="app">
 
       <Header />
+      {/* popup manager toastify */}
       <ToastContainer
         position="top-center"
         autoClose={2000}

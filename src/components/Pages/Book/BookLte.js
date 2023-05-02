@@ -1,13 +1,11 @@
 import { useSelector } from 'react-redux';
-
 import {
   Link, useParams,
 } from 'react-router-dom';
-
 import defaultBook from '../../../assets/images/default-img.jpg';
 import './styles.scss';
 import Loader from '../../Loader';
-
+/* display of book when is not in the library */
 function BookLte() {
   const { slug } = useParams();
   const bookList = useSelector((state) => state.book.bookList);

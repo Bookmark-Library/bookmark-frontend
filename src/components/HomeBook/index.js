@@ -1,11 +1,8 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-// import book1 from '../../assets/images/book1.jpg';
-// import book2 from '../../assets/images/book2.jpg';
-// import book3 from '../../assets/images/book3.jpg';
-// import book4 from '../../assets/images/book4.jpg';
 import './styles.scss';
 
+/* display of gender on the homepage */
 const HomeBook = () => {
   const homeGender = useSelector((state) => state.book.homeGender);
 

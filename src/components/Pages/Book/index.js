@@ -45,7 +45,7 @@ function Book() {
     dispatch(putIdInState('id', bookToDisplay.id));
   }, []);
 
-  const rating = bookToDisplay.rate; // note du produit passée en paramètre
+  const rating = bookToDisplay.rate;
   const getRatingImage = () => {
     switch (rating) {
       case 0:
@@ -111,7 +111,7 @@ function Book() {
           </>
         );
       default:
-        return null; // aucune image ne sera affichée si la note est invalide
+        return null; // no image will be displayed if the rating is invalid
     }
   };
   // For return at the home page when user is not connected
@@ -163,7 +163,7 @@ function Book() {
             <div className="col-12 col-md-6 colInfoRight">
               <div className="caracteristique d-flex">
                 <div className="col-6 col-md-4">
-                  <p>Mes bookMark</p>
+                  <p>BookMark</p>
                   <p>
                     {bookToDisplay.favorite && <img className="bookmark" src={bookHeart} alt="" />}
                     {bookToDisplay.wishlist && <img className="bookmark" src={bookWish} alt="" />}
@@ -173,13 +173,13 @@ function Book() {
                   </p>
                 </div>
                 <div className="rateDiv col-6 col-md-4">
-                  <p>Ma note</p>
+                  <p>Note</p>
 
                   {getRatingImage()}
 
                 </div>
                 <div className="rateDiv col-6 col-md-4">
-                  <p>Genres sélectionnés </p>
+                  <p>Genre </p>
                   {bookToDisplay.genre !== null
                    && <p key={bookToDisplay.genre.id} className="book-author"> {bookToDisplay.genre.name}</p>}
 

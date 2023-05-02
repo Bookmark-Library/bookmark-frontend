@@ -8,6 +8,7 @@ import {
   changeTabKey,
 } from '../../../../actions/book';
 
+/* display of notation on the book page */
 function BookTab({
   comment, quote,
 }) {
