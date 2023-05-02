@@ -11,19 +11,13 @@ import { fetchUserInfo } from '../actions/user';
 
 const bookMiddleware = (store) => (next) => (action) => {
   // console.log('authMiddleware, on a reçu une action', action);
-
+  const url = 'http://sandy-bouzid.vpnuser.lan:8000/api/';
   switch (action.type) {
     // TODO pas besoin du token pour recuperer la liste (voir avec le back)
     case GET_BOOKS_FROM_API:
       axios.get(
         // URL
-        'http://sandy-bouzid.vpnuser.lan:8000/api/books',
-        {
-          headers: {
-            // nom du header: valeur
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-          },
-        },
+        `${url}books`,
       )
         .then((response) => {
           // console.log(response);
@@ -36,7 +30,7 @@ const bookMiddleware = (store) => (next) => (action) => {
       break;
     case GET_HOME_GENDER_FROM_API:
       axios.get(
-        'http://sandy-bouzid.vpnuser.lan:8000/api/genres/home',
+        `${url}genres/home`,
       )
         .then((response) => {
           // console.log(response.data);
@@ -50,7 +44,7 @@ const bookMiddleware = (store) => (next) => (action) => {
       break;
     case GET_GENDER_FROM_API:
       axios.get(
-        'http://sandy-bouzid.vpnuser.lan:8000/api/genres',
+        `${url}genres`,
       )
         .then((response) => {
           // console.log(response.data);
@@ -67,7 +61,7 @@ const bookMiddleware = (store) => (next) => (action) => {
         return;
       }
       axios.post(
-        'http://sandy-bouzid.vpnuser.lan:8000/api/books',
+        `${url}secure/books`,
 
         {
           title: store.getState().book.title,
@@ -103,7 +97,7 @@ const bookMiddleware = (store) => (next) => (action) => {
       break;
     case SEND_BOOK_BY_ISBN:
       axios.post(
-        'http://sandy-bouzid.vpnuser.lan:8000/api/books/isbn',
+        `${url}secure/books/isbn`,
 
         {
           isbn: store.getState().book.isbn,
@@ -133,7 +127,7 @@ const bookMiddleware = (store) => (next) => (action) => {
       break;
     case SEND_RATE_TO_API:
       axios.put(
-        `http://sandy-bouzid.vpnuser.lan:8000/api/libraries/${store.getState().book.id}`,
+        `${url}secure/libraries/${store.getState().book.id}`,
 
         {
           comment: store.getState().book.commentaire,
@@ -165,7 +159,7 @@ const bookMiddleware = (store) => (next) => (action) => {
       break;
     case DELETE_BOOK:
       axios.delete(
-        `http://sandy-bouzid.vpnuser.lan:8000/api/libraries/${store.getState().book.id}`,
+        `${url}secure/libraries/${store.getState().book.id}`,
 
         {
           headers: {
@@ -186,7 +180,7 @@ const bookMiddleware = (store) => (next) => (action) => {
       break;
     case GET_ACTU:
       axios.get(
-        'http://sandy-bouzid.vpnuser.lan:8000/api/editorials',
+        `${url}editorials`,
       )
         .then((response) => {
           // console.log(response.data);
