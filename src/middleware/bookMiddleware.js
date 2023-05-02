@@ -11,7 +11,8 @@ import { fetchUserInfo } from '../actions/user';
 
 const bookMiddleware = (store) => (next) => (action) => {
   // console.log('authMiddleware, on a reçu une action', action);
-  const url = 'http://sandy-bouzid.vpnuser.lan:8000/api/';
+  const url = 'http://sandy-bouzid-server.eddi.cloud/projet-02-marque-page-back/public/api/';
+  // const url = 'http://sandy-bouzid.vpnuser.lan:8000/api/';
   switch (action.type) {
     // TODO pas besoin du token pour recuperer la liste (voir avec le back)
     case GET_BOOKS_FROM_API:

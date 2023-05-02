@@ -6,7 +6,7 @@ import { Navigate, Link } from 'react-router-dom';
 import Field from '../../Field';
 import { changeInput } from '../../../actions/book';
 import {
-  deleteUserInApi, openModal, previewAvatar, submitLogout,
+  deleteUserInApi, openModal, submitLogout,
   updateUser, updateUserAvatardInApi, updateUserInApi, uploadFile,
 } from '../../../actions/user';
 
@@ -17,7 +17,8 @@ const User = () => {
   const alias = useSelector((state) => state.user.alias);
   const email = useSelector((state) => state.user.email);
   const logged = useSelector((state) => state.user.logged);
-  const url = 'http://sandy-bouzid.vpnuser.lan:8000';
+  const url = 'http://sandy-bouzid-server.eddi.cloud/projet-02-marque-page-back/public';
+  // const url = 'http://sandy-bouzid.vpnuser.lan:8000';
   const image = '/assets/images/avatars';
   // console.log(avatar);
   const handleChange = (e) => {
