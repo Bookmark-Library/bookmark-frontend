@@ -124,7 +124,7 @@ const reducer = (state = initialState, action = {}) => {
       };
     case SUBMIT_LOGIN:
       return {
-        // isLoading: true,
+        isLoading: true,
 
       };
     case SAVE_USER_BOOKS:
@@ -137,7 +137,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         homeGender: action.genderList,
-        isLoading: false,
+        // isLoading: false,
       };
     case ADD_GENDER_IN_APP:
       return {
