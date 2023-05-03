@@ -48,7 +48,6 @@ function MenuLeft() {
       <select onChange={handleSortByChange} className="form-select form-select-sm" aria-label=".form-select-sm example">
         <option defaultValue>Trier par...</option>
         <option value="title">Titre</option>
-        <option value="publicationDate">date de publication</option>
         <option value="addDate">Dernier ajoutés </option>
       </select>
     </div>
