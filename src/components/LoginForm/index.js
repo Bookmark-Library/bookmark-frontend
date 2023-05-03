@@ -26,7 +26,7 @@ const LoginForm = ({
 
   return (
 
-    <div className="login-form">
+    <div className="login-form text-center">
       {isLogged && (
 
         <div className="login-form-logged">

@@ -9,14 +9,16 @@ const GenreList = () => {
     dispatch(setGenderId(event.target.value));
   };
   return (
-    <select onChange={handleSetGenderId} className="form-select form-select-sm" aria-label=".form-select-sm example">
-      <option defaultValue>selectioner un genre</option>
-      {listOfGenre.map((genre) => (
-        <option key={genre.id} value={genre.id}>{genre.name}</option>
-      ))}
-      <option value="publicationDate">date de publication</option>
-      <option value="editor">editeur</option>
-    </select>
+    <div className="mt-3 mb-2">
+      <select onChange={handleSetGenderId} className="form-select" aria-label=".form-select-sm example">
+        <option defaultValue>selectioner un genre</option>
+        {listOfGenre.map((genre) => (
+          <option key={genre.id} value={genre.id}>{genre.name}</option>
+        ))}
+        <option value="publicationDate">date de publication</option>
+        <option value="editor">editeur</option>
+      </select>
+    </div>
   );
 };
 

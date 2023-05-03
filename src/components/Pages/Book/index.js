@@ -156,69 +156,69 @@ function Book() {
               </div>
             </div>
           </div>
-          <section className="row bookTab">
-            <div className="col-12 col-md-6 colInfoLeft">
-              <BookTab {...bookToDisplay} />
-            </div>
-            <div className="col-12 col-md-6 colInfoRight">
-              <div className="caracteristique d-flex">
-                <div className="col-6 col-md-4">
-                  <p>BookMark</p>
-                  <p>
-                    {bookToDisplay.favorite && <img className="bookmark" src={bookHeart} alt="" />}
-                    {bookToDisplay.wishlist && <img className="bookmark" src={bookWish} alt="" />}
-                    {bookToDisplay.finished && <img className="bookmark" src={bookLu} alt="" />}
-                    {bookToDisplay.purchased && !bookToDisplay.finished && <img className="bookmark" src={bookLire} alt="" />}
-                    {bookToDisplay.purchased && <img className="bookmark" src={bookAchete} alt="" />}
-                  </p>
-                </div>
-                <div className="rateDiv col-6 col-md-4">
-                  <p>Note</p>
+        </div>
+        <section className="row bookTab">
+          <div className="col-12 col-md-6 colInfoLeft">
+            <BookTab {...bookToDisplay} />
+          </div>
+          <div className="col-12 col-md-6 colInfoRight">
+            <div className="row caracteristique text-center">
+              <div className="col-12 col-md-4">
+                <p>BookMark</p>
+                <p>
+                  {bookToDisplay.favorite && <img className="bookmark" src={bookHeart} alt="" />}
+                  {bookToDisplay.wishlist && <img className="bookmark" src={bookWish} alt="" />}
+                  {bookToDisplay.finished && <img className="bookmark" src={bookLu} alt="" />}
+                  {bookToDisplay.purchased && !bookToDisplay.finished && <img className="bookmark" src={bookLire} alt="" />}
+                  {bookToDisplay.purchased && <img className="bookmark" src={bookAchete} alt="" />}
+                </p>
+              </div>
+              <div className="rateDiv col-12 col-md-4">
+                <p>Note</p>
 
-                  {getRatingImage()}
+                {getRatingImage()}
 
-                </div>
-                <div className="rateDiv col-6 col-md-4">
-                  <p>Genre </p>
-                  {bookToDisplay.genre !== null
+              </div>
+              <div className="rateDiv col-12 col-md-4">
+                <p>Genre </p>
+                {bookToDisplay.genre !== null
                    && <p key={bookToDisplay.genre.id} className="book-author"> {bookToDisplay.genre.name}</p>}
 
-                </div>
-              </div>
-              <div className="navBookmark d-flex justify-content-between mt-3 text-center col-12">
-                <span><img src={bookLu} className="img-fluid mx-auto d-block" alt="..." />Livres lus</span>
-                <span><img src={bookLire} className="img-fluid mx-auto d-block" alt="..." />Pile à lire</span>
-                <span><img src={bookAchete} className="img-fluid mx-auto d-block" alt="..." />Achetés</span>
-                <span><img src={bookWish} className="img-fluid mx-auto d-block" alt="..." />Mes envies</span>
-                <span><img src={bookHeart} className="img-fluid mx-auto d-blockc" alt="..." />Coups de coeur</span>
               </div>
             </div>
-
-            <div className="col-md-6 mx-auto d-block text-center mt-4">
-              <button
-                type="button"
-                className="btn btn-warning"
-                onClick={() => {
-                  dispatch(openModalRate());
-                }}
-              >
-                Modifier les infos du livre
-              </button>
-              <button
-                type="submit"
-                className="btn btn-danger"
-                onClick={() => {
-                  dispatch(deleteBook());
-                  navigate('/bibliotheque');
-                }}
-              >
-                Supprimer le livre
-              </button>
-              {modalRate && <ModalRate />}
+            <div className="navBookmark d-flex justify-content-between mt-3 text-center col-12">
+              <span><img src={bookLu} className="img-fluid mx-auto d-block" alt="..." />Livres lus</span>
+              <span><img src={bookLire} className="img-fluid mx-auto d-block" alt="..." />Pile à lire</span>
+              <span><img src={bookAchete} className="img-fluid mx-auto d-block" alt="..." />Achetés</span>
+              <span><img src={bookWish} className="img-fluid mx-auto d-block" alt="..." />Mes envies</span>
+              <span><img src={bookHeart} className="img-fluid mx-auto d-blockc" alt="..." />Coups de coeur</span>
             </div>
-          </section>
+          </div>
 
-        </div>
+          <div className="col-md-6 mx-auto d-block text-center mt-4">
+            <button
+              type="button"
+              className="btn btn-warning"
+              onClick={() => {
+                dispatch(openModalRate());
+              }}
+            >
+              Modifier les infos du livre
+            </button>
+            <button
+              type="submit"
+              className="btn btn-danger"
+              onClick={() => {
+                dispatch(deleteBook());
+                navigate('/bibliotheque');
+              }}
+            >
+              Supprimer le livre
+            </button>
+            {modalRate && <ModalRate />}
+          </div>
+        </section>
+
       </div>
     </div>
 

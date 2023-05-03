@@ -15,7 +15,7 @@ const HomeBook = () => {
             <img src={gender.books[0].image} className="card-img-top" alt="..." />
             <div className="card-body" />
             <div className="card-footer bg-light">
-              <Link to={`/genre/${gender.id}`} className="btn-book">{gender.name}</Link>
+              <Link to={`/genre/${gender.id}`} title={gender.name} className="btn-book">{gender.name}</Link>
             </div>
           </div>
         </div>
