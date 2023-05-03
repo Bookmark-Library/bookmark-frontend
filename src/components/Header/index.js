@@ -4,6 +4,8 @@ import {
   changeSettingsField, submitLogin, submitLogout,
 } from '../../actions/user';
 import bookMarkLogo from '../../assets/images/bookmark-logo-copie.svg';
+import userDefault from '../../assets/images/user-128.png';
+
 import LoginForm from '../LoginForm';
 
 import './styles.scss';
@@ -47,7 +49,7 @@ function Header() {
                 to="/bibliotheque"
                 className="linkNav "
               >
-                Bibliotheque
+                Bibliothèque
               </NavLink>
               )}
             </ul>
@@ -69,7 +71,7 @@ function Header() {
                 dispatch(submitLogout());
               }}
               isLogged={logged}
-              loggedMessage=<Link className="" to={`/user/${alias}`}><img src={`${url}${image}/${avatar}`} className="imgAvatar img-thumbnail" alt="..." />{`Bienvenue ${alias}`}</Link>
+              loggedMessage=<Link className="" to={`/user/${alias}`}><img src={avatar ? `${url}${image}/${avatar}` : userDefault} className="imgAvatar img-thumbnail" alt="..." />{`Bienvenue ${alias}`}</Link>
             />
           </div>
         </div>
