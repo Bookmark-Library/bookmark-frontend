@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import './styles.scss';
-// import avatar from '../../../assets/images/user-128.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, Link } from 'react-router-dom';
+import userDefault from '../../../assets/images/user-128.png';
 import Field from '../../Field';
 import { changeInput } from '../../../actions/book';
 import {
@@ -37,7 +37,7 @@ const User = () => {
 
           <h2>Informations personnelles</h2>
           <div className="row">
-            <img src={`${url}${image}/${avatar}`} className="img-thumbnail img-fluid mx-auto d-block" alt="..." />
+            <img src={avatar ? `${url}${image}/${avatar}` : userDefault} className="img-thumbnail img-fluid mx-auto d-block" alt="..." />
             <Link
               className="linkPassword"
               onClick={() => {

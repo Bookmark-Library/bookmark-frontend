@@ -75,6 +75,8 @@ const reducer = (state = initialState, action = {}) => {
         email: '',
         password: '',
         avatar: '',
+        emailInscription: '',
+        passwordInscription: '',
       };
     case DELETE_USER:
       return {
