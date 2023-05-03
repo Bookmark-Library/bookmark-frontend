@@ -35,7 +35,7 @@ function Inscription() {
     // Vérification du format du password
     const regExPassaword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
     if (password && !regExPassaword.test(password)) {
-      errors.password = 'Le mot de passe doit comporter au moins 8 caractères, une majuscule, un chiffre et un caractère spécial';
+      errors.password = 'Le mot de passe doit comporter au moins 8 caractères, une majuscule, un chiffre et un caractère spécial (#?!@$%^&*-+)';
     }
     dispatch(updateFormErrors(errors));
   };
