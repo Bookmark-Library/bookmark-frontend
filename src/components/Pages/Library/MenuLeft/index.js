@@ -49,7 +49,7 @@ function MenuLeft() {
         <option defaultValue>Trier par...</option>
         <option value="title">Titre</option>
         <option value="publicationDate">date de publication</option>
-        <option value="editor">editeur</option>
+        <option value="addDate">Dernier ajoutés </option>
       </select>
     </div>
   );

@@ -17,11 +17,8 @@ function Favorite() {
     if (sortBy === 'title') {
       return a.book.title.localeCompare(b.book.title);
     }
-    if (sortBy === 'publicationDate') {
-      return a.book.publicationDate < (b.book.publicationDate);
-    }
-    if (sortBy === 'editor') {
-      return a.book.editor.localeCompare(b.book.editor);
+    if (sortBy === 'addDate') {
+      return b.id - (a.id);
     }
     return 0;
   }));
