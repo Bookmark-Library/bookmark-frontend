@@ -27,7 +27,7 @@ function Finished() {
         <MenuLeft />
         <div className="col-12 col-md-8 col-right">
           <h2>Livres lus</h2>
-          <div className="row row-cols-1 row-cols-md-5 g-3">
+          <div className="row row-cols-md-3 row-cols-lg-5 g-3">
             {filtredByFinished
             && sortedBooks.map((library) => (
               <div key={library.book.id} className="col bookCard text-center border-warning">

@@ -32,7 +32,7 @@ function Favorite() {
         <MenuLeft />
         <div className="col-12 col-md-8 col-right">
           <h2>Coups de coeur</h2>
-          <div className="row row-cols-1 row-cols-md-5 g-3">
+          <div className="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-3">
             {filtredByFavorite
             && sortedBooks.map((library) => (
               <div className="col bookCard text-center border-warning" key={library.book.id}>
