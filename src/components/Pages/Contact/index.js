@@ -1,40 +1,37 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-indent */
-import './styles.scss';
+import "./styles.scss";
 
 const Contact = () => (
-    <div className="container">
+  <div className="container">
     <div className="row justify-content-center mt-5">
-      <div className="col-md-5 col-12">
-      <h2>Contact</h2>
-      <p>Vous souhaitez poser des questions au sujet de BookMark,
-        nous soumettre des idées, n'hésitez pas à nous contacter !
-      </p>
-      <form className="row g-2">
-          <div className="col-md-6">
-            <label htmlFor="name" className="form-label required">Nom</label>
-            <input type="text" className="form-control" id="name" required />
-          </div>
-          <div className="col-12">
-            <label htmlFor="email" className="form-label required">Email</label>
-            <input type="email" className="form-control" id="email" required />
-          </div>
-          <div className="col-md-6">
-            <label htmlFor="objet" className="form-label">Objet</label>
-            <input type="text" className="form-control" id="objet" />
-          </div>
-          <div className="col-12">
-          <label htmlFor="message" className="form-label required">Votre message</label>
-            <textarea className="form-control" id="message" rows="3" required />
-          </div>
-          <div className="col-12">
-            <button type="submit" className="btn btn-warning">Envoyer</button>
-          </div>
-      </form>
-      </div>
+      <div className="col-md-8 col-12">
+        <h2>Nous Contacter</h2>
+        <p>
+          Nous apprécions vos questions, commentaires et suggestions. Si vous
+          avez des interrogations concernant notre site, nos services, ou si
+          vous souhaitez simplement échanger avec nous, n'hésitez pas à nous
+          contacter. La communication avec nos utilisateurs est essentielle pour
+          améliorer constamment notre offre.
+        </p>
 
+        <p>
+          Pour nous joindre, veuillez envoyer un e-mail à l'adresse suivante :
+          <strong> team.bookmark.info@gmail.com</strong>. Nous nous efforçons de
+          répondre à tous les messages dans les plus brefs délais, généralement
+          dans un délai de 1 à 2 jours ouvrables. Votre feedback est précieux et
+          nous sommes impatients de vous aider de toutes les manières possibles.
+        </p>
+        <p>
+          Veuillez noter que toute information que vous partagez avec nous sera
+          traitée conformément à notre politique de confidentialité, et nous
+          prendrons toutes les mesures nécessaires pour assurer la sécurité de
+          vos données. Nous vous remercions de votre confiance et avons hâte de
+          vous entendre !
+        </p>
+      </div>
     </div>
-    </div>
+  </div>
 );
 
 export default Contact;
