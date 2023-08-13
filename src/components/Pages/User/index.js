@@ -1,14 +1,19 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import './styles.scss';
-import { useDispatch, useSelector } from 'react-redux';
-import { Navigate, Link } from 'react-router-dom';
-import userDefault from '../../../assets/images/user-128.png';
-import Field from '../../Field';
-import { changeInput } from '../../../actions/book';
+import "./styles.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { Navigate, Link } from "react-router-dom";
+import userDefault from "../../../assets/images/user-128.png";
+import Field from "../../Field";
+import { changeInput } from "../../../actions/book";
 import {
-  deleteUserInApi, openModal, submitLogout,
-  updateUser, updateUserAvatardInApi, updateUserInApi, uploadFile,
-} from '../../../actions/user';
+  deleteUserInApi,
+  openModal,
+  submitLogout,
+  updateUser,
+  updateUserAvatardInApi,
+  updateUserInApi,
+  uploadFile,
+} from "../../../actions/user";
 
 const User = () => {
   const dispatch = useDispatch();
@@ -17,9 +22,12 @@ const User = () => {
   const alias = useSelector((state) => state.user.alias);
   const email = useSelector((state) => state.user.email);
   const logged = useSelector((state) => state.user.logged);
-  const url = 'http://sandy-bouzid-server.eddi.cloud/projet-02-marque-page-back/public';
+  const url =
+    "http://gelabalekenny-server.eddi.cloud/projet-02-marque-page-back/public";
+
+  // const url = 'http://sandy-bouzid-server.eddi.cloud/projet-02-marque-page-back/public';
   // const url = 'http://sandy-bouzid.vpnuser.lan:8000';
-  const image = '/assets/images/avatars';
+  const image = "/assets/images/avatars";
   // console.log(avatar);
   const handleChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -34,10 +42,13 @@ const User = () => {
     <div className="container userProfil">
       <div className="row col-12 col-md-6 userRow">
         <div className="col-md-12 text-center">
-
           <h2>Informations personnelles</h2>
           <div className="row">
-            <img src={avatar ? `${url}${image}/${avatar}` : userDefault} className="img-thumbnail img-fluid mx-auto d-block" alt="..." />
+            <img
+              src={avatar ? `${url}${image}/${avatar}` : userDefault}
+              className="img-thumbnail img-fluid mx-auto d-block"
+              alt="..."
+            />
             <Link
               className="linkPassword"
               onClick={() => {
@@ -52,7 +63,13 @@ const User = () => {
         <form className="row g-3">
           <div className="col-md-12">
             <div className="col-md-12">
-              <input className="form-control form-control-sm" name="avatar" id="name" type="file" onChange={(e) => handleChange(e)} />
+              <input
+                className="form-control form-control-sm"
+                name="avatar"
+                id="name"
+                type="file"
+                onChange={(e) => handleChange(e)}
+              />
               {/* <input type="file" name="avatar" onChange={(e) => handleChange(e)} /> */}
             </div>
             <div className="row">
@@ -79,7 +96,6 @@ const User = () => {
                 />
               </div>
               <div className="col-12">
-
                 <button
                   type="submit"
                   className="btn btn-warning"
@@ -90,13 +106,21 @@ const User = () => {
                     dispatch(updateUser());
                     // dispatch(submitLogout());
 
-                    localStorage.setItem('pseudo', alias);
-                    localStorage.setItem('email', email);
+                    localStorage.setItem("pseudo", alias);
+                    localStorage.setItem("email", email);
                   }}
                 >
                   Enregistrer
                 </button>
-                <button type="button" className="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Supprimer</button>
+                <button
+                  type="button"
+                  className="btn btn-danger dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Supprimer
+                </button>
                 <div className="dropdown-menu">
                   <button
                     type="submit"
@@ -105,9 +129,9 @@ const User = () => {
                       e.preventDefault();
                       dispatch(deleteUserInApi());
                       dispatch(submitLogout());
-                      localStorage.removeItem('token');
-                      localStorage.removeItem('pseudo');
-                      localStorage.removeItem('bibliotheque');
+                      localStorage.removeItem("token");
+                      localStorage.removeItem("pseudo");
+                      localStorage.removeItem("bibliotheque");
                     }}
                   >
                     Oui, je veux supprimer
@@ -117,10 +141,8 @@ const User = () => {
             </div>
           </div>
         </form>
-
       </div>
     </div>
-
   );
 };
 

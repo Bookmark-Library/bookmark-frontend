@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import './field.scss';
+import "./field.scss";
 
 /**
  * A field to be used inside a form : label and input
@@ -29,10 +29,7 @@ const Field = ({
         value={value}
         onChange={handleChange}
       />
-      <label
-        className="label form-label"
-        htmlFor={identifier}
-      >
+      <label className="label form-label" htmlFor={identifier}>
         {label}
       </label>
     </div>
@@ -58,8 +55,8 @@ Field.propTypes = {
 };
 
 Field.defaultProps = {
-  type: 'text',
-  value: '',
+  type: "text",
+  value: "",
 };
 
 export default Field;
