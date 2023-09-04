@@ -55,8 +55,8 @@ const Footer = () => {
               <form>
                 <h5>N'hésitez plus à vous inscrire !</h5>
                 <p>
-                  Pouvoir trier ta bibliothèque de plusieurs façons différentes
-                  et en 1 clic est un must have aujourd’hui !
+                  Pouvoir trier votre bibliothèque de plusieurs façons différentes
+                  et en un clic est un must have aujourd’hui !
                 </p>
                 <div className="d-flex flex-column flex-sm-row w-100 gap-2">
                   <Link

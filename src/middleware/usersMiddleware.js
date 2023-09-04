@@ -20,10 +20,9 @@ import {
 } from "../actions/user";
 
 const usersMiddleware = (store) => (next) => (action) => {
-  const url =
-    "http://gelabalekenny-server.eddi.cloud/projet-02-marque-page-back/public/api/";
-  // const url = 'http://sandy-bouzid-server.eddi.cloud/projet-02-marque-page-back/public/api/';
-  // const url = 'http://sandy-bouzid.vpnuser.lan:8000/api/';
+  // const url =
+  //   "http://gelabalekenny-server.eddi.cloud/projet-02-marque-page-back/public/api/";
+  const url = 'http://localhost:8000/api/';
 
   switch (action.type) {
     case SUBMIT_LOGIN:
@@ -47,7 +46,7 @@ const usersMiddleware = (store) => (next) => (action) => {
           // on dispatch une action, pour qu'un middleware aille chercher les infos
           // de l'utilisateur authentifié
           store.dispatch(fetchUserInfo());
-          toast.success("Connexion réussi");
+          toast.success("Connexion réussie");
           setTimeout(() => {
             window.location.href = "/bibliotheque";
           }, 1000);
@@ -56,9 +55,9 @@ const usersMiddleware = (store) => (next) => (action) => {
           // le serveur nous retourne 401 si les identifiants ne sont pas bons
           // eslint-disable-next-line no-console
           if (error.request.status === 401) {
-            toast.warning("identifiants invalide");
+            toast.warning("Identifiants invalides");
           }
-          toast.warning("Une erreur est survenue veuillez réessayer");
+          toast.warning("Une erreur est survenue, veuillez réessayer");
           console.warn(error);
         });
       break;
@@ -116,9 +115,9 @@ const usersMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           console.log(response.data);
           toast.success(
-            "Inscription réussie, veuillez vous connecter avec vos identifiants!"
+            "Inscription réussie, veuillez vous connecter avec vos identifiants !"
           );
-          toast.success("Rendez vous sur votre profil pour ajouter un avatar");
+          toast.success("Rendez-vous sur votre profil pour ajouter un avatar");
 
           store.dispatch(removeInput());
           setTimeout(() => {
@@ -127,7 +126,7 @@ const usersMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
-          toast.warning("Une erreur est survenue veuillez réessayer");
+          toast.warning("Une erreur est survenue, veuillez réessayer");
         });
       break;
     case DELETE_USER_IN_API:
@@ -150,7 +149,7 @@ const usersMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
-          toast.warning("Une erreur est survenu veuillez réessayer");
+          toast.warning("Une erreur est survenue, veuillez réessayer");
         });
       break;
     case UPDATE_USER_IN_API:
@@ -179,7 +178,7 @@ const usersMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
-          toast.warning("Une erreur c'est produite");
+          toast.warning("Une erreur s'est produite");
         });
       break;
     case UPDATE_USER_PASSWORD_IN_API:
