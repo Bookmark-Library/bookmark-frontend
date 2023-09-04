@@ -57,6 +57,9 @@ function Header() {
                 </NavLink>
               )}
             </ul>
+            <div>
+              <Link href="">Mot de passe oublié </Link>
+            </div>
 
             <LoginForm
               email={emailValue}

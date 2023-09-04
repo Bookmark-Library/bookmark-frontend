@@ -50,10 +50,12 @@ function Inscription() {
     }
     // Vérification du format du password
     const regExPassaword =
-      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+      // /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+      /^(?=.?[A-Z])(?=.?[a-z])(?=.?[0-9])(?=.?[#?!@$%^&*-+_.]).{12,}$/;
+
     if (password && !regExPassaword.test(password)) {
       errors.password =
-        "Le mot de passe doit comporter au moins 8 caractères, une majuscule, un chiffre et un caractère spécial (#?!@$%^&*-+)";
+        "Le mot de passe doit comporter au moins 12 caractères, une majuscule, un chiffre et un caractère spécial (#?!@$%^&*-+)";
     }
     dispatch(updateFormErrors(errors));
   };
@@ -65,7 +67,7 @@ function Inscription() {
 
   const newValidity = {
     uppercase: uppercaseRegex.test(password),
-    minLength: password.length >= 8,
+    minLength: password.length >= 11,
     specialChar: specialCharRegex.test(password),
     number: numberRegex.test(password),
   };
