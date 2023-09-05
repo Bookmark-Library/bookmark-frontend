@@ -5,7 +5,7 @@ const Actu = () => {
   const actuContent = useSelector((state) => state.book.actu);
   // const url =
   //   "http://gelabalekenny-server.eddi.cloud/projet-02-marque-page-back/public";
-  const url = 'http://localhost:8000';
+  const url = 'http://backoffice.bookmark-application.com.bookmark-application.com';
   const image = "/assets/images/avatars/";
 
   return (
