@@ -11,7 +11,7 @@ import LegalNotice from '../Pages/LegalNotice';
 import Library from '../Pages/Library';
 import FormBook from '../Pages/FormBook';
 
-import './styles.scss';
+//import './styles.scss';
 import User from '../Pages/User';
 import Inscription from '../Pages/Inscription';
 import Contact from '../Pages/Contact';
