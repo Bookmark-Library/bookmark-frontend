@@ -1,0 +1,21 @@
+@use 'src/styles/vars';
+
+.loader {
+  width: 70px;
+  height: 70px;
+  background-image: url("../../assets/images/bookmark-logo.svg") ;
+  margin: 2rem auto;
+  animation: rotateplane 1.5s infinite ease-in-out;
+}
+
+@keyframes rotateplane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(120px) rotateX(0deg) rotateY(179.9deg);
+  }
+  100% {
+    transform: perspective(120px) rotateX(0deg) rotateY(-179.9deg);
+  }
+}

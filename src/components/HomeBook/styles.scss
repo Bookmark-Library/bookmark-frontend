@@ -1,0 +1,23 @@
+.btn-book{
+  color: #fff;
+  padding: 0.2em 1.2em;
+  background-color: #14aa9a;
+  display: block;
+ text-overflow: ellipsis;
+ white-space: nowrap;
+ overflow: hidden;
+
+}
+
+.btn-book:hover{
+  background:#ffb329;
+  transition: all 0.2s;
+  color:#fff;
+}
+
+.card img{
+ /* max-height: 15.5rem;*/
+}
+
+
+

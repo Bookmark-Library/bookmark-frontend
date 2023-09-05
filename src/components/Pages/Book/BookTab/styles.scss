@@ -1,0 +1,27 @@
+.tabs ul{
+  background-color: #14aa9a ;
+  /*border-top-right-radius: 0.375em;
+  border-top-left-radius: 0.375em;*/
+}
+
+.tabs .nav-link{
+  border-radius:0 !important;
+  color:#fff;
+  font-weight:500;
+}
+
+.tabs .nav-link:hover{
+  border:none !important;
+  background-color: #242746;
+  color:#fff;
+}
+
+.tab-content{
+  border-bottom:1px solid #dee2e6;
+  border-left:1px solid #dee2e6;
+  border-right:1px solid #dee2e6;
+  border-radius: 0px 0px 0.5em 0.5em;
+  padding:2em;
+  margin-top:-1em;
+  background-color: #fff;
+}

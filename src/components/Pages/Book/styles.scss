@@ -1,0 +1,69 @@
+.colInfoRight, .colInfoLeft{
+  margin-top:3em !important;
+}
+
+.bookTab .btn-danger{
+  margin-left:1em !important;
+}
+
+.rateDiv img{
+  width:1.5em;
+}
+
+.bookTab{
+  border-top:.1em solid #ccc;
+}
+
+.book-image{
+  margin-bottom: 3rem ;
+  border:.1em solid #ccc;
+  border-radius: .3em;;
+  padding:0.5em;
+
+}
+.book-title {
+  margin-bottom: 2rem;
+}
+
+.book-editor {
+  font-size: medium;
+
+}
+.book-synopsy h3{
+  color: #ffbb00;
+  font-weight:500;
+  font-size:1.5em;
+  padding-bottom:.3em;
+}
+
+.book-description {
+ border-bottom:.1em solid #ccc;
+ padding-bottom:1em;
+}
+
+.linkRetour{
+  color:#14aa9a;
+  display: inline-block;
+  margin-bottom:1em;
+  font-weight:500;
+}
+
+.linkRetour:hover{
+  color:#ffbb00;
+}
+
+.caracteristique{
+  border:1px solid #dee2e6;
+  border-radius: 0px 0px 0.5em 0.5em;
+  padding:2em;
+  background-color: #fff;
+}
+
+.caracteristique p img{
+  margin-left:1em;
+}
+
+.navBookmark img{
+  display: block;
+  max-width: 1em;
+}

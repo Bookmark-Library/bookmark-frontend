@@ -1,0 +1,29 @@
+.bookCard a{
+  display:block;
+  padding: .3em .3em 0 .3em;
+  
+}
+
+.biblio .col-right h2{
+  color: #00aa9a;
+  font-weight:600;
+  font-size:1.5em;
+  padding-bottom:1em;
+}
+
+.divBook{
+  flex-wrap: wrap;
+}
+
+.bookmark{
+  max-width: 1em;
+  height:auto;
+}
+
+.bookCard .card-title{
+  font-size:1em;
+}
+
+.bookCard .card-footer{
+  border-top:0;
+}

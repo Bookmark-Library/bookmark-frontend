@@ -1,0 +1,56 @@
+@use 'src/styles/vars';
+
+.login-form {
+
+  p{
+    margin-bottom:0 !important;
+    color:#fff;
+    
+  }
+
+  .field{
+    margin: .3em .3em .3em 0;
+  }
+  
+  &-element {
+    display: flex;
+    align-items: center;
+  }
+
+  &-message {
+    margin: .3em 1em;
+  }
+  &-message a {
+    color:#fff;
+    font-weight:600;
+  }
+
+  &-message a:hover {
+    color:#fab334;
+  }
+
+  &-logged {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+  }
+
+  &-button {
+    font-size: 1em;
+    color: #fff;
+    font-weight: 600;
+    background-color: #14aa9a;
+    transition: all 0.2s;
+    border-radius: 0.6em;
+    border: 0;
+   padding: .7em;
+    height: 3em;
+  }
+  &-button:hover {
+    color: #fff;
+    background-color: #fab334;
+    transition: all 0.2s;
+   
+  }
+}

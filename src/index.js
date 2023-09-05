@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
@@ -12,5 +13,5 @@ root.render(
     <Provider store={store}>
       <App />
     </Provider>
-  </BrowserRouter>,
+  </BrowserRouter>
 );
