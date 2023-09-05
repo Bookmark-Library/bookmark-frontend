@@ -24,7 +24,7 @@ const User = () => {
   const logged = useSelector((state) => state.user.logged);
   // const url =
   //   "http://gelabalekenny-server.eddi.cloud/projet-02-marque-page-back/public";
-  const url = 'http://backoffice.bookmark-application.com.bookmark-application.com';
+  const url = 'https://backoffice.bookmark-application.com.bookmark-application.com';
   const image = "/assets/images/avatars";
   // console.log(avatar);
   const handleChange = (e) => {
