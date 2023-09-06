@@ -23,7 +23,7 @@ const User = () => {
   const email = useSelector((state) => state.user.email);
   const logged = useSelector((state) => state.user.logged);
   // const url = "http://localhost:8000";
-  const url = 'http://backoffice.bookmark-application.com.bookmark-application.com';
+  const url = 'https://backoffice.bookmark-application.com.bookmark-application.com';
   const image = "/assets/images/avatars";
   // console.log(avatar);
   const handleChange = (e) => {
