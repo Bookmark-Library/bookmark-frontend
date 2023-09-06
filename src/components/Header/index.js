@@ -19,9 +19,8 @@ function Header() {
   const logged = useSelector((state) => state.user.logged);
   const alias = useSelector((state) => state.user.alias);
   const avatar = useSelector((state) => state.user.avatar);
-  // const url =
-  //   "http://gelabalekenny-server.eddi.cloud/projet-02-marque-page-back/public";
-  const url = 'http://backoffice.bookmark-application.com.bookmark-application.com';
+  const url = "http://localhost:8000";
+  // const url = 'http://backoffice.bookmark-application.com.bookmark-application.com';
   const image = "/assets/images/avatars";
 
   return (

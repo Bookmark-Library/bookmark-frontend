@@ -20,9 +20,8 @@ import {
 } from "../actions/user";
 
 const usersMiddleware = (store) => (next) => (action) => {
-  // const url =
-  //   "http://gelabalekenny-server.eddi.cloud/projet-02-marque-page-back/public/api/";
-  const url = 'http://backoffice.bookmark-application.com.bookmark-application.com/api/';
+  const url = "http://localhost:8000";
+  // const url = 'http://backoffice.bookmark-application.com.bookmark-application.com/api/';
 
   switch (action.type) {
     case SUBMIT_LOGIN:
