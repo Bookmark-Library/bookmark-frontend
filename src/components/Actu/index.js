@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 /* display of news on the homepage */
 const Actu = () => {
   const actuContent = useSelector((state) => state.book.actu);
-  const url = "http://localhost:8000";
-  // const url = 'http://backoffice.bookmark-application.com.bookmark-application.com';
+  // const url = "http://localhost:8000";
+  const url = 'http://backoffice.bookmark-application.com.bookmark-application.com';
   const image = "/assets/images/avatars/";
 
   return (
