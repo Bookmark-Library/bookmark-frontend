@@ -14,12 +14,12 @@ const PasswordForm = ({
 
     // Validation logic
     const uppercaseRegex = /[A-Z]/;
-    const specialCharRegex = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/;
+    const specialCharRegex = /[#?!@$%^&*-+_.]/;
     const numberRegex = /\d/;
 
     const newValidity = {
       uppercase: uppercaseRegex.test(newPassword),
-      minLength: newPassword.length >= 8,
+      minLength: newPassword.length >= 12,
       specialChar: specialCharRegex.test(newPassword),
       number: numberRegex.test(newPassword),
     };
@@ -37,7 +37,7 @@ const PasswordForm = ({
       />
       <div>
         <p>{validity.uppercase ? "✔️" : "❌"} Au moins une majuscule</p>
-        <p>{validity.minLength ? "✔️" : "❌"} Au moins 8 caractères</p>
+        <p>{validity.minLength ? "✔️" : "❌"} Au moins 12 caractères</p>
         <p>
           {validity.specialChar ? "✔️" : "❌"} Au moins un caractère spécial
         </p>

@@ -21,7 +21,7 @@ import { fetchUserInfo } from "../actions/user";
 
 const bookMiddleware = (store) => (next) => (action) => {
   // console.log('authMiddleware, on a reçu une action', action);
-  // const url = "http://localhost:8000";
+  // const url = "http://localhost:8000/api/";
   const url = 'https://backoffice.bookmark-application.com.bookmark-application.com/api/';
 
   switch (action.type) {

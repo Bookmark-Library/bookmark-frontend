@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 const Actu = () => {
   const actuContent = useSelector((state) => state.book.actu);
   // const url = "http://localhost:8000";
-  const url = 'https://backoffice.bookmark-application.com.bookmark-application.com';
+  const url = 'httpss://backoffice.bookmark-application.com.bookmark-application.com';
   const image = "/assets/images/avatars/";
 
   return (
